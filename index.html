@@ -122,6 +122,8 @@
     .product-quantity{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:7px;border:1px solid var(--line);border-radius:13px;background:#06163370}.product-quantity .quantity-label{font-size:12px;color:var(--muted);font-weight:800}.qty-control{gap:4px;padding:3px;border-radius:10px;background:#00153766;border-color:#49628e}.qty-control button{width:32px;height:32px;border-radius:8px;transition:transform .16s ease}.qty-control button:hover{transform:scale(1.08)}.qty-control b{min-width:28px;font-variant-numeric:tabular-nums}
     .cart-dialog{padding:0;overflow:hidden;background:var(--card)}.cart-header{padding:24px 24px 17px;background:linear-gradient(135deg,#112a55,#251034);border-bottom:1px solid var(--line)}.cart-header h2{margin:0;text-align:left}.cart-header .small{display:block;margin-top:4px}.cart-body{padding:16px 24px 24px}.cart-line{padding:14px 0;gap:12px;animation:cart-in .28s ease both}.cart-item-main{display:flex;align-items:center;gap:12px;min-width:0;flex:1}.cart-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cart-visual{width:48px;height:48px;display:grid;place-items:center;flex:none;border-radius:13px;background:#18335d;overflow:hidden;font-size:25px}.cart-visual img{width:100%;height:100%;object-fit:cover}.cart-item-price{text-align:right;font-weight:800;color:var(--yellow);white-space:nowrap}.cart-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:15px;border-radius:14px;background:#071a39;border:1px solid var(--line)}.cart-total-label{color:var(--muted);font-size:13px}.cart-footer .fee{margin:0}@keyframes cart-in{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
 
+    .theme-button{font-size:25px!important;line-height:1;color:#ffd166!important;text-shadow:0 0 16px #ffd16699}.theme-button:hover{transform:rotate(18deg) scale(1.1)}body.light .theme-button{color:#f49b24!important}body.light{color:#14213d}body.light .nav-actions{background:#ffffffb8}body.light .card p,body.light .small{color:#465a78}#projects .summary,#books .summary{display:none}.course-access{max-width:700px}.course-access input{margin-top:5px}.toast{box-shadow:0 12px 30px #0005}.toast.show{animation:toast-pop .28s ease both}@keyframes toast-pop{from{opacity:0;transform:translate(-50%,130px) scale(.92)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+    .book-card img{object-fit:contain!important;object-position:top!important;height:270px!important;background:#07132c}.project-card img,.program-card img,.course-card img{object-position:top}.nav-actions .icon-btn{transition:transform .25s ease,box-shadow .25s ease}.nav-actions .icon-btn:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 9px 18px #0006}.toast{top:22px;right:22px;bottom:auto;left:auto;transform:translateX(130%);background:#eafdf4;color:#073b23;border-left:4px solid #19a565}.toast.show{transform:translateX(0)}.toast.remove{background:#fff0f2;color:#8c1530;border-left-color:#e6375d}
     @media(max-width:820px){.hero-layout{grid-template-columns:1fr;gap:26px}.grid{grid-template-columns:1fr 1fr}.two,.contact-grid{grid-template-columns:1fr}}
     @media(max-width:600px){.nav-actions .btn.alt{max-width:120px}}
     @media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding:36px 0}.summary{align-items:stretch}.summary .btn{width:100%}.brand{font-size:19px}.nav-actions{gap:4px;padding:3px}.nav-actions .btn.alt{display:inline-flex;padding:8px 10px;font-size:12px;max-width:96px}.nav-actions .icon-btn{min-width:36px;padding:8px}.nav-actions .cart-badge{min-width:16px;height:16px;font-size:10px}.ad-copy{padding:24px 20px 16px}}
@@ -149,8 +151,9 @@
     </div>
     <div class="nav-actions">
       <button class="icon-btn" id="languageButton" onclick="toggleLanguage()">🌐 عربي</button>
-      <button class="icon-btn" onclick="toggleTheme()" aria-label="Toggle theme">☼</button>
+      <button class="icon-btn theme-button" onclick="toggleTheme()" aria-label="Toggle theme">☀</button>
       <button class="icon-btn" onclick="openProductCart()" aria-label="Open cart">🛒 <span data-i18n="cartWord">Cart</span> <span class="cart-badge" id="cartBadge">0</span></button>
+      <button class="icon-btn" onclick="document.getElementById('my-courses').scrollIntoView({behavior:'smooth'})" aria-label="My Courses">🎓 My Courses</button>
       <button class="btn alt" id="accountButton" onclick="openAccount()">👤 <span data-i18n="signInWord">Sign up / Log in</span></button>
     </div>
   </nav>
@@ -216,6 +219,13 @@
     <h2 id="coursesHeading">Online <span class="blue">Courses</span></h2>
     <p class="intro" data-i18n="coursesIntro">Choose a course and provide the information for every child, then send your request by email, WhatsApp, or Instagram DM.</p>
     <div id="courseGrid" class="grid"></div>
+  </section>
+
+  <section id="my-courses">
+    <h2>My <span class="blue">Courses</span></h2>
+    <p class="intro">Enter your course access code once. Your unlocked courses stay available after you sign in.</p>
+    <div class="summary course-access"><div style="flex:1"><label for="courseAccessCode">Course access code</label><input id="courseAccessCode" placeholder="Enter your code" autocomplete="off"></div><button class="btn" type="button" onclick="unlockCourse()">Unlock course</button></div>
+    <div id="unlockedCourses" class="grid" style="margin-top:18px"></div>
   </section>
 
   <section id="books">
@@ -365,7 +375,7 @@
 
 <dialog id="bookCartDialog" class="cart-dialog">
   <div class="cart-header"><button class="close" onclick="bookCartDialog.close()" aria-label="Close cart">×</button><h2 data-i18n="cartDialogTitle">Your Cart</h2><span class="small" id="cartSummary">0 items selected</span></div>
-  <div class="cart-body"><div id="bookCartLines"></div><div class="cart-footer"><span class="cart-total-label">Order total</span><div class="fee" id="bookCartTotal"></div></div><form id="bookOrderForm">
+  <div class="cart-body"><div id="bookCartLines"></div><div class="two" style="margin:12px 0"><div><label for="couponCode">Coupon code</label><input id="couponCode" placeholder="KTL10"></div><button class="btn alt" type="button" onclick="applyCoupon()" style="align-self:end">Apply coupon</button></div><p class="small" id="couponMessage"></p><div class="cart-footer"><span class="cart-total-label" id="cartTotalLabel">Order total</span><div class="fee" id="bookCartTotal"></div></div><form id="bookOrderForm">
     <label data-i18n="fullName">Full name</label><input name="name" required>
     <label data-i18n="location2">Location</label><input name="location" required>
     <label data-i18n="address1">Address 1</label><input name="address1" required>
@@ -404,7 +414,6 @@
             <option value="" data-i18n="chooseOpt">Choose</option>
             <option data-i18n="girlOpt">Girl</option>
             <option data-i18n="boyOpt">Boy</option>
-            <option data-i18n="preferNotSay">Prefer not to say</option>
           </select>
         </div>
       </div>
@@ -657,7 +666,7 @@ function newBadge() {
 
 function renderPrograms() {
   const programCards = programs.map((p, i) => {
-    const isNew = /AI|Automation|Cybersecurity/.test(p.name);
+    const isNew = /Aerospace|Mechanics/.test(p.name);
     const name = currentLang === 'ar' ? p.name_ar : p.name;
     const desc = currentLang === 'ar' ? p.description_ar : p.description;
     const sessionsLine = currentLang === 'ar'
@@ -748,7 +757,6 @@ function studentFields(count) {
   const chooseWord = currentLang === 'ar' ? 'اختر' : 'Choose';
   const girlWord = currentLang === 'ar' ? 'بنت' : 'Girl';
   const boyWord = currentLang === 'ar' ? 'ولد' : 'Boy';
-  const prefWord = currentLang === 'ar' ? 'أفضل عدم الإفصاح' : 'Prefer not to say';
   return Array.from({length: Math.max(1, Number(count) || 1)}, (_, i) =>
     `<div class="child">
       <h4>${studentWord} ${i + 1}</h4>
@@ -757,7 +765,7 @@ function studentFields(count) {
         <div><label>${ageLbl}</label><input name="child_age_${i}" type="number" min="1" max="18" required></div>
       </div>
       <div class="two">
-        <div><label>${genderLbl}</label><select name="child_gender_${i}" required><option value="">${chooseWord}</option><option>${girlWord}</option><option>${boyWord}</option><option>${prefWord}</option></select></div>
+        <div><label>${genderLbl}</label><select name="child_gender_${i}" required><option value="">${chooseWord}</option><option>${girlWord}</option><option>${boyWord}</option></select></div>
         <div><label>${sectionLbl}</label><input name="child_section_${i}" placeholder="${sectionPh}" required></div>
       </div>
     </div>`
@@ -970,6 +978,8 @@ function showBookInfo(i) {
   const topic = currentLang === 'ar' ? b.topic_ar : b.topic;
   projectTitle.textContent = name;
   projectDescription.textContent = currentLang === 'ar' ? b.desc_ar : b.desc;
+  document.querySelectorAll('#projectDialog .book-cover-preview').forEach(el => el.remove());
+  projectDescription.insertAdjacentHTML('afterend', `<img class="book-cover-preview" src="${bookPhotos[i]}" alt="${b.name} full cover" style="display:block;width:100%;max-height:430px;object-fit:contain;background:#07132c;border-radius:12px;margin:14px 0">`);
   projectDetails.innerHTML = currentLang === 'ar'
     ? `<b>معلومات كاملة عن الكتاب</b><br>الموضوع: ${topic} · اختر PDF فقط أو نسخة ورقية مصورة.<br><br><b>بداخله:</b> شروحات واضحة، أنشطة عملية، أسئلة مراجعة وأنشطة إضافية للتعلم المنزلي.`
     : `<b>Complete book information</b><br>Topic: ${topic} · Choose PDF only or an illustrated hard copy.<br><br><b>Inside:</b> clear explanations, hands-on prompts, review questions and creative extension activities for home learning.`;
@@ -1077,6 +1087,31 @@ function addBook(i,format){adjustProduct('book',i,1,format)}
 function renderCart(){const total=productCart.reduce((s,x)=>s+x.price*x.qty,0),qty=productCart.reduce((s,x)=>s+x.qty,0);bookCartDialog.querySelector('h2').textContent=tr('cartDialogTitle');cartSummary.textContent=`${qty} item${qty===1?'':'s'} selected`;bookCartLines.innerHTML=productCart.length?productCart.map((x,i)=>`<div class="cart-line"><div class="cart-item-main"><span class="cart-visual">${x.image?`<img src="${x.image}" alt="">`:x.emoji}</span><span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} each</small></span></div><span class="qty-control"><button class="minus" onclick="changeQty(${i},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${i},1)">+</button></span><span class="cart-item-price">${fmt(x.price*x.qty)}</span></div>`).join(''):`<p class="empty">Your cart is empty.</p>`;bookCartTotal.textContent=fmt(total)}
 function openProductCart(){renderCart();bookCartDialog.showModal()}
 
+/* ---------- Catalogue, checkout, registration and course access upgrades ---------- */
+programs[1].price = 280;
+programs.push({name:'Aerospace Program',name_ar:'برنامج الطيران والفضاء',icon:'🚀',price:270,description:'Explore flight, rockets and the science of space.',description_ar:'استكشف الطيران والصواريخ وعلوم الفضاء.'});
+courses.push({name:'Aerospace at Home',name_ar:'الطيران والفضاء في المنزل',price:590,weeks:6,desc:'Launch into aerospace science with guided challenges.',desc_ar:'انطلق في علوم الطيران والفضاء من خلال تحديات موجهة.'});
+programs.push({name:'Mechanics Program',name_ar:'برنامج الميكانيكا',icon:'⚙️',price:290,description:'Build, test and understand real machines.',description_ar:'ابنِ واختبر وافهم الآلات الحقيقية.'});
+courses.push({name:'Mechanics',name_ar:'الميكانيكا',price:670,weeks:7,desc:'Explore forces, motion and mechanisms.',desc_ar:'استكشف القوى والحركة والآليات.'});
+programImages.push('C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png'); courseImages.push('C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png');
+Object.assign(books[5],{name:'Cyber Security',name_ar:'الأمن السيبراني',topic:'Cyber Security',topic_ar:'الأمن السيبراني'});
+Object.assign(books[6],{name:'Arts',name_ar:'الفنون',topic:'Arts',topic_ar:'الفنون'});
+Object.assign(books[7],{name:'Printing Technology',name_ar:'تقنيات الطباعة',topic:'Printing Technology',topic_ar:'تقنيات الطباعة'});
+books.push({name:'Automation',name_ar:'الأتمتة',price:180,topic:'Automation',topic_ar:'الأتمتة',desc:'Discover smart systems, sensors and automatic machines.',desc_ar:'اكتشف الأنظمة الذكية والحساسات والآلات الأوتوماتيكية.'},{name:'Mechanics',name_ar:'الميكانيكا',price:180,topic:'Mechanics',topic_ar:'الميكانيكا',desc:'Build an understanding of movement, forces and machines.',desc_ar:'افهم الحركة والقوى والآلات.'},{name:'AI Fundamentals',name_ar:'أساسيات الذكاء الاصطناعي',price:190,topic:'AI',topic_ar:'الذكاء الاصطناعي',desc:'A friendly introduction to artificial intelligence.',desc_ar:'مقدمة مبسطة للذكاء الاصطناعي.'});
+books.slice(8).forEach(b=>{b.listPdfPrice=b.price*5;b.discountPercent=35;b.pdfPrice=Math.round(b.listPdfPrice*.65);b.hardCopyPrice=b.pdfPrice+250;b.price=b.pdfPrice});
+bookPhotos.splice(0,11,'C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/robotics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/electronics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/coding book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/science book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/space books.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/cyber book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/arts book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/printing book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/auto book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/mechanics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/ai book.png');
+let couponApplied=false;
+function cartSubtotal(){return productCart.reduce((s,x)=>s+x.price*x.qty,0)}
+function applyCoupon(){if(couponApplied)return toast('KTL10 has already been applied.');if(couponCode.value.trim().toUpperCase()!=='KTL10'){couponMessage.textContent='That coupon code is not valid.';return}couponApplied=true;couponMessage.textContent='KTL10 applied — 10% discount added.';renderCart();toast('Coupon applied successfully!')}
+function adjustProduct(kind,index,delta,format=''){const entry=productEntry(kind,index,format),item=productCart.find(x=>x.id===entry.id);if(item){item.qty+=delta;if(item.qty<=0)productCart.splice(productCart.indexOf(item),1)}else if(delta>0){productCart.push({...entry,qty:1});toast('✅ Item added to your cart successfully!')}syncProductViews()}
+function toggleProgram(i){const p=programs[i],existing=productCart.find(x=>x.id===`program-${i}`);if(existing){productCart.splice(productCart.indexOf(existing),1);selectedPrograms=selectedPrograms.filter(x=>x!==i)}else{selectedPrograms.includes(i)||selectedPrograms.push(i);productCart.push({id:`program-${i}`,type:'Program registration',name:p.name,price:p.price,qty:1,emoji:p.icon,registrationRequired:true});toast('✅ Item added to your cart successfully!')}renderPrograms();syncProductViews()}
+function addCourseToCart(){const form=courseForm;if(!form.reportValidity())return;const c=courses[activeCourse],entry=productEntry('course',activeCourse);entry.registration={kids:getChildren(form,Number(kidCount.value))};const existing=productCart.find(x=>x.id===entry.id);if(existing)existing.qty+=1;else productCart.push({...entry,qty:1});courseDialog.close();syncProductViews();toast('✅ Item added to your cart successfully!')}
+function renderCourses(){courseGrid.innerHTML=courses.map((c,i)=>`<article class="card course-card"><img src="${courseImages[i]}" alt="${c.name}"><h3>${currentLang==='ar'?c.name_ar:c.name}${/Aerospace|Mechanics/.test(c.name)?newBadge():''}</h3><p>${currentLang==='ar'?c.desc_ar:c.desc}</p><small>${c.weeks} weeks · Registration required</small>${salePrice(c.price,i)}<button class="btn" onclick="showCourse(${i})">${currentLang==='ar'?'سجّل في الدورة':'Register & add to cart'}</button></article>`).join('')}
+function renderCart(){const subtotal=cartSubtotal(),discount=couponApplied?Math.round(subtotal*.1):0,total=subtotal-discount,qty=productCart.reduce((s,x)=>s+x.qty,0);bookCartDialog.querySelector('h2').textContent=tr('cartDialogTitle');cartSummary.textContent=`${qty} item${qty===1?'':'s'} selected`;bookCartLines.innerHTML=productCart.length?productCart.map((x,i)=>`<div class="cart-line"><div class="cart-item-main"><span class="cart-visual">${x.image?`<img src="${x.image}" alt="">`:x.emoji||'🛍️'}</span><span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} each${x.registrationRequired?' · registration needed':''}</small></span></div><span class="qty-control"><button class="minus" onclick="changeQty(${i},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${i},1)">+</button></span><span class="cart-item-price">${fmt(x.price*x.qty)}</span></div>`).join(''):`<p class="empty">Your cart is empty.</p>`;cartTotalLabel.innerHTML=discount?`Subtotal: ${fmt(subtotal)}<br>Discount: −${fmt(discount)}<br><b>Final total</b>`:'Order total';bookCartTotal.textContent=fmt(total)}
+const ACCESS_API='/api/access/redeem';
+function accessKey(){return `ktl-unlocked-courses-${currentUserProfile?.email||'guest'}`}
+function renderUnlockedCourses(){const unlocked=JSON.parse(localStorage.getItem(accessKey())||'[]');unlockedCourses.innerHTML=unlocked.length?unlocked.map((code,i)=>`<article class="card course-card"><span class="icon">🎬</span><h3>Course unlocked</h3><p>Your course area is ready. Lesson videos will appear here when uploaded.</p><button class="btn alt" type="button">Coming soon</button></article>`).join(''):`<p class="empty">No courses unlocked yet.</p>`}
+async function unlockCourse(){const code=courseAccessCode.value.trim();if(!code)return toast('Enter your access code first.');const r=await fetch(ACCESS_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code,account:currentUserProfile?.email||null,kind:'course'})});const data=await r.json();if(!r.ok)return toast(data.message||'Invalid access code.');const unlocked=JSON.parse(localStorage.getItem(accessKey())||'[]');if(!unlocked.includes(data.item))unlocked.push(data.item);localStorage.setItem(accessKey(),JSON.stringify(unlocked));courseAccessCode.value='';renderUnlockedCourses();toast('Course access unlocked successfully!')}
 /* ---------- Hamburger menu ---------- */
 function toggleMenu(e) {
   e.stopPropagation();
@@ -1274,6 +1309,7 @@ renderPrograms();
 renderProjects();
 renderCourses();
 renderBooks();
+renderUnlockedCourses();
 </script>
 
 <footer>
