@@ -20,15 +20,16 @@
     .nav-left{display:flex;align-items:center;gap:10px}
     .menu-wrap{position:relative}
     #menuButton{font-size:18px}
-    .menu-dropdown{position:absolute;top:52px;left:0;min-width:190px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 16px 34px #0007;display:none;flex-direction:column;z-index:80}
-    .menu-dropdown.open{display:flex}
+    .menu-dropdown{position:absolute;top:52px;left:0;min-width:190px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 16px 34px #0007;display:flex;flex-direction:column;z-index:80;visibility:hidden;opacity:0;transform:translateY(-10px) scale(.96);transform-origin:top left;pointer-events:none;transition:opacity .2s ease,transform .2s ease,visibility .2s}
+    .menu-dropdown.open{visibility:visible;opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
     .menu-dropdown a{padding:10px 12px;border-radius:8px;color:var(--text);text-decoration:none;font-weight:800}
     .menu-dropdown a:hover{background:#ffffff1a}
     [dir="rtl"] .menu-dropdown{left:auto;right:0}
     [dir="rtl"] .brand img{margin-right:0;margin-left:9px}
     .nav-actions{display:flex;gap:7px;align-items:center;padding:4px;border:1px solid var(--line);border-radius:14px;background:#07132c88;flex-wrap:wrap}
     .nav-actions .icon-btn,.nav-actions .btn.alt{display:inline-flex;align-items:center;justify-content:center;min-height:40px;margin:0;padding:9px 12px;border-radius:10px;white-space:nowrap;box-shadow:none}
-    .nav-actions .icon-btn{min-width:40px;border:1px solid var(--line);background:transparent;color:var(--text);font-weight:800;cursor:pointer}
+    .nav-actions .icon-btn{min-width:40px;border:1px solid var(--line);background:transparent;color:var(--text);font-weight:800;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease}
+    .nav-actions .icon-btn:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 9px 18px #0006}
     .nav-actions .btn.alt{border:0;background:linear-gradient(135deg,#19315f,#0e2046);font-size:14px;max-width:190px;overflow:hidden;text-overflow:ellipsis}
     .nav-actions .icon-btn:hover,.nav-actions .btn.alt:hover{border-color:var(--blue);background:#143467}
     .hero{padding:52px 0 46px}
@@ -43,7 +44,8 @@
     .pink{color:var(--pink)}
     .blue{color:var(--blue)}
     .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-    .card,.summary{background:color-mix(in srgb,var(--card) 91%,transparent);border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:0 14px 30px #0004}
+    .card,.summary{background:color-mix(in srgb,var(--card) 91%,transparent);border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:0 14px 30px #0004;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 20px 38px #0006}
     .card h3{margin:8px 0;font-size:19px}
     .card p{min-height:52px;color:var(--muted);font-size:14px}
     .icon{font-size:35px}
@@ -56,7 +58,8 @@
     .summary{margin:24px auto 0;max-width:740px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
     .total{font-size:23px;font-weight:900;color:var(--yellow)}
     .small{font-size:13px;color:var(--muted)}
-    .project-card img,.book-card img,.program-card img,.course-card img{height:135px;width:100%;object-fit:cover;border-radius:10px;margin-bottom:8px}
+    .project-card img,.book-card img,.program-card img,.course-card img{height:135px;width:100%;object-fit:cover;object-position:top;border-radius:10px;margin-bottom:8px}
+    .book-card img{object-fit:contain!important;object-position:top!important;height:270px!important;background:#07132c}
     .course-card{border-top:4px solid var(--blue)}
     dialog{width:min(680px,calc(100% - 28px));max-height:calc(100vh - 40px);overflow:auto;border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--text);padding:24px;box-shadow:0 20px 60px #000b}
     dialog::backdrop{background:#000b}
@@ -66,9 +69,11 @@
     .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .child{margin-top:16px;padding:14px;border:1px solid var(--line);border-radius:10px}
     .child h4{margin:0 0 5px;color:var(--blue)}
-    .cart-line{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .cart-line{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;animation:cart-in .28s ease both}
+    @keyframes cart-in{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
     .qty-control{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:9px;padding:4px 8px}
-    .qty-control button{width:26px;height:26px;border-radius:6px;border:0;background:var(--blue);color:#001329;font-weight:900;cursor:pointer;line-height:1}
+    .qty-control button{width:26px;height:26px;border-radius:6px;border:0;background:var(--blue);color:#001329;font-weight:900;cursor:pointer;line-height:1;transition:transform .16s ease}
+    .qty-control button:hover{transform:scale(1.08)}
     .qty-control button.minus{background:#38517e;color:#fff}
     .qty-control b{min-width:16px;text-align:center}
     .empty{color:var(--muted);font-style:italic}
@@ -79,8 +84,10 @@
     .contact-item .icon{display:block}
     .about{max-width:920px;margin:auto}
     .about .summary{max-width:none}
-    .toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,130px);background:#fff;color:#07132c;padding:11px 16px;border-radius:9px;font-weight:bold;transition:.25s;z-index:9999;max-width:90vw;text-align:center}
-    .toast.show{transform:translate(-50%,0)}
+    .toast{position:fixed;top:22px;right:22px;bottom:auto;left:auto;transform:translateX(130%);background:#eafdf4;color:#073b23;padding:11px 16px;border-radius:9px;font-weight:bold;transition:.25s;z-index:9999;max-width:90vw;text-align:center;border-left:4px solid #19a565;box-shadow:0 12px 30px #0005}
+    .toast.show{transform:translateX(0);animation:toast-pop .28s ease both}
+    .toast.remove{background:#fff0f2;color:#8c1530;border-left-color:#e6375d}
+    @keyframes toast-pop{from{opacity:0;transform:translateX(130%) scale(.92)}to{opacity:1;transform:translateX(0) scale(1)}}
     footer{padding:30px 0;color:var(--muted);text-align:center;font-size:14px}
     .old{display:block;color:var(--muted);font-size:13px;text-decoration:line-through;margin-top:-8px}
     .sale{display:block;color:var(--pink);font-weight:800;font-size:12px;margin-top:4px}
@@ -89,13 +96,14 @@
     .link-button{border:0;background:transparent;color:var(--blue);font:inherit;font-weight:800;cursor:pointer;padding:0}
     .remember{display:flex;align-items:center;gap:8px;font-size:14px}
     .remember input{width:auto}
-    body.light{background:#eef5ff;color:#10213f}
+    body.light{background:#eef5ff;color:#14213d}
     body.light .card,body.light .summary,body.light dialog{box-shadow:0 10px 24px #14274a18}
-    body.light .muted,body.light .small,body.light .card p,body.light .intro{color:#374967}
+    body.light .muted,body.light .small,body.light .card p,body.light .intro{color:#465a78}
     body.light input,body.light select{background:#fff;color:#10213f;border-color:#91a5c4}
     body.light .btn.alt{color:#10213f;border-color:#647b9e}
     body.light .notice{color:#203754;background:#edf8ff}
     body.light .menu-dropdown{background:#fff}
+    body.light .nav-actions{background:#ffffffb8}
     .ad-carousel{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 35px #0007;cursor:pointer}
     .ad-carousel img{display:block;width:100%;aspect-ratio:16/7;object-fit:cover}
     .ad-copy{position:absolute;inset:auto 0 0;padding:36px 70px 22px;background:linear-gradient(transparent,#000c);color:#fff}
@@ -113,17 +121,40 @@
     .certificate-preview small{color:#cbd8ef}
     .cart-badge{display:inline-flex;min-width:18px;height:18px;align-items:center;justify-content:center;border-radius:50%;background:var(--pink);color:#fff;font-size:11px;margin-left:5px}
     [dir="rtl"] .cart-badge{margin-left:0;margin-right:5px}
-
     #menuButton{width:46px;height:46px;padding:0;border-radius:14px;display:grid;place-content:center;gap:5px;background:linear-gradient(145deg,#173361,#0a1836);transition:transform .22s ease,box-shadow .22s ease}
     #menuButton span{display:block;width:21px;height:2px;border-radius:99px;background:var(--text);transition:transform .28s ease,opacity .2s ease,width .28s ease}
-    #menuButton span:nth-child(2){width:15px;justify-self:end;background:var(--blue)}#menuButton.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}#menuButton.active span:nth-child(2){opacity:0;width:0}#menuButton.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-    .menu-dropdown{display:flex;visibility:hidden;opacity:0;transform:translateY(-10px) scale(.96);transform-origin:top left;pointer-events:none;transition:opacity .2s ease,transform .2s ease,visibility .2s}.menu-dropdown.open{visibility:visible;opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
-    .card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}.card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 20px 38px #0006}
-    .product-quantity{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:7px;border:1px solid var(--line);border-radius:13px;background:#06163370}.product-quantity .quantity-label{font-size:12px;color:var(--muted);font-weight:800}.qty-control{gap:4px;padding:3px;border-radius:10px;background:#00153766;border-color:#49628e}.qty-control button{width:32px;height:32px;border-radius:8px;transition:transform .16s ease}.qty-control button:hover{transform:scale(1.08)}.qty-control b{min-width:28px;font-variant-numeric:tabular-nums}
-    .cart-dialog{padding:0;overflow:hidden;background:var(--card)}.cart-header{padding:24px 24px 17px;background:linear-gradient(135deg,#112a55,#251034);border-bottom:1px solid var(--line)}.cart-header h2{margin:0;text-align:left}.cart-header .small{display:block;margin-top:4px}.cart-body{padding:16px 24px 24px}.cart-line{padding:14px 0;gap:12px;animation:cart-in .28s ease both}.cart-item-main{display:flex;align-items:center;gap:12px;min-width:0;flex:1}.cart-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cart-visual{width:48px;height:48px;display:grid;place-items:center;flex:none;border-radius:13px;background:#18335d;overflow:hidden;font-size:25px}.cart-visual img{width:100%;height:100%;object-fit:cover}.cart-item-price{text-align:right;font-weight:800;color:var(--yellow);white-space:nowrap}.cart-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:15px;border-radius:14px;background:#071a39;border:1px solid var(--line)}.cart-total-label{color:var(--muted);font-size:13px}.cart-footer .fee{margin:0}@keyframes cart-in{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
-
-    .theme-button{font-size:25px!important;line-height:1;color:#ffd166!important;text-shadow:0 0 16px #ffd16699}.theme-button:hover{transform:rotate(18deg) scale(1.1)}body.light .theme-button{color:#f49b24!important}body.light{color:#14213d}body.light .nav-actions{background:#ffffffb8}body.light .card p,body.light .small{color:#465a78}#projects .summary,#books .summary{display:none}.course-access{max-width:700px}.course-access input{margin-top:5px}.toast{box-shadow:0 12px 30px #0005}.toast.show{animation:toast-pop .28s ease both}@keyframes toast-pop{from{opacity:0;transform:translate(-50%,130px) scale(.92)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
-    .book-card img{object-fit:contain!important;object-position:top!important;height:270px!important;background:#07132c}.project-card img,.program-card img,.course-card img{object-position:top}.nav-actions .icon-btn{transition:transform .25s ease,box-shadow .25s ease}.nav-actions .icon-btn:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 9px 18px #0006}.toast{top:22px;right:22px;bottom:auto;left:auto;transform:translateX(130%);background:#eafdf4;color:#073b23;border-left:4px solid #19a565}.toast.show{transform:translateX(0)}.toast.remove{background:#fff0f2;color:#8c1530;border-left-color:#e6375d}
+    #menuButton span:nth-child(2){width:15px;justify-self:end;background:var(--blue)}
+    #menuButton.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    #menuButton.active span:nth-child(2){opacity:0;width:0}
+    #menuButton.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .product-quantity{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:7px;border:1px solid var(--line);border-radius:13px;background:#06163370}
+    .product-quantity .quantity-label{font-size:12px;color:var(--muted);font-weight:800}
+    .product-quantity .qty-control{gap:4px;padding:3px;border-radius:10px;background:#00153766;border-color:#49628e}
+    .product-quantity .qty-control button{width:32px;height:32px;border-radius:8px}
+    .product-quantity .qty-control b{min-width:28px;font-variant-numeric:tabular-nums}
+    .cart-dialog{padding:0;background:var(--card)}
+    .cart-header{padding:24px 24px 17px;background:linear-gradient(135deg,#112a55,#251034);border-bottom:1px solid var(--line);border-radius:18px 18px 0 0}
+    .cart-header h2{margin:0;text-align:left}
+    .cart-header .small{display:block;margin-top:4px}
+    .cart-body{padding:16px 24px 24px;max-height:65vh;overflow-y:auto}
+    .cart-item-main{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
+    .cart-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .cart-visual{width:48px;height:48px;display:grid;place-items:center;flex:none;border-radius:13px;background:#18335d;overflow:hidden;font-size:25px}
+    .cart-visual img{width:100%;height:100%;object-fit:cover}
+    .cart-item-price{text-align:right;font-weight:800;color:var(--yellow);white-space:nowrap}
+    .cart-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:15px;border-radius:14px;background:#071a39;border:1px solid var(--line)}
+    .cart-total-label{color:var(--muted);font-size:13px}
+    .cart-footer .fee{margin:0}
+    .theme-button{font-size:25px!important;line-height:1;color:#ffd166!important;text-shadow:0 0 16px #ffd16699}
+    .theme-button:hover{transform:rotate(18deg) scale(1.1)}
+    body.light .theme-button{color:#f49b24!important}
+    #projects .summary,#books .summary{display:none}
+    .course-access{max-width:700px}
+    .course-access input{margin-top:5px}
+    .library-card{border-top:4px solid var(--yellow)}
+    .library-card .type-badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:800;margin-bottom:6px}
+    .library-card .type-badge.course{background:#00b8f42a;color:var(--blue)}
+    .library-card .type-badge.book{background:#f421762a;color:var(--pink)}
     @media(max-width:820px){.hero-layout{grid-template-columns:1fr;gap:26px}.grid{grid-template-columns:1fr 1fr}.two,.contact-grid{grid-template-columns:1fr}}
     @media(max-width:600px){.nav-actions .btn.alt{max-width:120px}}
     @media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding:36px 0}.summary{align-items:stretch}.summary .btn{width:100%}.brand{font-size:19px}.nav-actions{gap:4px;padding:3px}.nav-actions .btn.alt{display:inline-flex;padding:8px 10px;font-size:12px;max-width:96px}.nav-actions .icon-btn{min-width:36px;padding:8px}.nav-actions .cart-badge{min-width:16px;height:16px;font-size:10px}.ad-copy{padding:24px 20px 16px}}
@@ -141,6 +172,7 @@
           <a href="#projects" data-i18n="menuProjects" onclick="closeMenu()">Projects</a>
           <a href="#courses" data-i18n="menuCourses" onclick="closeMenu()">Courses</a>
           <a href="#books" data-i18n="menuBooks" onclick="closeMenu()">Books</a>
+          <a href="#my-courses" data-i18n="menuLibrary" onclick="closeMenu()">My Library</a>
           <a href="#contact" data-i18n="menuContact" onclick="closeMenu()">Contact</a>
         </div>
       </div>
@@ -153,7 +185,7 @@
       <button class="icon-btn" id="languageButton" onclick="toggleLanguage()">🌐 عربي</button>
       <button class="icon-btn theme-button" onclick="toggleTheme()" aria-label="Toggle theme">☀</button>
       <button class="icon-btn" onclick="openProductCart()" aria-label="Open cart">🛒 <span data-i18n="cartWord">Cart</span> <span class="cart-badge" id="cartBadge">0</span></button>
-      <button class="icon-btn" onclick="document.getElementById('my-courses').scrollIntoView({behavior:'smooth'})" aria-label="My Courses">🎓 My Courses</button>
+      <button class="icon-btn" onclick="document.getElementById('my-courses').scrollIntoView({behavior:'smooth'})" aria-label="My Courses">🎓 <span data-i18n="myCoursesWord">My Courses</span></button>
       <button class="btn alt" id="accountButton" onclick="openAccount()">👤 <span data-i18n="signInWord">Sign up / Log in</span></button>
     </div>
   </nav>
@@ -197,7 +229,7 @@
         <div class="total" id="programTotal">EGP 0</div>
         <span class="small" data-i18n="pricePerStudent">Price is calculated per student.</span>
       </div>
-      <button class="btn" data-i18n="continueProgramOrder" onclick="openProgramOrder()">Continue with program order</button>
+      <button class="btn" data-i18n="continueProgramOrder" onclick="openProgramOrder()">Register &amp; add to cart</button>
     </div>
   </section>
 
@@ -217,15 +249,8 @@
 
   <section id="courses">
     <h2 id="coursesHeading">Online <span class="blue">Courses</span></h2>
-    <p class="intro" data-i18n="coursesIntro">Choose a course and provide the information for every child, then send your request by email, WhatsApp, or Instagram DM.</p>
+    <p class="intro" data-i18n="coursesIntro">Choose a course and provide the information for every child, then send your request by email, WhatsApp, or Instagram DM — or add it straight to your cart.</p>
     <div id="courseGrid" class="grid"></div>
-  </section>
-
-  <section id="my-courses">
-    <h2>My <span class="blue">Courses</span></h2>
-    <p class="intro">Enter your course access code once. Your unlocked courses stay available after you sign in.</p>
-    <div class="summary course-access"><div style="flex:1"><label for="courseAccessCode">Course access code</label><input id="courseAccessCode" placeholder="Enter your code" autocomplete="off"></div><button class="btn" type="button" onclick="unlockCourse()">Unlock course</button></div>
-    <div id="unlockedCourses" class="grid" style="margin-top:18px"></div>
   </section>
 
   <section id="books">
@@ -240,6 +265,20 @@
       </div>
       <button class="btn" data-i18n="viewCartBtn2" onclick="openProductCart()">View cart</button>
     </div>
+  </section>
+
+  <section id="my-courses">
+    <h2>My <span class="blue">Library</span></h2>
+    <p class="intro">Already bought a course or a book? Enter your access code below to unlock it. It stays available here every time you visit.</p>
+    <div class="summary course-access">
+      <div style="flex:1">
+        <label for="courseAccessCode">Course or book access code</label>
+        <input id="courseAccessCode" placeholder="Enter your code" autocomplete="off">
+        <p class="small" style="margin-top:6px">Have a code from an online course or a printed/PDF book? Enter it here — both course and book codes work in this one box.</p>
+      </div>
+      <button class="btn" type="button" onclick="unlockCourse()">Unlock</button>
+    </div>
+    <div id="unlockedCourses" class="grid" style="margin-top:18px"></div>
   </section>
 
   <section id="contact">
@@ -324,7 +363,8 @@
       <div><b data-i18n="totalPrice">Total price</b><div class="total" id="programOrderTotal">EGP 0</div></div>
     </div>
     <div class="actions" style="margin-top:15px">
-      <button type="button" class="btn" data-i18n="confirmWhatsApp" onclick="sendProgram('whatsapp')">💬 Confirm by WhatsApp</button>
+      <button type="button" class="btn" data-i18n="addProgramsCart" onclick="addProgramsToCart()">🛒 Register &amp; add to cart</button>
+      <button type="button" class="btn alt" data-i18n="confirmWhatsApp" onclick="sendProgram('whatsapp')">💬 Confirm by WhatsApp</button>
       <button type="button" class="btn alt" data-i18n="dmInstagram" onclick="instagramDM()">📸 DM on Instagram</button>
     </div>
   </form>
@@ -375,25 +415,34 @@
 
 <dialog id="bookCartDialog" class="cart-dialog">
   <div class="cart-header"><button class="close" onclick="bookCartDialog.close()" aria-label="Close cart">×</button><h2 data-i18n="cartDialogTitle">Your Cart</h2><span class="small" id="cartSummary">0 items selected</span></div>
-  <div class="cart-body"><div id="bookCartLines"></div><div class="two" style="margin:12px 0"><div><label for="couponCode">Coupon code</label><input id="couponCode" placeholder="KTL10"></div><button class="btn alt" type="button" onclick="applyCoupon()" style="align-self:end">Apply coupon</button></div><p class="small" id="couponMessage"></p><div class="cart-footer"><span class="cart-total-label" id="cartTotalLabel">Order total</span><div class="fee" id="bookCartTotal"></div></div><form id="bookOrderForm">
-    <label data-i18n="fullName">Full name</label><input name="name" required>
-    <label data-i18n="location2">Location</label><input name="location" required>
-    <label data-i18n="address1">Address 1</label><input name="address1" required>
-    <label data-i18n="address2" for="address2">Address 2 <span class="small" data-i18n="optional">(optional)</span></label><input id="address2" name="address2">
-    <label data-i18n="paymentMethod" for="paymentMethod">Payment method</label>
-    <select id="paymentMethod" name="paymentMethod" required>
-      <option value="" data-i18n="choosePayment">Choose a payment method</option>
-      <option data-i18n="cardPayment">Card payment (Visa / Mastercard)</option>
-      <option>Vodafone Cash</option>
-      <option>InstaPay</option>
-      <option data-i18n="cashOnDelivery">Cash on delivery</option>
-    </select>
-    <p class="notice" style="margin:10px 0" data-i18n="paymentNotice">Your payment is arranged securely with KTL after your order is confirmed.</p>
-    <div class="actions" style="margin-top:15px">
-      <button type="button" class="btn" data-i18n="orderWhatsApp" onclick="sendBookOrder()">Order by WhatsApp</button>
-      <button type="button" class="btn alt" data-i18n="dmInstagram3" onclick="instagramDM()">DM on Instagram</button>
+  <div class="cart-body">
+    <div id="bookCartLines"></div>
+    <div class="two" style="margin:12px 0">
+      <div><label for="couponCode">Coupon code</label><input id="couponCode" placeholder="Enter your code"></div>
+      <button class="btn alt" type="button" onclick="applyCoupon()" style="align-self:end">Apply coupon</button>
     </div>
-  </form></div>
+    <p class="small" id="couponMessage"></p>
+    <div class="cart-footer"><span class="cart-total-label" id="cartTotalLabel">Order total</span><div class="fee" id="bookCartTotal"></div></div>
+    <form id="bookOrderForm">
+      <label data-i18n="fullName">Full name</label><input name="name" required>
+      <label data-i18n="location2">Location</label><input name="location" required>
+      <label data-i18n="address1">Address 1</label><input name="address1" required>
+      <label data-i18n="address2" for="address2">Address 2 <span class="small" data-i18n="optional">(optional)</span></label><input id="address2" name="address2">
+      <label data-i18n="paymentMethod" for="paymentMethod">Payment method</label>
+      <select id="paymentMethod" name="paymentMethod" required>
+        <option value="" data-i18n="choosePayment">Choose a payment method</option>
+        <option data-i18n="cardPayment">Card payment (Visa / Mastercard)</option>
+        <option>Vodafone Cash</option>
+        <option>InstaPay</option>
+        <option data-i18n="cashOnDelivery">Cash on delivery</option>
+      </select>
+      <p class="notice" style="margin:10px 0" data-i18n="paymentNotice">Your payment is arranged securely with KTL after your order is confirmed.</p>
+      <div class="actions" style="margin-top:15px">
+        <button type="button" class="btn" data-i18n="orderWhatsApp" onclick="sendBookOrder()">Confirm order by WhatsApp</button>
+        <button type="button" class="btn alt" data-i18n="dmInstagram3" onclick="instagramDM()">DM on Instagram</button>
+      </div>
+    </form>
+  </div>
 </dialog>
 
 <dialog id="authDialog">
@@ -476,15 +525,18 @@
 <script>
 const EMAIL = 'ktl.kid3@gmail.com', PHONE = '201012697190';
 
+/* ---------- Catalogue data ---------- */
 const programs = [
  {name:'Robotics Program',name_ar:'برنامج الروبوتات',icon:'🤖',price:350,description:'Develop logical thinking and hands-on engineering skills.',description_ar:'تنمية التفكير المنطقي ومهارات الهندسة العملية.'},
- {name:'Electronics Program',name_ar:'برنامج الإلكترونيات',icon:'⚡',price:270,description:'Discover safe circuits, switches, LEDs and clever electronic inventions.',description_ar:'اكتشاف الدوائر الآمنة والمفاتيح ومصابيح LED والاختراعات الإلكترونية الذكية.'},
+ {name:'Electronics Program',name_ar:'برنامج الإلكترونيات',icon:'⚡',price:280,description:'Discover safe circuits, switches, LEDs and clever electronic inventions.',description_ar:'اكتشاف الدوائر الآمنة والمفاتيح ومصابيح LED والاختراعات الإلكترونية الذكية.'},
  {name:'Coding Program',name_ar:'برنامج البرمجة',icon:'💻',price:250,description:'Learn coding fundamentals and create a simple game.',description_ar:'تعلم أساسيات البرمجة وإنشاء لعبة بسيطة.'},
  {name:'Science Exhibition',name_ar:'معرض العلوم',icon:'🔬',price:260,description:'Conduct experiments and present scientific discoveries.',description_ar:'إجراء التجارب وعرض الاكتشافات العلمية.'},
  {name:'Printing & Arts',name_ar:'الطباعة والفنون',icon:'🎨',price:450,description:'Create printed artwork and explore modern techniques.',description_ar:'إنشاء أعمال فنية مطبوعة واستكشاف تقنيات حديثة.'},
  {name:'AI for Beginners',name_ar:'الذكاء الاصطناعي للمبتدئين',icon:'🧠',price:290,description:'Explore artificial intelligence through creative, age-appropriate projects and games.',description_ar:'استكشاف الذكاء الاصطناعي من خلال مشروعات وألعاب مناسبة للعمر.'},
  {name:'Automation Program',name_ar:'برنامج الأتمتة',icon:'⚙️',price:300,description:'Build systems with sensors, motors and mechanisms that solve real-world problems.',description_ar:'بناء أنظمة بالحساسات والمحركات والآليات لحل مشكلات حقيقية.'},
- {name:'Cybersecurity Program',name_ar:'برنامج الأمن السيبراني',icon:'🔐',price:270,description:'Learn safe, responsible digital habits and the foundations of cybersecurity.',description_ar:'تعلم العادات الرقمية الآمنة وأساسيات الأمن السيبراني.'}
+ {name:'Cybersecurity Program',name_ar:'برنامج الأمن السيبراني',icon:'🔐',price:270,description:'Learn safe, responsible digital habits and the foundations of cybersecurity.',description_ar:'تعلم العادات الرقمية الآمنة وأساسيات الأمن السيبراني.'},
+ {name:'Aerospace Program',name_ar:'برنامج الطيران والفضاء',icon:'🚀',price:270,description:'Explore flight, rockets and the science of space.',description_ar:'استكشف الطيران والصواريخ وعلوم الفضاء.'},
+ {name:'Mechanics Program',name_ar:'برنامج الميكانيكا',icon:'⚙️',price:290,description:'Build, test and understand real machines.',description_ar:'ابنِ واختبر وافهم الآلات الحقيقية.'}
 ];
 
 const projects = [
@@ -527,18 +579,23 @@ const courses = [
  {name:'Science Lab',name_ar:'المعمل العلمي',price:550,weeks:5,desc:'Ask questions, run safe experiments and present discoveries.',desc_ar:'طرح الأسئلة وإجراء تجارب آمنة وعرض الاكتشافات.'},
  {name:'AI for Beginners',name_ar:'الذكاء الاصطناعي للمبتدئين',price:650,weeks:6,desc:'Use AI ideas responsibly to create stories, images, games and simple smart projects.',desc_ar:'استخدام أفكار الذكاء الاصطناعي بمسؤولية لإنشاء قصص وصور وألعاب ومشروعات ذكية بسيطة.'},
  {name:'Automation Makers',name_ar:'صناع الأتمتة',price:750,weeks:7,desc:'Design automated models with mechanical systems, motors and creative problem-solving.',desc_ar:'تصميم نماذج آلية بأنظمة ميكانيكية ومحركات وحل إبداعي للمشكلات.'},
- {name:'Cybersecurity for Beginners',name_ar:'الأمن السيبراني للمبتدئين',price:600,weeks:6,desc:'Learn online safety, ethical hacking basics and how to protect digital information.',desc_ar:'تعلم الأمان الرقمي وأساسيات الاختراق الأخلاقي وكيفية حماية المعلومات الرقمية.'}
+ {name:'Cybersecurity for Beginners',name_ar:'الأمن السيبراني للمبتدئين',price:600,weeks:6,desc:'Learn online safety, ethical hacking basics and how to protect digital information.',desc_ar:'تعلم الأمان الرقمي وأساسيات الاختراق الأخلاقي وكيفية حماية المعلومات الرقمية.'},
+ {name:'Aerospace at Home',name_ar:'الطيران والفضاء في المنزل',price:590,weeks:6,desc:'Launch into aerospace science with guided challenges.',desc_ar:'انطلق في علوم الطيران والفضاء من خلال تحديات موجهة.'},
+ {name:'Mechanics',name_ar:'الميكانيكا',price:670,weeks:7,desc:'Explore forces, motion and mechanisms.',desc_ar:'استكشف القوى والحركة والآليات.'}
 ];
 
 const books = [
- {name:'Robotics Book',name_ar:'كتاب الروبوتات',price:180,topic:'Robotics',topic_ar:'الروبوتات',desc:'Build, test and improve beginner-friendly robots through illustrated challenges.',desc_ar:'بناء واختبار وتطوير روبوتات مناسبة للمبتدئين من خلال تحديات مصورة.'},
- {name:'Electronics Book',name_ar:'كتاب الإلكترونيات',price:175,topic:'Electronics',topic_ar:'الإلكترونيات',desc:'A practical introduction to circuits, LEDs, switches and safe experiments.',desc_ar:'مقدمة عملية للدوائر ومصابيح LED والمفاتيح والتجارب الآمنة.'},
- {name:'Coding Adventures',name_ar:'مغامرات البرمجة',price:165,topic:'Coding',topic_ar:'البرمجة',desc:'Learn algorithms, loops and game logic with fun offline activities.',desc_ar:'تعلم الخوارزميات والحلقات ومنطق الألعاب من خلال أنشطة ممتعة بدون إنترنت.'},
- {name:'Young Scientist Lab Guide',name_ar:'دليل معمل العالم الصغير',price:170,topic:'Science',topic_ar:'العلوم',desc:'Safe experiments, observation sheets and real-world science questions.',desc_ar:'تجارب آمنة وأوراق ملاحظة وأسئلة علمية من الواقع.'},
- {name:'Space Explorer Handbook',name_ar:'دليل مستكشف الفضاء',price:160,topic:'Space',topic_ar:'الفضاء',desc:'Discover rockets, planets, satellites and space missions.',desc_ar:'اكتشاف الصواريخ والكواكب والأقمار الصناعية ومهمات الفضاء.'},
- {name:'Creative 3D Design',name_ar:'التصميم الإبداعي ثلاثي الأبعاد',price:185,topic:'Design',topic_ar:'التصميم',desc:'Sketch, model and prototype inventive 3D creations.',desc_ar:'رسم ونمذجة وابتكار تصاميم ثلاثية الأبعاد.'},
- {name:'Little Engineers',name_ar:'المهندسون الصغار',price:155,topic:'Engineering',topic_ar:'الهندسة',desc:'Bridges, towers and simple machines for young builders.',desc_ar:'جسور وأبراج وآلات بسيطة للبنّائين الصغار.'},
- {name:'Green Energy Projects',name_ar:'مشروعات الطاقة الخضراء',price:175,topic:'Environment',topic_ar:'البيئة',desc:'Solar, wind and recycling activities for future problem-solvers.',desc_ar:'أنشطة الطاقة الشمسية والرياح وإعادة التدوير لحلّالي المشكلات في المستقبل.'}
+ {name:'Robotics Book',name_ar:'كتاب الروبوتات',price:180,topic:'Robotics',topic_ar:'الروبوتات',desc:'Build, test and improve beginner-friendly robots through illustrated challenges.',desc_ar:'بناء واختبار وتطوير روبوتات مناسبة للمبتدئين من خلال تحديات مصورة.',img:'assets/books/robotics-book.png'},
+ {name:'Electronics Book',name_ar:'كتاب الإلكترونيات',price:175,topic:'Electronics',topic_ar:'الإلكترونيات',desc:'A practical introduction to circuits, LEDs, switches and safe experiments.',desc_ar:'مقدمة عملية للدوائر ومصابيح LED والمفاتيح والتجارب الآمنة.',img:'assets/books/electronics-book.png'},
+ {name:'Coding Adventures',name_ar:'مغامرات البرمجة',price:165,topic:'Coding',topic_ar:'البرمجة',desc:'Learn algorithms, loops and game logic with fun offline activities.',desc_ar:'تعلم الخوارزميات والحلقات ومنطق الألعاب من خلال أنشطة ممتعة بدون إنترنت.',img:'assets/books/coding-book.png'},
+ {name:'Young Scientist Lab Guide',name_ar:'دليل معمل العالم الصغير',price:170,topic:'Science',topic_ar:'العلوم',desc:'Safe experiments, observation sheets and real-world science questions.',desc_ar:'تجارب آمنة وأوراق ملاحظة وأسئلة علمية من الواقع.',img:'assets/books/science-book.png'},
+ {name:'Space Explorer Handbook',name_ar:'دليل مستكشف الفضاء',price:160,topic:'Space',topic_ar:'الفضاء',desc:'Discover rockets, planets, satellites and space missions.',desc_ar:'اكتشاف الصواريخ والكواكب والأقمار الصناعية ومهمات الفضاء.',img:'assets/books/space-book.png'},
+ {name:'Cyber Security',name_ar:'الأمن السيبراني',price:175,topic:'Cyber Security',topic_ar:'الأمن السيبراني',desc:'Learn safe online habits and the basics of protecting digital information.',desc_ar:'تعلم عادات الأمان أونلاين وأساسيات حماية المعلومات الرقمية.',img:'assets/books/cyber-book.png'},
+ {name:'Arts',name_ar:'الفنون',price:155,topic:'Arts',topic_ar:'الفنون',desc:'Bridges, towers and creative projects for young makers and artists.',desc_ar:'أفكار وأنشطة فنية إبداعية للصغار.',img:'assets/books/arts-book.png'},
+ {name:'Printing Technology',name_ar:'تقنيات الطباعة',price:175,topic:'Printing Technology',topic_ar:'تقنيات الطباعة',desc:'Discover printing processes, materials and hands-on design projects.',desc_ar:'اكتشف عمليات الطباعة والمواد ومشروعات التصميم العملية.',img:'assets/books/printing-book.png'},
+ {name:'Automation',name_ar:'الأتمتة',price:180,topic:'Automation',topic_ar:'الأتمتة',desc:'Discover smart systems, sensors and automatic machines.',desc_ar:'اكتشف الأنظمة الذكية والحساسات والآلات الأوتوماتيكية.',img:'assets/books/automation-book.png'},
+ {name:'Mechanics',name_ar:'الميكانيكا',price:180,topic:'Mechanics',topic_ar:'الميكانيكا',desc:'Build an understanding of movement, forces and machines.',desc_ar:'افهم الحركة والقوى والآلات.',img:'assets/books/mechanics-book.png'},
+ {name:'AI Fundamentals',name_ar:'أساسيات الذكاء الاصطناعي',price:190,topic:'AI',topic_ar:'الذكاء الاصطناعي',desc:'A friendly introduction to artificial intelligence.',desc_ar:'مقدمة مبسطة للذكاء الاصطناعي.',img:'assets/books/ai-book.png'}
 ];
 
 const bookListPrices = books.map(b => b.price * 5), bookMinPrice = Math.min(...bookListPrices), bookMaxPrice = Math.max(...bookListPrices);
@@ -553,22 +610,26 @@ books.forEach(b => {
 const categoryImages = {
  robotics:'assets/robotics-ad.png', electronics:'assets/electronics-ad.png', ai:'assets/ai-ad.jpeg',
  automation:'assets/automation-ad.jpeg', programming:'assets/programming-ad.png', science:'assets/science-ad.png',
- arts:'assets/arts-ad.png', cybersecurity:'assets/cybersecurity-ad.png'
+ arts:'assets/arts-ad.png', cybersecurity:'assets/cybersecurity-ad.png',
+ aerospace:'assets/ads/aerospace-ad.png', mechanics:'assets/ads/mechanics-ad.png'
 };
 
-const programImages = [categoryImages.robotics, categoryImages.electronics, categoryImages.programming, categoryImages.science, categoryImages.arts, categoryImages.ai, categoryImages.automation, categoryImages.cybersecurity];
-const courseImages = [categoryImages.robotics, categoryImages.electronics, categoryImages.programming, categoryImages.science, categoryImages.ai, categoryImages.automation, categoryImages.cybersecurity];
-const bookPhotos = ['https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=700&q=80','https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=700&q=80','https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=700&q=80','https://images.unsplash.com/photo-1526243741027-444d633d7365?auto=format&fit=crop&w=700&q=80'];
+const programImages = [categoryImages.robotics, categoryImages.electronics, categoryImages.programming, categoryImages.science, categoryImages.arts, categoryImages.ai, categoryImages.automation, categoryImages.cybersecurity, categoryImages.aerospace, categoryImages.mechanics];
+const courseImages = [categoryImages.robotics, categoryImages.electronics, categoryImages.programming, categoryImages.science, categoryImages.ai, categoryImages.automation, categoryImages.cybersecurity, categoryImages.aerospace, categoryImages.mechanics];
+const bookPhotos = books.map(b => b.img);
 
 let selectedPrograms = [], productCart = [], activeProject = null, activeCourse = null, currentUserProfile = null, currentLang = 'en';
 const fmt = n => 'EGP ' + Math.round(n).toLocaleString('en-US');
-const salePercents = [50, 45, 40, 35, 30, 25, 48, 42];
+const salePercents = [50, 45, 40, 35, 30, 25, 48, 42, 38, 33];
+
+/* ---------- Access codes (course + book unlock system) ---------- */
+const ACCESS_CODES = {"RH9K-4M7P-2W8L":{"kind":"course","name":"Robotics at Home"},"8F3J-RH6N-9Q1K":{"kind":"course","name":"Robotics at Home"},"RBH7-2P4V-9X5M":{"kind":"course","name":"Robotics at Home"},"5T9K-RH2L-8W3P":{"kind":"course","name":"Robotics at Home"},"EE8M-3K9P-7L2N":{"kind":"course","name":"Electronics Explorers"},"4X7Q-EE2W-9R5K":{"kind":"course","name":"Electronics Explorers"},"EXP6-8J3N-5P9T":{"kind":"course","name":"Electronics Explorers"},"1L8K-EE4M-7V2R":{"kind":"course","name":"Electronics Explorers"},"PC7K-9W4M-2L8R":{"kind":"course","name":"Programming Creators"},"5P2N-PC8Q-3X6J":{"kind":"course","name":"Programming Creators"},"PRG4-6L9K-8M1W":{"kind":"course","name":"Programming Creators"},"3T8R-PC5V-7N2K":{"kind":"course","name":"Programming Creators"},"SL9P-2K8M-4W7R":{"kind":"course","name":"Science Lab"},"6N3J-SL7Q-1X5L":{"kind":"course","name":"Science Lab"},"SCI8-4M2P-9R6K":{"kind":"course","name":"Science Lab"},"2W7K-SL5N-8L3P":{"kind":"course","name":"Science Lab"},"AI6K-8M3P-9L2R":{"kind":"course","name":"AI for Beginners"},"4W9Q-AI2N-7X5K":{"kind":"course","name":"AI for Beginners"},"AIB7-3L8M-5R1P":{"kind":"course","name":"AI for Beginners"},"1N5K-AI9W-8P4L":{"kind":"course","name":"AI for Beginners"},"AM8P-4K7M-2W9R":{"kind":"course","name":"Automation Makers"},"7X3J-AM9Q-5L1K":{"kind":"course","name":"Automation Makers"},"AUT5-8M2P-6R4W":{"kind":"course","name":"Automation Makers"},"3L9K-AM6N-8P2R":{"kind":"course","name":"Automation Makers"},"CS9K-2M8P-4W7R":{"kind":"course","name":"Cybersecurity for Beginners"},"5N4J-CS8Q-1X6L":{"kind":"course","name":"Cybersecurity for Beginners"},"CYB6-3M9P-8R2K":{"kind":"course","name":"Cybersecurity for Beginners"},"2W8K-CS5N-7L4P":{"kind":"course","name":"Cybersecurity for Beginners"},"AH7K-9M4P-2W8R":{"kind":"course","name":"Aerospace at Home"},"8X2J-AH6Q-3L9K":{"kind":"course","name":"Aerospace at Home"},"AER4-5M8P-7R1W":{"kind":"course","name":"Aerospace at Home"},"1L9K-AH3N-6P5R":{"kind":"course","name":"Aerospace at Home"},"MC8K-3W9P-7L2R":{"kind":"course","name":"Mechanics"},"5N1J-MC6Q-4X8L":{"kind":"course","name":"Mechanics"},"MCH2-9P4K-8W5M":{"kind":"course","name":"Mechanics"},"3L7K-MC9N-2P6R":{"kind":"course","name":"Mechanics"},"RB12-8X4M-9P7K":{"kind":"book","name":"Robotics Book"},"3N8Q-RB5V-2L9T":{"kind":"book","name":"Robotics Book"},"ROB8-7P3K-4W1M":{"kind":"book","name":"Robotics Book"},"9L2K-RB6X-5R8P":{"kind":"book","name":"Robotics Book"},"EL7M-9K2P-4W8N":{"kind":"book","name":"Electronics Book"},"5X3Q-EL8W-1R6K":{"kind":"book","name":"Electronics Book"},"ELE4-8J9N-3P2T":{"kind":"book","name":"Electronics Book"},"2L6K-EL5M-9V1R":{"kind":"book","name":"Electronics Book"},"CA9K-3W8M-5L2R":{"kind":"book","name":"Coding Adventures"},"7P1N-CA6Q-4X9J":{"kind":"book","name":"Coding Adventures"},"COD5-8L2K-9M4W":{"kind":"book","name":"Coding Adventures"},"2T7R-CA4V-8N1K":{"kind":"book","name":"Coding Adventures"},"YS8P-4K9M-2W7R":{"kind":"book","name":"Young Scientist Lab Guide"},"5N2J-YS6Q-8X1L":{"kind":"book","name":"Young Scientist Lab Guide"},"SCI3-9M5P-7R4K":{"kind":"book","name":"Young Scientist Lab Guide"},"1W8K-YS4N-6L3P":{"kind":"book","name":"Young Scientist Lab Guide"},"SE6K-8M2P-9L4R":{"kind":"book","name":"Space Explorer Handbook"},"3W7Q-SE1N-5X8K":{"kind":"book","name":"Space Explorer Handbook"},"SPC9-4L6M-2R5P":{"kind":"book","name":"Space Explorer Handbook"},"8N3K-SE7W-1P9L":{"kind":"book","name":"Space Explorer Handbook"},"CS5K-9M3P-2W8R":{"kind":"book","name":"Cyber Security"},"4X8J-CS2Q-7L1K":{"kind":"book","name":"Cyber Security"},"CYB3-6M1P-9R4W":{"kind":"book","name":"Cyber Security"},"1L7K-CS8N-5P2R":{"kind":"book","name":"Cyber Security"},"AR8K-2M9P-4W6R":{"kind":"book","name":"Arts"},"7N3J-AR5Q-1X8L":{"kind":"book","name":"Arts"},"ART4-6M2P-9R1K":{"kind":"book","name":"Arts"},"3W9K-AR4N-8L5P":{"kind":"book","name":"Arts"},"PT9K-4M7P-2W5R":{"kind":"book","name":"Printing Technology"},"6X1J-PT8Q-3L9K":{"kind":"book","name":"Printing Technology"},"PRT2-5M8P-7R3W":{"kind":"book","name":"Printing Technology"},"8L4K-PT2N-9P6R":{"kind":"book","name":"Printing Technology"},"AU7K-3M8P-5W2R":{"kind":"book","name":"Automation"},"9X4J-AU1Q-6L8K":{"kind":"book","name":"Automation"},"AUT6-2M9P-4R7W":{"kind":"book","name":"Automation"},"1L5K-AU8N-3P9R":{"kind":"book","name":"Automation"},"ME6K-8M1P-4W9R":{"kind":"book","name":"Mechanics"},"3N5J-ME7Q-2X4L":{"kind":"book","name":"Mechanics"}};
 
 /* ---------- i18n ---------- */
 const T = {
   menuPrograms:['Programs','البرامج'], menuProjects:['Projects','المشروعات'], menuCourses:['Courses','الدورات'],
-  menuBooks:['Books','الكتب'], menuContact:['Contact','تواصل معنا'],
-  cartWord:['Cart','السلة'], signInWord:['Sign up / Log in','إنشاء حساب / تسجيل الدخول'],
+  menuBooks:['Books','الكتب'], menuLibrary:['My Library','مكتبتي'], menuContact:['Contact','تواصل معنا'],
+  cartWord:['Cart','السلة'], myCoursesWord:['My Courses','دوراتي'], signInWord:['Sign up / Log in','إنشاء حساب / تسجيل الدخول'],
   heroEyebrow:['BUILDING FUTURE INNOVATORS','نبني مبتكري المستقبل'],
   heroTitle1:['Learn Today.','تعلّم اليوم.'], heroTitle2:['Lead Tomorrow.','وقُد غدًا.'],
   heroDesc:['Hands-on STEM, creativity and technology experiences designed for curious young minds.','تجارب عملية في العلوم والتقنية والإبداع مصممة للعقول الصغيرة الفضولية.'],
@@ -576,10 +637,10 @@ const T = {
   programsIntro:['Select one or more programs. We will collect school and student information before you confirm your request.','اختر برنامجًا أو أكثر. سنقوم بجمع بيانات المدرسة والطلاب قبل تأكيد طلبك.'],
   selectedProgramsTotal:['Selected programs total','إجمالي البرامج المختارة'],
   pricePerStudent:['Price is calculated per student.','يُحسب السعر لكل طالب.'],
-  continueProgramOrder:['Continue with program order','متابعة طلب البرنامج'],
+  continueProgramOrder:['Register & add to cart','سجّل وأضف إلى السلة'],
   projectsIntro:['Explore each kit, read the project details, then add it to your cart.','استكشف كل طقم، اقرأ تفاصيل المشروع، ثم أضفه إلى سلتك.'],
   cartWord2:['Cart','السلة'], viewCartBtn:['View cart','عرض السلة'],
-  coursesIntro:['Choose a course and provide the information for every child, then send your request by email, WhatsApp, or Instagram DM.','اختر دورة وأدخل بيانات كل طفل، ثم أرسل طلبك عبر البريد الإلكتروني أو واتساب أو رسالة إنستجرام.'],
+  coursesIntro:['Choose a course and provide the information for every child, then send your request by email, WhatsApp, or Instagram DM — or add it straight to your cart.','اختر دورة وأدخل بيانات كل طفل، ثم أرسل طلبك عبر البريد الإلكتروني أو واتساب أو رسالة إنستجرام — أو أضفها مباشرة إلى سلتك.'],
   booksIntro:['Beautiful, practical books that extend KTL learning at home. Add any books to your cart, then send your delivery request.','كتب جميلة وعملية تُكمل تعلم KTL في المنزل. أضف أي كتب إلى سلتك ثم أرسل طلب التوصيل.'],
   cartWord3:['Cart','السلة'], viewCartBtn2:['View cart','عرض السلة'],
   contactIntro:['Our friendly team is ready to help with programs, orders, school visits and learning advice.','فريقنا الودود جاهز لمساعدتك في البرامج والطلبات وزيارات المدارس ونصائح التعلم.'],
@@ -597,7 +658,8 @@ const T = {
   programReqNotice:['Your total is based on the selected programs and the number of students.','يعتمد إجماليك على البرامج المختارة وعدد الطلاب.'],
   numStudents:['Number of students','عدد الطلاب'], schoolName:['School / preschool name','اسم المدرسة / الحضانة'],
   location:['Location','الموقع'], companyName:['Company name','اسم الشركة'], ifApplicable:['(if applicable)','(إن وجد)'],
-  totalPrice:['Total price','السعر الإجمالي'], confirmWhatsApp:['💬 Confirm by WhatsApp','💬 تأكيد عبر واتساب'],
+  totalPrice:['Total price','السعر الإجمالي'], addProgramsCart:['🛒 Register & add to cart','🛒 سجّل وأضف إلى السلة'],
+  confirmWhatsApp:['💬 Confirm by WhatsApp','💬 تأكيد عبر واتساب'],
   dmInstagram:['📸 DM on Instagram','📸 راسلنا على إنستجرام'], keepBrowsing:['Keep browsing','متابعة التصفح'],
   numKids:['Number of kids','عدد الأطفال'], courseTotalLabel:['Course total','إجمالي الدورة'],
   sendEmail:['Send request by email','إرسال الطلب بالبريد'], sendWhatsApp:['Send by WhatsApp','إرسال عبر واتساب'],
@@ -607,11 +669,11 @@ const T = {
   paymentMethod:['Payment method','طريقة الدفع'], choosePayment:['Choose a payment method','اختر طريقة الدفع'],
   cardPayment:['Card payment (Visa / Mastercard)','الدفع بالبطاقة (فيزا / ماستركارد)'], cashOnDelivery:['Cash on delivery','الدفع عند الاستلام'],
   paymentNotice:['Your payment is arranged securely with KTL after your order is confirmed.','يتم ترتيب دفعتك بأمان مع KTL بعد تأكيد طلبك.'],
-  orderWhatsApp:['Order by WhatsApp','اطلب عبر واتساب'], dmInstagram3:['DM on Instagram','راسلنا على إنستجرام'],
+  orderWhatsApp:['Confirm order by WhatsApp','تأكيد الطلب عبر واتساب'], dmInstagram3:['DM on Instagram','راسلنا على إنستجرام'],
   signUpTitle:['Sign Up','إنشاء حساب'], signUpDesc:['Create your KTL account to manage learning and orders.','أنشئ حسابك في KTL لإدارة التعلم والطلبات.'],
   fullNameLbl:['Full Name','الاسم الكامل'], usernameLbl:['Username','اسم المستخدم'], ageLbl:['Age','العمر'],
   genderLbl:['Gender','النوع'], chooseOpt:['Choose','اختر'], girlOpt:['Girl','بنت'], boyOpt:['Boy','ولد'],
-  preferNotSay:['Prefer not to say','أفضل عدم الإفصاح'], emailLbl:['Email','البريد الإلكتروني'], phoneLbl:['Phone Number','رقم الهاتف'],
+  emailLbl:['Email','البريد الإلكتروني'], phoneLbl:['Phone Number','رقم الهاتف'],
   passwordLbl:['Password','كلمة المرور'], confirmPasswordLbl:['Confirm Password','تأكيد كلمة المرور'],
   verifyTitle:['Verify your contact details','تحقق من بيانات التواصل'],
   verifyDesc:['A configured KTL verification service sends a one-time code to the email or WhatsApp number entered above.','يرسل نظام التحقق في KTL رمزًا لمرة واحدة إلى البريد الإلكتروني أو رقم واتساب المدخل أعلاه.'],
@@ -642,15 +704,16 @@ function applyStaticTranslations(){
   languageButton.textContent = currentLang === 'ar' ? '🌐 EN' : '🌐 عربي';
   document.documentElement.lang = currentLang;
   document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-  accountButton.querySelector('[data-i18n="signInWord"]') && (accountButton.querySelector('[data-i18n="signInWord"]').textContent = tr('signInWord'));
   updateAccountButton();
 }
 
-function toast(msg) {
+function toast(msg, isRemove) {
   const t = document.getElementById('toast');
   t.textContent = msg;
+  t.classList.toggle('remove', !!isRemove);
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2600);
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
 function salePrice(price, index) {
@@ -664,6 +727,7 @@ function newBadge() {
   return `<span style="display:inline-block;margin-left:7px;padding:2px 7px;border-radius:999px;background:#f42176;color:#fff;font-size:11px;vertical-align:middle;letter-spacing:.5px">${currentLang === 'ar' ? 'جديد' : 'NEW'}</span>`;
 }
 
+/* ---------- Programs: select + register + add to cart ---------- */
 function renderPrograms() {
   const programCards = programs.map((p, i) => {
     const isNew = /Aerospace|Mechanics/.test(p.name);
@@ -674,8 +738,8 @@ function renderPrograms() {
       : 'Sessions include two hours of guided making, age-appropriate materials, mentor support and a take-home learning extension.';
     const bestFor = currentLang === 'ar' ? 'مناسب لأعمار 4–13 · عملي · بإشراف مرشد' : 'Best for ages 4–13 · Hands-on · Mentor led';
     const detailsBtn = currentLang === 'ar' ? 'تفاصيل البرنامج' : 'Program details';
-    const addBtn = currentLang === 'ar' ? 'أضف إلى السلة' : 'Add to cart';
-    const addedBtn = currentLang === 'ar' ? 'تمت الإضافة ✓' : 'Added ✓';
+    const addBtn = currentLang === 'ar' ? 'اختر للتسجيل' : 'Select to register';
+    const addedBtn = currentLang === 'ar' ? 'تم الاختيار ✓' : 'Selected ✓';
     const perStudent = currentLang === 'ar' ? 'السعر النهائي لكل طالب' : 'Final price per student';
     return `<article class="card program-card">
       <img src="${programImages[i]}" alt="${p.name}">
@@ -800,44 +864,99 @@ function getChildren(form, count) {
   }));
 }
 
+function programOrderMessage(count, kids, form) {
+  const total = programUnitTotal() * count;
+  return `KTL Program Request\nPrograms: ${selectedPrograms.map(i => programs[i].name).join(', ')}\nStudents: ${count}\n${kids.map((k, i) => `Student ${i + 1}: ${k.name}, age ${k.age}, ${k.gender}, section ${k.section}`).join('\n')}\nSchool/Preschool: ${form.school.value}\nLocation: ${form.location.value}\nCompany: ${form.company.value || 'N/A'}\nTotal: ${fmt(total)}`;
+}
+
 function sendProgram(channel) {
   const form = programForm;
   if (!form.reportValidity()) return;
-  const count = Number(studentCount.value), kids = getChildren(form, count), total = programUnitTotal() * count;
-  const message = `KTL Program Request\nPrograms: ${selectedPrograms.map(i => programs[i].name).join(', ')}\nStudents: ${count}\n${kids.map((k, i) => `Student ${i + 1}: ${k.name}, age ${k.age}, ${k.gender}, section ${k.section}`).join('\n')}\nSchool/Preschool: ${form.school.value}\nLocation: ${form.location.value}\nCompany: ${form.company.value || 'N/A'}\nTotal: ${fmt(total)}`;
+  const count = Number(studentCount.value), kids = getChildren(form, count);
+  const message = programOrderMessage(count, kids, form);
   if (channel === 'whatsapp') window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
   toast(currentLang === 'ar' ? 'طلبك جاهز للإرسال.' : 'Your confirmation is ready to send.');
 }
 
-/* ---------- Cart (with +/- quantity) ---------- */
-function addToCart(entry) {
-  const existing = productCart.find(item => item.type === entry.type && item.name === entry.name && item.price === entry.price);
-  if (existing) existing.qty += 1; else productCart.push({...entry, qty: 1});
-  updateProductTotals();
+function addProgramsToCart() {
+  const form = programForm;
+  if (!form.reportValidity()) return;
+  const count = Number(studentCount.value);
+  const kids = getChildren(form, count);
+  const registration = {students: count, kids, school: form.school.value, location: form.location.value, company: form.company.value || ''};
+  selectedPrograms.forEach(i => {
+    const p = programs[i], id = `program-${i}`;
+    const existing = productCart.find(c => c.id === id);
+    if (existing) { existing.qty = count; existing.registration = registration; }
+    else productCart.push({id, type: 'Program registration', name: p.name, price: p.price, qty: count, emoji: p.icon, registration, registrationRequired: true});
+  });
+  syncProductViews();
+  programDialog.close();
+  toast(currentLang === 'ar' ? '✅ تم تسجيل البرامج وإضافتها إلى سلتك!' : '✅ Programs registered and added to your cart!');
 }
 
+/* ---------- Unified product cart helpers ---------- */
+function productEntry(kind, index, format = '') {
+  if (kind === 'project') { const p = projects[index]; return {id:`project-${index}`, type:'Project kit', name:p.name, price:p.price, image:p.img, emoji:'🧪'}; }
+  if (kind === 'course') { const c = courses[index]; return {id:`course-${index}`, type:'Online course', name:c.name, price:c.price, image:courseImages[index], emoji:'💻'}; }
+  const b = books[index], hard = format === 'hard';
+  return {id:`book-${index}-${hard?'hard':'pdf'}`, type: hard ? 'Book · Hard copy' : 'Book · PDF', name:b.name, price: hard ? b.hardCopyPrice : b.pdfPrice, image:bookPhotos[index % bookPhotos.length], emoji:'📘'};
+}
+function cartQty(id) { return productCart.find(item => item.id === id)?.qty || 0; }
+function adjustProduct(kind, index, delta, format = '') {
+  const entry = productEntry(kind, index, format);
+  const item = productCart.find(x => x.id === entry.id);
+  if (item) {
+    item.qty += delta;
+    if (item.qty <= 0) { productCart.splice(productCart.indexOf(item), 1); toast(currentLang === 'ar' ? 'تمت إزالة العنصر من سلتك.' : 'Item removed from your cart.', true); }
+  } else if (delta > 0) {
+    productCart.push({...entry, qty: 1});
+    toast(currentLang === 'ar' ? '✅ تمت إضافة العنصر إلى سلتك!' : '✅ Item added to your cart!');
+  }
+  syncProductViews();
+}
 function changeQty(n, delta) {
-  productCart[n].qty += delta;
-  if (productCart[n].qty <= 0) productCart.splice(n, 1);
+  const item = productCart[n];
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) { productCart.splice(n, 1); toast(currentLang === 'ar' ? 'تمت إزالة العنصر من سلتك.' : 'Item removed from your cart.', true); }
+  syncProductViews();
+}
+function syncProductViews() {
   updateProductTotals();
-  openProductCart();
+  document.querySelectorAll('[data-cart-id]').forEach(el => { const b = el.querySelector('.quantity-value'); if (b) b.textContent = cartQty(el.dataset.cartId); });
+  if (bookCartDialog.open) renderCart();
+}
+function quantityControl(kind, index, format = '') {
+  const item = productEntry(kind, index, format);
+  const qtyLabel = currentLang === 'ar' ? 'الكمية' : 'Quantity';
+  return `<div class="product-quantity" data-cart-id="${item.id}"><span class="quantity-label">${qtyLabel}</span><span class="qty-control"><button class="minus" onclick="adjustProduct('${kind}',${index},-1,'${format}')" aria-label="Decrease">−</button><b class="quantity-value">${cartQty(item.id)}</b><button onclick="adjustProduct('${kind}',${index},1,'${format}')" aria-label="Increase">+</button></span></div>`;
 }
 
+function updateProductTotals() {
+  const total = productCart.reduce((s, item) => s + item.price * item.qty, 0);
+  const totalQty = productCart.reduce((s, item) => s + item.qty, 0);
+  const itemsLabel = currentLang === 'ar' ? 'عنصر مختار' : `item${totalQty === 1 ? '' : 's'} selected`;
+  projectTotal.textContent = fmt(total);
+  bookTotal.textContent = fmt(total);
+  projectCount.textContent = `${totalQty} ${itemsLabel}`;
+  bookCount.textContent = `${totalQty} ${itemsLabel}`;
+  cartBadge.textContent = totalQty;
+}
+
+/* ---------- Projects ---------- */
 function renderProjects() {
   projectGrid.innerHTML = projects.map((p, i) => {
     const name = currentLang === 'ar' ? p.name_ar : p.name;
     const desc = currentLang === 'ar' ? p.desc_ar : p.desc;
     const detailsBtn = currentLang === 'ar' ? 'تفاصيل المشروع' : 'Project details';
-    const addBtn = currentLang === 'ar' ? 'أضف إلى السلة' : 'Add to cart';
     return `<article class="card project-card">
       <img src="${p.img}" alt="${p.name}">
       <h3>${name}</h3>
       <p>${desc}</p>
       ${salePrice(p.price, i)}
-      <div class="actions">
-        <button class="btn alt" onclick="showProject(${i})">${detailsBtn}</button>
-        <button class="btn" onclick="addProject(${i})">${addBtn}</button>
-      </div>
+      <button class="btn alt" onclick="showProject(${i})">${detailsBtn}</button>
+      ${quantityControl('project', i)}
     </article>`;
   }).join('');
   updateProductTotals();
@@ -849,20 +968,17 @@ function showProject(i) {
   projectTitle.textContent = currentLang === 'ar' ? p.name_ar : p.name;
   projectDescription.textContent = currentLang === 'ar' ? p.desc_ar : p.desc;
   projectDetails.textContent = currentLang === 'ar' ? (p.details_ar || p.details) : p.details;
+  document.querySelectorAll('#projectDialog .book-cover-preview').forEach(el => el.remove());
   projectPrice.textContent = fmt(p.price);
   projectAddButton.textContent = currentLang === 'ar' ? 'أضف المشروع إلى السلة' : 'Add project to cart';
-  projectAddButton.onclick = () => { addProject(i); projectDialog.close(); };
+  projectAddButton.onclick = () => { adjustProduct('project', i, 1); projectDialog.close(); };
   projectDialog.showModal();
 }
 
-function addProject(i) {
-  addToCart({type: 'Project', name: projects[i].name, price: projects[i].price});
-  toast(currentLang === 'ar' ? `تمت إضافة ${projects[i].name_ar} إلى سلتك.` : `${projects[i].name} added to your cart.`);
-}
-
+/* ---------- Courses ---------- */
 function renderCourses() {
   courseGrid.innerHTML = courses.map((c, i) => {
-    const isNew = /AI|Automation|Cybersecurity/.test(c.name);
+    const isNew = /Aerospace|Mechanics/.test(c.name);
     const name = currentLang === 'ar' ? c.name_ar : c.name;
     const desc = currentLang === 'ar' ? c.desc_ar : c.desc;
     const includeLine = currentLang === 'ar' ? 'تشمل كل دورة دروسًا موجهة ومشروعات مصغرة عملية وتحديات ممتعة وشهادة إتمام.' : 'Each course includes guided lessons, practical mini-projects, friendly challenges and a completion certificate.';
@@ -933,12 +1049,18 @@ function addCourseToCart() {
   const form = courseForm;
   if (!form.reportValidity()) return;
   const count = Number(kidCount.value), c = courses[activeCourse];
-  const label = currentLang === 'ar' ? `${c.name_ar} (${count} طفل)` : `${c.name} (${count} child${count === 1 ? '' : 'ren'})`;
-  addToCart({type: 'Online course', name: label, price: c.price * count});
+  const entry = productEntry('course', activeCourse);
+  entry.registration = {kids: getChildren(form, count)};
+  entry.registrationRequired = true;
+  const existing = productCart.find(x => x.id === entry.id);
+  if (existing) { existing.qty = count; existing.registration = entry.registration; }
+  else productCart.push({...entry, qty: count});
   courseDialog.close();
-  toast(currentLang === 'ar' ? `تمت إضافة ${c.name_ar} إلى سلتك.` : `${c.name} added to your cart.`);
+  syncProductViews();
+  toast(currentLang === 'ar' ? `✅ تمت إضافة ${c.name_ar} إلى سلتك!` : `✅ ${c.name} added to your cart!`);
 }
 
+/* ---------- Books ---------- */
 function renderBooks() {
   bookGrid.innerHTML = books.map((b, i) => {
     const name = currentLang === 'ar' ? b.name_ar : b.name;
@@ -950,8 +1072,6 @@ function renderBooks() {
     const plusLabel = currentLang === 'ar' ? '(+ 250 جنيه)' : '(+ EGP 250)';
     const offLabel = currentLang === 'ar' ? 'خصم' : 'OFF';
     const detailsBtn = currentLang === 'ar' ? 'تفاصيل الكتاب' : 'Book details';
-    const pdfBtn = currentLang === 'ar' ? 'احصل على PDF' : 'Get PDF';
-    const hardBtn = currentLang === 'ar' ? 'احصل على نسخة ورقية' : 'Get hard copy';
     return `<article class="card book-card">
       <img src="${bookPhotos[i % bookPhotos.length]}" alt="${b.name}">
       <small class="blue">${topic}</small>
@@ -962,11 +1082,11 @@ function renderBooks() {
         <span style="color:#f42176">${hardLabel}:</span> ${fmt(b.hardCopyPrice)} <small style="color:var(--muted)">${plusLabel}</small><br>
         <span style="display:inline-block;padding:2px 7px;border-radius:999px;background:#f42176;color:#fff;font-size:11px">${b.discountPercent}% ${offLabel}</span>
       </div>
-      <div class="actions">
-        <button class="btn alt" onclick="showBookInfo(${i})">${detailsBtn}</button>
-        <button class="btn blue" onclick="addBook(${i},'pdf')">${pdfBtn}</button>
-        <button class="btn" onclick="addBook(${i},'hard')">${hardBtn}</button>
-      </div>
+      <button class="btn alt" onclick="showBookInfo(${i})">${detailsBtn}</button>
+      <small class="blue" style="display:block;margin-top:12px">${pdfLabel}</small>
+      ${quantityControl('book', i, 'pdf')}
+      <small class="pink" style="display:block;margin-top:10px">${hardLabel}</small>
+      ${quantityControl('book', i, 'hard')}
     </article>`;
   }).join('');
   updateProductTotals();
@@ -987,61 +1107,76 @@ function showBookInfo(i) {
     ? `PDF فقط: ${fmt(b.pdfPrice)}<br>نسخة ورقية: ${fmt(b.hardCopyPrice)} <span class="small">(+ 250 جنيه)</span>`
     : `PDF only: ${fmt(b.pdfPrice)}<br>Hard copy: ${fmt(b.hardCopyPrice)} <span class="small">(+ EGP 250)</span>`;
   projectAddButton.textContent = currentLang === 'ar' ? 'أضف PDF إلى السلة' : 'Add PDF to cart';
-  projectAddButton.onclick = () => { addBook(i, 'pdf'); projectDialog.close(); };
+  projectAddButton.onclick = () => { adjustProduct('book', i, 1, 'pdf'); projectDialog.close(); };
   projectDialog.showModal();
 }
 
-function addBook(i, format) {
-  const b = books[i], hardCopy = format === 'hard', price = hardCopy ? b.hardCopyPrice : b.pdfPrice;
-  const typeLabel = hardCopy ? 'Book - Hard copy' : 'Book - PDF only';
-  addToCart({type: typeLabel, name: b.name, price});
-  const formatLabel = currentLang === 'ar' ? (hardCopy ? 'نسخة ورقية' : 'PDF') : format;
-  toast(currentLang === 'ar' ? `تمت إضافة ${b.name_ar} (${formatLabel}) إلى سلتك.` : `${b.name} (${hardCopy ? 'Hard copy' : 'PDF only'}) added to your cart.`);
-}
+/* ---------- Cart, coupon & checkout ---------- */
+let couponApplied = false;
+function cartSubtotal() { return productCart.reduce((s, x) => s + x.price * x.qty, 0); }
 
-function updateProductTotals() {
-  const total = productCart.reduce((s, item) => s + item.price * item.qty, 0);
-  const totalQty = productCart.reduce((s, item) => s + item.qty, 0);
-  const itemsLabel = currentLang === 'ar' ? 'عنصر مختار' : `item${totalQty === 1 ? '' : 's'} selected`;
-  projectTotal.textContent = fmt(total);
-  bookTotal.textContent = fmt(total);
-  projectCount.textContent = currentLang === 'ar' ? `${totalQty} ${itemsLabel}` : `${totalQty} ${itemsLabel}`;
-  bookCount.textContent = currentLang === 'ar' ? `${totalQty} ${itemsLabel}` : `${totalQty} ${itemsLabel}`;
-  cartBadge.textContent = totalQty;
-}
-
-function openProductCart() {
-  const total = productCart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const totalQty = productCart.reduce((s, item) => s + item.qty, 0);
+function renderCart() {
+  const subtotal = cartSubtotal(), discount = couponApplied ? Math.round(subtotal * .1) : 0, total = subtotal - discount;
+  const qty = productCart.reduce((s, x) => s + x.qty, 0);
   bookCartDialog.querySelector('h2').textContent = tr('cartDialogTitle');
-  const summaryLabel = currentLang === 'ar' ? `${totalQty} عنصر مختار` : `${totalQty} item${totalQty === 1 ? '' : 's'} selected`;
-  const reviewLine = currentLang === 'ar' ? 'راجع العناصر المختارة قبل إرسال طلبك.' : 'Review your chosen items before sending your order.';
-  const emptyLine = currentLang === 'ar' ? 'سلتك فارغة. أضف مشروعًا أو كتابًا أو دورة لتراها هنا.' : 'Your cart is empty. Add a project, book, or course to see it here.';
-  bookCartLines.innerHTML = productCart.length ?
-    `<div class="notice" style="margin-bottom:12px"><b>${summaryLabel}</b><br>${reviewLine}</div>` +
-    productCart.map((item, n) =>
-      `<div class="cart-line">
-        <span><small class="blue">${item.type}</small><br><b>${item.name}</b><br><small>${fmt(item.price)} × ${item.qty} = ${fmt(item.price * item.qty)}</small></span>
-        <span class="qty-control">
-          <button class="minus" onclick="changeQty(${n},-1)" aria-label="Decrease quantity">−</button>
-          <b>${item.qty}</b>
-          <button onclick="changeQty(${n},1)" aria-label="Increase quantity">+</button>
-        </span>
-      </div>`
-    ).join('') : `<p class="empty">${emptyLine}</p>`;
+  const itemsWord = currentLang === 'ar' ? 'عنصر مختار' : `item${qty === 1 ? '' : 's'} selected`;
+  cartSummary.textContent = `${qty} ${itemsWord}`;
+  const emptyLine = currentLang === 'ar' ? 'سلتك فارغة. أضف مشروعًا أو كتابًا، أو سجّل في برنامج أو دورة.' : 'Your cart is empty. Add a project, book, or register a program/course.';
+  const eachWord = currentLang === 'ar' ? 'للوحدة' : 'each';
+  const regWord = currentLang === 'ar' ? ' · تم استلام بيانات التسجيل' : ' · registration details saved';
+  bookCartLines.innerHTML = productCart.length ? productCart.map((x, i) =>
+    `<div class="cart-line">
+      <div class="cart-item-main">
+        <span class="cart-visual">${x.image ? `<img src="${x.image}" alt="">` : (x.emoji || '🛍️')}</span>
+        <span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} ${eachWord}${x.registration ? regWord : ''}</small></span>
+      </div>
+      <span class="qty-control">
+        <button class="minus" onclick="changeQty(${i},-1)" aria-label="Decrease quantity">−</button>
+        <b>${x.qty}</b>
+        <button onclick="changeQty(${i},1)" aria-label="Increase quantity">+</button>
+      </span>
+      <span class="cart-item-price">${fmt(x.price * x.qty)}</span>
+    </div>`
+  ).join('') : `<p class="empty">${emptyLine}</p>`;
+  cartTotalLabel.innerHTML = discount
+    ? `${currentLang === 'ar' ? 'الإجمالي الفرعي' : 'Subtotal'}: ${fmt(subtotal)}<br>${currentLang === 'ar' ? 'الخصم' : 'Discount'}: −${fmt(discount)}<br><b>${currentLang === 'ar' ? 'الإجمالي النهائي' : 'Final total'}</b>`
+    : (currentLang === 'ar' ? 'إجمالي الطلب' : 'Order total');
   bookCartTotal.textContent = fmt(total);
-  bookCartDialog.showModal();
+}
+
+function openProductCart() { renderCart(); bookCartDialog.showModal(); }
+
+function applyCoupon() {
+  if (couponApplied) { toast(currentLang === 'ar' ? 'تم تطبيق الكوبون بالفعل.' : 'A coupon has already been applied.'); return; }
+  const entered = couponCode.value.trim().toUpperCase();
+  if (!entered) { couponMessage.textContent = currentLang === 'ar' ? 'يرجى إدخال كود الكوبون أولًا.' : 'Please enter your coupon code first.'; return; }
+  if (entered !== 'KTL10') { couponMessage.textContent = currentLang === 'ar' ? 'هذا الكود غير صالح.' : 'That code is not valid.'; return; }
+  couponApplied = true;
+  couponMessage.textContent = currentLang === 'ar' ? 'تم تطبيق الخصم على طلبك.' : 'Your discount has been applied to this order.';
+  couponCode.value = '';
+  renderCart();
+  toast(currentLang === 'ar' ? 'تم تطبيق الكوبون بنجاح!' : 'Coupon applied successfully!');
 }
 
 function sendBookOrder() {
   if (!productCart.length) return toast(currentLang === 'ar' ? 'يرجى إضافة منتج واحد على الأقل أولًا.' : 'Please add at least one product first.');
   const form = bookOrderForm;
   if (!form.reportValidity()) return;
-  const total = productCart.reduce((s, item) => s + item.price * item.qty, 0);
-  const message = `KTL Order\nName: ${form.name.value}\nLocation: ${form.location.value}\nAddress 1: ${form.address1.value}\nAddress 2: ${form.address2.value || 'N/A'}\nPayment method: ${form.paymentMethod.value}\nItems:\n${productCart.map(item => `${item.type}: ${item.name} x${item.qty} - ${fmt(item.price * item.qty)}`).join('\n')}\nTotal: ${fmt(total)}`;
+  const subtotal = cartSubtotal(), discount = couponApplied ? Math.round(subtotal * .1) : 0, total = subtotal - discount;
+  const lines = productCart.map(item => {
+    let line = `${item.type}: ${item.name} x${item.qty} - ${fmt(item.price * item.qty)}`;
+    if (item.registration) {
+      if (item.registration.kids) line += `\n   Kids: ${item.registration.kids.map(k => `${k.name} (age ${k.age}, ${k.gender}, ${k.section})`).join('; ')}`;
+      if (item.registration.school) line += `\n   School: ${item.registration.school} · Location: ${item.registration.location} · Company: ${item.registration.company || 'N/A'}`;
+    }
+    return line;
+  }).join('\n');
+  const message = `KTL Order\nName: ${form.name.value}\nLocation: ${form.location.value}\nAddress 1: ${form.address1.value}\nAddress 2: ${form.address2.value || 'N/A'}\nPayment method: ${form.paymentMethod.value}\nItems:\n${lines}\n${discount ? `Subtotal: ${fmt(subtotal)}\nDiscount: -${fmt(discount)}\n` : ''}Total: ${fmt(total)}`;
   window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
+  toast(currentLang === 'ar' ? 'طلبك جاهز للإرسال عبر واتساب.' : 'Your order is ready to send on WhatsApp.');
 }
 
+/* ---------- Free demo ---------- */
 function showDemoInfo() {
   programInfoTitle.textContent = currentLang === 'ar' ? 'جلسة KTL التجريبية المجانية' : 'Free KTL Demo Session';
   programInfoDescription.textContent = currentLang === 'ar' ? 'مقدمة مجانية لتعلم KTL للعائلات والمدارس والمؤسسات.' : 'A no-cost introduction to KTL learning for families, schools and organisations.';
@@ -1068,50 +1203,58 @@ function instagramDM() {
   toast(currentLang === 'ar' ? 'تم فتح رسائل إنستجرام لـ @ktl._team.' : 'Instagram DM opened for @ktl._team.');
 }
 
-/* ---------- Unified product quantities and modern cart ---------- */
-function productEntry(kind, index, format = '') {
-  if (kind === 'project') { const p = projects[index]; return {id:`project-${index}`,type:'Project kit',name:p.name,price:p.price,image:p.img,emoji:'🧪'}; }
-  if (kind === 'course') { const c = courses[index]; return {id:`course-${index}`,type:'Online course',name:c.name,price:c.price,image:courseImages[index],emoji:'💻'}; }
-  const b=books[index], hard=format==='hard'; return {id:`book-${index}-${hard?'hard':'pdf'}`,type:hard?'Book · Hard copy':'Book · PDF',name:b.name,price:hard?b.hardCopyPrice:b.pdfPrice,image:bookPhotos[index%bookPhotos.length],emoji:'📘'};
-}
-function cartQty(id){return productCart.find(item=>item.id===id)?.qty||0}
-function quantityControl(kind,index,format=''){const item=productEntry(kind,index,format);return `<div class="product-quantity" data-cart-id="${item.id}"><span class="quantity-label">${currentLang==='ar'?'الكمية':'Quantity'}</span><span class="qty-control"><button class="minus" onclick="adjustProduct('${kind}',${index},-1,'${format}')">−</button><b class="quantity-value">${cartQty(item.id)}</b><button onclick="adjustProduct('${kind}',${index},1,'${format}')">+</button></span></div>`}
-function adjustProduct(kind,index,delta,format=''){const entry=productEntry(kind,index,format),item=productCart.find(x=>x.id===entry.id);if(item){item.qty+=delta;if(item.qty<=0)productCart.splice(productCart.indexOf(item),1)}else if(delta>0)productCart.push({...entry,qty:1});syncProductViews()}
-function syncProductViews(){updateProductTotals();document.querySelectorAll('[data-cart-id]').forEach(el=>el.querySelector('.quantity-value').textContent=cartQty(el.dataset.cartId));if(bookCartDialog.open)renderCart()}
-function renderProjects(){projectGrid.innerHTML=projects.map((p,i)=>`<article class="card project-card"><img src="${p.img}" alt="${p.name}"><h3>${currentLang==='ar'?p.name_ar:p.name}</h3><p>${currentLang==='ar'?p.desc_ar:p.desc}</p>${salePrice(p.price,i)}<button class="btn alt" onclick="showProject(${i})">${currentLang==='ar'?'تفاصيل المشروع':'Project details'}</button>${quantityControl('project',i)}</article>`).join('');updateProductTotals()}
-function renderCourses(){courseGrid.innerHTML=courses.map((c,i)=>`<article class="card course-card"><img src="${courseImages[i]}" alt="${c.name}"><h3>${currentLang==='ar'?c.name_ar:c.name}</h3><p>${currentLang==='ar'?c.desc_ar:c.desc}</p><small>${c.weeks} ${currentLang==='ar'?'أسابيع':'weeks'} · Certificate included</small>${salePrice(c.price,i)}<button class="btn alt" onclick="showCourse(${i})">${currentLang==='ar'?'تفاصيل الدورة':'Course details'}</button>${quantityControl('course',i)}</article>`).join('')}
-function renderBooks(){bookGrid.innerHTML=books.map((b,i)=>{const n=currentLang==='ar'?b.name_ar:b.name,t=currentLang==='ar'?b.topic_ar:b.topic;return `<article class="card book-card"><img src="${bookPhotos[i%bookPhotos.length]}" alt="${b.name}"><small class="blue">${t}</small><h3>${n}</h3><p>${currentLang==='ar'?b.desc_ar:b.desc}</p><div class="fee">${fmt(b.pdfPrice)}</div><button class="btn alt" onclick="showBookInfo(${i})">${currentLang==='ar'?'تفاصيل الكتاب':'Book details'}</button><small class="blue" style="display:block;margin-top:12px">PDF</small>${quantityControl('book',i,'pdf')}<small class="pink" style="display:block;margin-top:10px">${currentLang==='ar'?'نسخة ورقية':'Hard copy'} · ${fmt(b.hardCopyPrice)}</small>${quantityControl('book',i,'hard')}</article>`}).join('');updateProductTotals()}
-function changeQty(n,delta){productCart[n].qty+=delta;if(productCart[n].qty<=0)productCart.splice(n,1);syncProductViews()}
-function addProject(i){adjustProduct('project',i,1)}
-function addBook(i,format){adjustProduct('book',i,1,format)}
-function renderCart(){const total=productCart.reduce((s,x)=>s+x.price*x.qty,0),qty=productCart.reduce((s,x)=>s+x.qty,0);bookCartDialog.querySelector('h2').textContent=tr('cartDialogTitle');cartSummary.textContent=`${qty} item${qty===1?'':'s'} selected`;bookCartLines.innerHTML=productCart.length?productCart.map((x,i)=>`<div class="cart-line"><div class="cart-item-main"><span class="cart-visual">${x.image?`<img src="${x.image}" alt="">`:x.emoji}</span><span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} each</small></span></div><span class="qty-control"><button class="minus" onclick="changeQty(${i},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${i},1)">+</button></span><span class="cart-item-price">${fmt(x.price*x.qty)}</span></div>`).join(''):`<p class="empty">Your cart is empty.</p>`;bookCartTotal.textContent=fmt(total)}
-function openProductCart(){renderCart();bookCartDialog.showModal()}
+/* ---------- Course & book access-code unlock system ---------- */
+function accessKey() { return `ktl-unlocked-${currentUserProfile?.email || 'guest'}`; }
+function getUnlocked() { try { return JSON.parse(localStorage.getItem(accessKey()) || '[]'); } catch (e) { return []; } }
+function setUnlocked(list) { localStorage.setItem(accessKey(), JSON.stringify(list)); }
 
-/* ---------- Catalogue, checkout, registration and course access upgrades ---------- */
-programs[1].price = 280;
-programs.push({name:'Aerospace Program',name_ar:'برنامج الطيران والفضاء',icon:'🚀',price:270,description:'Explore flight, rockets and the science of space.',description_ar:'استكشف الطيران والصواريخ وعلوم الفضاء.'});
-courses.push({name:'Aerospace at Home',name_ar:'الطيران والفضاء في المنزل',price:590,weeks:6,desc:'Launch into aerospace science with guided challenges.',desc_ar:'انطلق في علوم الطيران والفضاء من خلال تحديات موجهة.'});
-programs.push({name:'Mechanics Program',name_ar:'برنامج الميكانيكا',icon:'⚙️',price:290,description:'Build, test and understand real machines.',description_ar:'ابنِ واختبر وافهم الآلات الحقيقية.'});
-courses.push({name:'Mechanics',name_ar:'الميكانيكا',price:670,weeks:7,desc:'Explore forces, motion and mechanisms.',desc_ar:'استكشف القوى والحركة والآليات.'});
-programImages.push('C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png'); courseImages.push('C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png');
-Object.assign(books[5],{name:'Cyber Security',name_ar:'الأمن السيبراني',topic:'Cyber Security',topic_ar:'الأمن السيبراني'});
-Object.assign(books[6],{name:'Arts',name_ar:'الفنون',topic:'Arts',topic_ar:'الفنون'});
-Object.assign(books[7],{name:'Printing Technology',name_ar:'تقنيات الطباعة',topic:'Printing Technology',topic_ar:'تقنيات الطباعة'});
-books.push({name:'Automation',name_ar:'الأتمتة',price:180,topic:'Automation',topic_ar:'الأتمتة',desc:'Discover smart systems, sensors and automatic machines.',desc_ar:'اكتشف الأنظمة الذكية والحساسات والآلات الأوتوماتيكية.'},{name:'Mechanics',name_ar:'الميكانيكا',price:180,topic:'Mechanics',topic_ar:'الميكانيكا',desc:'Build an understanding of movement, forces and machines.',desc_ar:'افهم الحركة والقوى والآلات.'},{name:'AI Fundamentals',name_ar:'أساسيات الذكاء الاصطناعي',price:190,topic:'AI',topic_ar:'الذكاء الاصطناعي',desc:'A friendly introduction to artificial intelligence.',desc_ar:'مقدمة مبسطة للذكاء الاصطناعي.'});
-books.slice(8).forEach(b=>{b.listPdfPrice=b.price*5;b.discountPercent=35;b.pdfPrice=Math.round(b.listPdfPrice*.65);b.hardCopyPrice=b.pdfPrice+250;b.price=b.pdfPrice});
-bookPhotos.splice(0,11,'C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/robotics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/electronics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/coding book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/science book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/space books.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/cyber book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/arts book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/printing book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/auto book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/mechanics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/ai book.png');
-let couponApplied=false;
-function cartSubtotal(){return productCart.reduce((s,x)=>s+x.price*x.qty,0)}
-function applyCoupon(){if(couponApplied)return toast('KTL10 has already been applied.');if(couponCode.value.trim().toUpperCase()!=='KTL10'){couponMessage.textContent='That coupon code is not valid.';return}couponApplied=true;couponMessage.textContent='KTL10 applied — 10% discount added.';renderCart();toast('Coupon applied successfully!')}
-function adjustProduct(kind,index,delta,format=''){const entry=productEntry(kind,index,format),item=productCart.find(x=>x.id===entry.id);if(item){item.qty+=delta;if(item.qty<=0)productCart.splice(productCart.indexOf(item),1)}else if(delta>0){productCart.push({...entry,qty:1});toast('✅ Item added to your cart successfully!')}syncProductViews()}
-function toggleProgram(i){const p=programs[i],existing=productCart.find(x=>x.id===`program-${i}`);if(existing){productCart.splice(productCart.indexOf(existing),1);selectedPrograms=selectedPrograms.filter(x=>x!==i)}else{selectedPrograms.includes(i)||selectedPrograms.push(i);productCart.push({id:`program-${i}`,type:'Program registration',name:p.name,price:p.price,qty:1,emoji:p.icon,registrationRequired:true});toast('✅ Item added to your cart successfully!')}renderPrograms();syncProductViews()}
-function addCourseToCart(){const form=courseForm;if(!form.reportValidity())return;const c=courses[activeCourse],entry=productEntry('course',activeCourse);entry.registration={kids:getChildren(form,Number(kidCount.value))};const existing=productCart.find(x=>x.id===entry.id);if(existing)existing.qty+=1;else productCart.push({...entry,qty:1});courseDialog.close();syncProductViews();toast('✅ Item added to your cart successfully!')}
-function renderCourses(){courseGrid.innerHTML=courses.map((c,i)=>`<article class="card course-card"><img src="${courseImages[i]}" alt="${c.name}"><h3>${currentLang==='ar'?c.name_ar:c.name}${/Aerospace|Mechanics/.test(c.name)?newBadge():''}</h3><p>${currentLang==='ar'?c.desc_ar:c.desc}</p><small>${c.weeks} weeks · Registration required</small>${salePrice(c.price,i)}<button class="btn" onclick="showCourse(${i})">${currentLang==='ar'?'سجّل في الدورة':'Register & add to cart'}</button></article>`).join('')}
-function renderCart(){const subtotal=cartSubtotal(),discount=couponApplied?Math.round(subtotal*.1):0,total=subtotal-discount,qty=productCart.reduce((s,x)=>s+x.qty,0);bookCartDialog.querySelector('h2').textContent=tr('cartDialogTitle');cartSummary.textContent=`${qty} item${qty===1?'':'s'} selected`;bookCartLines.innerHTML=productCart.length?productCart.map((x,i)=>`<div class="cart-line"><div class="cart-item-main"><span class="cart-visual">${x.image?`<img src="${x.image}" alt="">`:x.emoji||'🛍️'}</span><span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} each${x.registrationRequired?' · registration needed':''}</small></span></div><span class="qty-control"><button class="minus" onclick="changeQty(${i},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${i},1)">+</button></span><span class="cart-item-price">${fmt(x.price*x.qty)}</span></div>`).join(''):`<p class="empty">Your cart is empty.</p>`;cartTotalLabel.innerHTML=discount?`Subtotal: ${fmt(subtotal)}<br>Discount: −${fmt(discount)}<br><b>Final total</b>`:'Order total';bookCartTotal.textContent=fmt(total)}
-const ACCESS_API='/api/access/redeem';
-function accessKey(){return `ktl-unlocked-courses-${currentUserProfile?.email||'guest'}`}
-function renderUnlockedCourses(){const unlocked=JSON.parse(localStorage.getItem(accessKey())||'[]');unlockedCourses.innerHTML=unlocked.length?unlocked.map((code,i)=>`<article class="card course-card"><span class="icon">🎬</span><h3>Course unlocked</h3><p>Your course area is ready. Lesson videos will appear here when uploaded.</p><button class="btn alt" type="button">Coming soon</button></article>`).join(''):`<p class="empty">No courses unlocked yet.</p>`}
-async function unlockCourse(){const code=courseAccessCode.value.trim();if(!code)return toast('Enter your access code first.');const r=await fetch(ACCESS_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code,account:currentUserProfile?.email||null,kind:'course'})});const data=await r.json();if(!r.ok)return toast(data.message||'Invalid access code.');const unlocked=JSON.parse(localStorage.getItem(accessKey())||'[]');if(!unlocked.includes(data.item))unlocked.push(data.item);localStorage.setItem(accessKey(),JSON.stringify(unlocked));courseAccessCode.value='';renderUnlockedCourses();toast('Course access unlocked successfully!')}
+function renderUnlockedCourses() {
+  const unlocked = getUnlocked();
+  if (!unlocked.length) {
+    unlockedCourses.innerHTML = `<p class="empty">${currentLang === 'ar' ? 'لا يوجد عناصر مفتوحة بعد. أدخل الكود أعلاه.' : 'Nothing unlocked yet. Enter your code above.'}</p>`;
+    return;
+  }
+  unlockedCourses.innerHTML = unlocked.map(item => {
+    const isCourse = item.kind === 'course';
+    const badge = isCourse ? (currentLang === 'ar' ? 'دورة' : 'Course') : (currentLang === 'ar' ? 'كتاب' : 'Book');
+    const openLabel = isCourse ? (currentLang === 'ar' ? '▶ فتح فيديوهات الدورة' : '▶ Open course videos') : (currentLang === 'ar' ? '📖 فتح الكتاب' : '📖 Open book');
+    const readyLine = isCourse
+      ? (currentLang === 'ar' ? 'دروسك المسجلة ستظهر هنا فور رفعها.' : 'Your recorded lessons will appear here as soon as they are uploaded.')
+      : (currentLang === 'ar' ? 'نسخة الكتاب الرقمية ستظهر هنا فور رفعها.' : 'Your digital book copy will appear here as soon as it is uploaded.');
+    return `<article class="card library-card">
+      <span class="type-badge ${item.kind}">${badge}</span>
+      <h3>${item.name}</h3>
+      <p>${readyLine}</p>
+      <button class="btn" type="button" onclick="openUnlockedItem('${item.kind}','${item.name.replace(/'/g,"\\'")}')">${openLabel}</button>
+    </article>`;
+  }).join('');
+}
+
+function openUnlockedItem(kind, name) {
+  toast(currentLang === 'ar'
+    ? `محتوى "${name}" قيد التجهيز وسيتم رفعه قريبًا — سنبلغك فور توفره.`
+    : `Content for "${name}" is being prepared and will be uploaded soon — we'll let you know once it's ready.`);
+}
+
+function unlockCourse() {
+  const raw = courseAccessCode.value.trim();
+  if (!raw) return toast(currentLang === 'ar' ? 'أدخل الكود أولًا.' : 'Enter your access code first.');
+  const code = raw.toUpperCase();
+  const match = ACCESS_CODES[code];
+  if (!match) return toast(currentLang === 'ar' ? 'هذا الكود غير صحيح.' : 'That access code is not valid.');
+  const unlocked = getUnlocked();
+  const already = unlocked.find(u => u.kind === match.kind && u.name === match.name);
+  courseAccessCode.value = '';
+  if (already) {
+    toast(currentLang === 'ar' ? `${match.name} متاح بالفعل في مكتبتك.` : `${match.name} is already available in your library.`);
+    return;
+  }
+  unlocked.push({kind: match.kind, name: match.name, code});
+  setUnlocked(unlocked);
+  renderUnlockedCourses();
+  toast(currentLang === 'ar' ? `✅ ${match.name} متاح الآن!` : `✅ Your ${match.name} is now available!`);
+}
+
 /* ---------- Hamburger menu ---------- */
 function toggleMenu(e) {
   e.stopPropagation();
@@ -1122,16 +1265,18 @@ function toggleMenu(e) {
 function closeMenu() { menuDropdown.classList.remove('open'); menuButton.classList.remove('active'); menuButton.setAttribute('aria-expanded', 'false'); }
 document.addEventListener('click', e => { if (!e.target.closest('.menu-wrap')) closeMenu(); });
 
-/* ---------- Carousel ---------- */
+/* ---------- Ad carousel (now includes Aerospace & Mechanics) ---------- */
 const ads = [
- {img: 'assets/free-demo.png', title: 'Free Demo Session', title_ar: 'جلسة تجريبية مجانية', description: 'Try all six KTL programs for free.', description_ar: 'جرّب برامج KTL مجانًا.', demo: true},
+ {img: 'assets/free-demo.png', title: 'Free Demo Session', title_ar: 'جلسة تجريبية مجانية', description: 'Try all KTL programs for free.', description_ar: 'جرّب برامج KTL مجانًا.', demo: true},
  {img: categoryImages.ai, title: 'AI for Beginners', title_ar: 'الذكاء الاصطناعي للمبتدئين', description: 'Think, create and innovate with AI.', description_ar: 'فكّر وابتكر وأبدع مع الذكاء الاصطناعي.', program: 5, isNew: true},
  {img: categoryImages.automation, title: 'Automation Makers', title_ar: 'صناع الأتمتة', description: 'Discover how systems move and work.', description_ar: 'اكتشف كيف تتحرك الأنظمة وتعمل.', program: 6, isNew: true},
  {img: categoryImages.cybersecurity, title: 'Cybersecurity for Beginners', title_ar: 'الأمن السيبراني للمبتدئين', description: 'Learn to protect, detect and defend online.', description_ar: 'تعلم الحماية والاكتشاف والدفاع أونلاين.', program: 7, isNew: true},
+ {img: categoryImages.aerospace, title: 'Aerospace Program', title_ar: 'برنامج الطيران والفضاء', description: 'Explore flight, rockets and the science of space.', description_ar: 'استكشف الطيران والصواريخ وعلوم الفضاء.', program: 8, isNew: true},
+ {img: categoryImages.mechanics, title: 'Mechanics Program', title_ar: 'برنامج الميكانيكا', description: 'Build, test and understand real machines.', description_ar: 'ابنِ واختبر وافهم الآلات الحقيقية.', program: 9, isNew: true},
  {img: categoryImages.robotics, title: 'Robotics Course', title_ar: 'دورة الروبوتات', description: 'Build, code and test real robots.', description_ar: 'ابنِ وبرمج واختبر روبوتات حقيقية.', course: 0},
  {img: categoryImages.electronics, title: 'Electronics Explorers', title_ar: 'مستكشفو الإلكترونيات', description: 'Make safe circuits and bright ideas.', description_ar: 'اصنع دوائر آمنة وأفكارًا مضيئة.', course: 1},
  {img: categoryImages.programming, title: 'Programming Creators', title_ar: 'مبدعو البرمجة', description: 'Turn imagination into games and code.', description_ar: 'حوّل خيالك إلى ألعاب وبرمجة.', course: 2},
- {img: categoryImages.science, title: 'Science Fair Lab', title_ar: 'معمل معرض العلوم', description: 'Explore, experiment and discover.', description_ar: 'استكشف وجرّب واكتشف.', course: 3}
+ {img: categoryImages.science, title: 'Science Lab', title_ar: 'المعمل العلمي', description: 'Explore, experiment and discover.', description_ar: 'استكشف وجرّب واكتشف.', course: 3}
 ];
 let adIndex = 0, adTimer = null, adPlaying = true;
 
@@ -1201,11 +1346,7 @@ function openAccount() {
 }
 
 function updateAccountButton() {
-  if (currentUserProfile) {
-    accountButton.innerHTML = `👤 ${currentUserProfile.username}`;
-  } else {
-    accountButton.innerHTML = `👤 <span data-i18n="signInWord">${tr('signInWord')}</span>`;
-  }
+  accountButton.innerHTML = currentUserProfile ? `👤 ${currentUserProfile.username}` : `👤 <span data-i18n="signInWord">${tr('signInWord')}</span>`;
 }
 
 async function createAccount() {
@@ -1249,6 +1390,7 @@ function loadLocalUser() {
   currentUserProfile = user || null;
   updateAccountButton();
   if (user) dashboardProfile.textContent = `${user.fullName} · @${user.username} · ${user.email}`;
+  renderUnlockedCourses();
 }
 
 function logoutAccount() {
@@ -1278,13 +1420,14 @@ function googleSignIn() {
   toast(currentLang === 'ar' ? 'يتطلب تسجيل الدخول عبر Google بيانات اعتماد مُعدّة.' : 'Google Sign-In integration requires configured credentials.');
 }
 
-/* ---------- Language toggle ---------- */
+/* ---------- Language & theme ---------- */
 function renderAll() {
   renderPrograms();
   renderProjects();
   renderCourses();
   renderBooks();
   renderAd();
+  renderUnlockedCourses();
 }
 
 function toggleLanguage() {
