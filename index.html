@@ -1,4 +1,6 @@
- 
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -62,7 +64,7 @@
     dialog::backdrop{background:#000b}
     .close{float:right;background:none;border:0;color:var(--text);font-size:28px;cursor:pointer}
     label{display:block;font-weight:700;margin:12px 0 5px}
-    input,select{width:100%;padding:10px;border:1px solid var(--line);background:#07132c;color:var(--text);border-radius:8px;font:inherit}
+    input,select,textarea{width:100%;padding:10px;border:1px solid var(--line);background:#07132c;color:var(--text);border-radius:8px;font:inherit}textarea{min-height:110px;resize:vertical}
     .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .child{margin-top:16px;padding:14px;border:1px solid var(--line);border-radius:10px}
     .child h4{margin:0 0 5px;color:var(--blue)}
@@ -122,9 +124,11 @@
     .product-quantity{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:7px;border:1px solid var(--line);border-radius:13px;background:#06163370}.product-quantity .quantity-label{font-size:12px;color:var(--muted);font-weight:800}.qty-control{gap:4px;padding:3px;border-radius:10px;background:#00153766;border-color:#49628e}.qty-control button{width:32px;height:32px;border-radius:8px;transition:transform .16s ease}.qty-control button:hover{transform:scale(1.08)}.qty-control b{min-width:28px;font-variant-numeric:tabular-nums}
     .cart-dialog{padding:0;overflow:hidden;background:var(--card)}.cart-header{padding:24px 24px 17px;background:linear-gradient(135deg,#112a55,#251034);border-bottom:1px solid var(--line)}.cart-header h2{margin:0;text-align:left}.cart-header .small{display:block;margin-top:4px}.cart-body{padding:16px 24px 24px}.cart-line{padding:14px 0;gap:12px;animation:cart-in .28s ease both}.cart-item-main{display:flex;align-items:center;gap:12px;min-width:0;flex:1}.cart-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cart-visual{width:48px;height:48px;display:grid;place-items:center;flex:none;border-radius:13px;background:#18335d;overflow:hidden;font-size:25px}.cart-visual img{width:100%;height:100%;object-fit:cover}.cart-item-price{text-align:right;font-weight:800;color:var(--yellow);white-space:nowrap}.cart-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:15px;border-radius:14px;background:#071a39;border:1px solid var(--line)}.cart-total-label{color:var(--muted);font-size:13px}.cart-footer .fee{margin:0}@keyframes cart-in{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
 
-    .theme-button{font-size:25px!important;line-height:1;color:#ffd166!important;text-shadow:0 0 16px #ffd16699}.theme-button:hover{transform:rotate(18deg) scale(1.1)}body.light .theme-button{color:#f49b24!important}body.light{color:#14213d}body.light .nav-actions{background:#ffffffb8}body.light .card p,body.light .small{color:#465a78}#projects .summary,#books .summary{display:none}.course-access{max-width:700px}.course-access input{margin-top:5px}.toast{box-shadow:0 12px 30px #0005}.toast.show{animation:toast-pop .28s ease both}@keyframes toast-pop{from{opacity:0;transform:translate(-50%,130px) scale(.92)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+    .theme-button{font-size:25px!important;line-height:1;color:#ffd166!important;text-shadow:0 0 16px #ffd16699}.theme-button:hover{transform:rotate(18deg) scale(1.1)}body.light .theme-button{color:#f49b24!important}body.light{color:#14213d}body.light .nav-actions{background:#ffffffb8}body.light .card p,body.light .small{color:#465a78}#projects .summary,#books .summary{display:none}.course-access{max-width:880px}.course-access input{margin-top:5px}.toast{box-shadow:0 12px 30px #0005}.toast.show{animation:toast-pop .28s ease both}@keyframes toast-pop{from{opacity:0;transform:translate(-50%,130px) scale(.92)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+    .access-box{display:grid;grid-template-columns:1fr 1px 1fr;align-items:stretch;padding:22px}.access-field{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.access-field label{grid-column:1/-1;margin-top:0}.access-field input{margin:0}.access-divider{background:var(--line);margin:0 18px}.whatsapp-numbers{display:flex;flex-direction:column;gap:10px}.project-detail-image{width:100%;max-height:300px;object-fit:contain;background:#07132c;border:1px solid var(--line);border-radius:14px;margin:6px 0 18px}.project-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}.project-fact{padding:12px;border:1px solid var(--line);border-radius:10px;background:#071a3955}.project-fact b{display:block;color:var(--blue);font-size:12px;text-transform:uppercase;letter-spacing:.5px}.project-fact span{font-weight:800}
+    .custom-card{border-color:var(--pink);background:linear-gradient(145deg,color-mix(in srgb,var(--card) 92%,transparent),#32102c66)}.quote-badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#f4217622;color:var(--pink);font-size:12px;font-weight:900;margin:4px 0 10px}.custom-note{padding:11px;border-radius:10px;background:#00b8f411;color:var(--muted);font-size:13px;margin:12px 0}.custom-form .btn{width:100%;margin-top:18px}
     .book-card img{object-fit:contain!important;object-position:top!important;height:270px!important;background:#07132c}.project-card img,.program-card img,.course-card img{object-position:top}.nav-actions .icon-btn{transition:transform .25s ease,box-shadow .25s ease}.nav-actions .icon-btn:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 9px 18px #0006}.toast{top:22px;right:22px;bottom:auto;left:auto;transform:translateX(130%);background:#eafdf4;color:#073b23;border-left:4px solid #19a565}.toast.show{transform:translateX(0)}.toast.remove{background:#fff0f2;color:#8c1530;border-left-color:#e6375d}
-    @media(max-width:820px){.hero-layout{grid-template-columns:1fr;gap:26px}.grid{grid-template-columns:1fr 1fr}.two,.contact-grid{grid-template-columns:1fr}}
+    @media(max-width:820px){.hero-layout{grid-template-columns:1fr;gap:26px}.grid{grid-template-columns:1fr 1fr}.two,.contact-grid{grid-template-columns:1fr}.access-box{grid-template-columns:1fr}.access-divider{height:1px;margin:16px 0}.project-facts{grid-template-columns:1fr}}
     @media(max-width:600px){.nav-actions .btn.alt{max-width:120px}}
     @media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding:36px 0}.summary{align-items:stretch}.summary .btn{width:100%}.brand{font-size:19px}.nav-actions{gap:4px;padding:3px}.nav-actions .btn.alt{display:inline-flex;padding:8px 10px;font-size:12px;max-width:96px}.nav-actions .icon-btn{min-width:36px;padding:8px}.nav-actions .cart-badge{min-width:16px;height:16px;font-size:10px}.ad-copy{padding:24px 20px 16px}}
   </style>
@@ -221,15 +225,6 @@
     <div id="courseGrid" class="grid"></div>
   </section>
 
-  <section id="my-courses">
-    <h2>My <span class="blue">Courses</span></h2>
-    <p class="intro">Enter your course access code once. Your unlocked courses stay available after you sign in.</p>
-    <div class="summary course-access"><div style="flex:1"><label for="courseAccessCode">Course access code</label><input id="courseAccessCode" placeholder="Enter your code" autocomplete="off"></div><button class="btn" type="button" onclick="unlockCourse()">Unlock course</button></div>
-    <div id="unlockedCourses" class="grid" style="margin-top:18px"></div>
-    <div class="summary course-access" style="margin-top:20px"><div style="flex:1"><label for="bookAccessCode">Online book code</label><input id="bookAccessCode" placeholder="Enter your code" autocomplete="off"></div><button class="btn" type="button" onclick="unlockBook()">Unlock book</button></div>
-    <div id="unlockedBooks" class="grid" style="margin-top:18px"></div>
-  </section>
-
   <section id="books">
     <h2 id="booksHeading">Buy <span class="pink">Learning Books</span></h2>
     <p class="intro" data-i18n="booksIntro">Beautiful, practical books that extend KTL learning at home. Add any books to your cart, then send your delivery request.</p>
@@ -244,6 +239,18 @@
     </div>
   </section>
 
+  <section id="my-courses">
+    <h2>My <span class="blue">Courses &amp; Books</span></h2>
+    <p class="intro">Use one convenient access box for your course or online book code. Your unlocked learning stays available after you sign in.</p>
+    <div class="summary course-access access-box">
+      <div class="access-field"><label for="courseAccessCode">Course code</label><input id="courseAccessCode" placeholder="Enter course code" autocomplete="off"><button class="btn" type="button" onclick="unlockCourse()">Unlock course</button></div>
+      <div class="access-divider" aria-hidden="true"></div>
+      <div class="access-field"><label for="bookAccessCode">Online book code</label><input id="bookAccessCode" placeholder="Enter book code" autocomplete="off"><button class="btn blue" type="button" onclick="unlockBook()">Unlock book</button></div>
+    </div>
+    <div id="unlockedCourses" class="grid" style="margin-top:18px"></div>
+    <div id="unlockedBooks" class="grid" style="margin-top:18px"></div>
+  </section>
+
   <section id="contact">
     <h2 id="contactHeading">Let's <span class="blue">Connect</span></h2>
     <p class="intro" data-i18n="contactIntro">Our friendly team is ready to help with programs, orders, school visits and learning advice.</p>
@@ -252,8 +259,10 @@
         <span class="icon">☎</span>
         <h3 data-i18n="callTitle">Call or WhatsApp</h3>
         <p data-i18n="callDesc">Talk directly with our KTL team.</p>
-        <a class="btn" href="https://wa.me/201094410554" target="_blank" rel="noopener">01094410554</a>
-        <p class="small">01012697190</p>
+        <div class="whatsapp-numbers">
+          <a class="btn" href="https://wa.me/201012697190" target="_blank" rel="noopener">WhatsApp 01012697190</a>
+          <a class="btn alt" href="https://wa.me/201094410554" target="_blank" rel="noopener">WhatsApp 01094410554</a>
+        </div>
       </article>
       <article class="card contact-item">
         <span class="icon">✉</span>
@@ -335,10 +344,32 @@
 <dialog id="projectDialog">
   <button class="close" onclick="projectDialog.close()">×</button>
   <h2 id="projectTitle"></h2>
+  <img id="projectDetailImage" class="project-detail-image" src="" alt="">
   <p id="projectDescription" class="muted"></p>
   <div class="notice" id="projectDetails"></div>
+  <div class="project-facts" id="projectFacts"></div>
   <div class="fee" id="projectPrice"></div>
   <button class="btn" id="projectAddButton">Add project to cart</button>
+</dialog>
+
+<dialog id="customRequestDialog">
+  <button class="close" onclick="customRequestDialog.close()">×</button>
+  <h2 id="customRequestTitle">Custom request</h2>
+  <p class="muted" id="customRequestIntro"></p>
+  <form id="customRequestForm" class="custom-form" onsubmit="sendCustomRequest(event)">
+    <div id="customBookFields" hidden>
+      <label for="customBookName">Book name</label><input id="customBookName" name="bookName">
+      <label for="customKidAge">Kid age</label><input id="customKidAge" name="kidAge" type="number" min="1" max="18">
+    </div>
+    <label for="customIdea" id="customIdeaLabel">Describe your idea</label><textarea id="customIdea" name="idea" required></textarea>
+    <label for="customPreference" id="customPreferenceLabel">Preferred material</label>
+    <input id="customPreference" name="preference" list="customPreferenceOptions" placeholder="Choose or type your own" required>
+    <datalist id="customPreferenceOptions"></datalist>
+    <label for="customReferences">Reference images</label><input id="customReferences" name="references" type="file" accept="image/*" multiple>
+    <p class="custom-note">Please attach your photos directly in WhatsApp after tapping send as well.</p>
+    <div class="two"><div><label for="customFullName">Full name</label><input id="customFullName" name="fullName" required></div><div><label for="customLocation">Location</label><input id="customLocation" name="location" required></div></div>
+    <button class="btn" type="submit">💬 Confirm by WhatsApp</button>
+  </form>
 </dialog>
 
 <dialog id="programInfoDialog">
@@ -849,8 +880,15 @@ function showProject(i) {
   activeProject = i;
   const p = projects[i];
   projectTitle.textContent = currentLang === 'ar' ? p.name_ar : p.name;
+  projectDetailImage.src = p.img;
+  projectDetailImage.alt = `${currentLang === 'ar' ? p.name_ar : p.name} project image`;
   projectDescription.textContent = currentLang === 'ar' ? p.desc_ar : p.desc;
-  projectDetails.textContent = currentLang === 'ar' ? (p.details_ar || p.details) : p.details;
+  projectDetails.innerHTML = currentLang === 'ar'
+    ? `<b>نظرة عامة على المشروع</b><br>${p.details_ar || p.details}<br><br>سيتعلم الطالب كيفية تخطيط النظام، وتوصيل مكوناته بأمان، وبرمجته، واختباره، ثم تحسينه من خلال حل المشكلات عمليًا.`
+    : `<b>Project overview</b><br>${p.details}<br><br>Students learn to plan the system, connect its components safely, program its behaviour, test the result, and improve it through practical problem-solving.`;
+  projectFacts.innerHTML = currentLang === 'ar'
+    ? '<div class="project-fact"><b>نوع التعلم</b><span>STEM عملي</span></div><div class="project-fact"><b>المهارات</b><span>البرمجة، الإلكترونيات، التصميم</span></div><div class="project-fact"><b>ما يتضمنه</b><span>مكونات المشروع وإرشادات البناء</span></div><div class="project-fact"><b>النتيجة</b><span>نموذج عامل قابل للاختبار</span></div>'
+    : '<div class="project-fact"><b>Learning style</b><span>Hands-on STEM</span></div><div class="project-fact"><b>Skills practised</b><span>Coding, electronics &amp; design</span></div><div class="project-fact"><b>Included</b><span>Project components &amp; build guidance</span></div><div class="project-fact"><b>Outcome</b><span>A working, testable prototype</span></div>';
   projectPrice.textContent = fmt(p.price);
   projectAddButton.textContent = currentLang === 'ar' ? 'أضف المشروع إلى السلة' : 'Add project to cart';
   projectAddButton.onclick = () => { addProject(i); projectDialog.close(); };
@@ -1161,6 +1199,12 @@ function renderAd() {
     if (ad.demo) {
       document.getElementById('programs').scrollIntoView({behavior: 'smooth'});
       setTimeout(showDemoInfo, 450);
+    } else if (ad.project !== undefined) {
+      document.getElementById('projects').scrollIntoView({behavior: 'smooth'});
+      setTimeout(() => ad.custom ? openCustomRequest('project') : showProject(ad.project), 450);
+    } else if (ad.book !== undefined) {
+      document.getElementById('books').scrollIntoView({behavior: 'smooth'});
+      setTimeout(() => ad.custom ? openCustomRequest('book') : showBookInfo(ad.book), 450);
     } else if (ad.course !== undefined) {
       document.getElementById('courses').scrollIntoView({behavior: 'smooth'});
       setTimeout(() => showCourse(ad.course), 450);
@@ -1306,12 +1350,42 @@ if (localStorage.getItem('ktl-theme') === 'light') document.body.classList.add('
 const suppliedProjectImages = [
   ['Smart Soccer','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/socer project.jpeg'],['Smart Plant Watering System','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/plant watering project.jpeg'],['Smart Parking Garage','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/smart parking project.jpeg'],['Mini Smart Home','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/mini smart home project.jpeg'],['Automatic Pet Feeder','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/prt feeder project.jpeg'],['Security Laser Maze','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/security project.jpeg'],['Smart Traffic Intersection','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/smart trafice project.jpeg'],['Fire & Smoke Alarm','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/fire and smoke alarm project.jpeg'],['Reaction Speed Game','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/speed game project.jpeg'],['Mini Factory Conveyor Belt','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/mini factory project.jpeg'],['Smart Car','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/smart car project.jpeg'],['Balancing Bot','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/self balncing project.jpeg'],['RC Car','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/rc car project.jpeg'],['Build Your Own Car','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/car project.jpeg'],['Weather Station','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/wethear project.jpeg']
 ];
-projects.splice(0,projects.length,...suppliedProjectImages.map(([name,img],i)=>({name,name_ar:name,desc:'A hands-on KTL STEM project kit for young innovators.',desc_ar:'طقم مشروع KTL عملي للمبتكرين الصغار.',details:'Explore, build and test this engaging STEM project.',details_ar:'استكشف وابنِ واختبر هذا المشروع العملي.',price:250+i*10,img})));
-projects.push({name:'Make Your Own Project',name_ar:'اصنع مشروعك الخاص',desc:'Choose an idea and create a custom STEM project with KTL.',desc_ar:'اختر فكرتك وأنشئ مشروع STEM خاصًا مع KTL.',details:'Tell us your idea and the KTL team will help plan it.',details_ar:'أخبرنا بفكرتك وسيساعدك فريق KTL في التخطيط لها.',price:300,img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/make ur own project  ad.jpeg'});
-books.push({name:'Make Your Own Educational Book',name_ar:'اصنع كتابك التعليمي الخاص',topic:'Custom book',topic_ar:'كتاب مخصص',desc:'Create a learning book around your own ideas.',desc_ar:'أنشئ كتابًا تعليميًا حول أفكارك الخاصة.',price:250,pdfPrice:250,hardCopyPrice:500,listPdfPrice:350,discountPercent:0});
+projects.splice(0,projects.length,...suppliedProjectImages.map(([name,img],i)=>({name,name_ar:name,desc:'A hands-on KTL STEM project kit for young innovators.',desc_ar:'طقم مشروع KTL عملي للمبتكرين الصغار.',details:'Explore, build and test this engaging STEM project.',details_ar:'استكشف وابنِ واختبر هذا المشروع العملي.',price:(250+i*10)*8,img})));
+projects.push({name:'Make Your Own Project',name_ar:'اصنع مشروعك الخاص',desc:'Describe your idea and KTL will create a custom project for you.',desc_ar:'صِف فكرتك وسيصنع لك فريق KTL مشروعًا مخصصًا.',details:'Custom-made to your requirements. Pricing is arranged directly on WhatsApp.',details_ar:'يُصنع حسب متطلباتك، ويتم تحديد السعر مباشرة عبر واتساب.',custom:true,img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/make ur own project  ad.jpeg'});
+books.push({name:'Make Your Own Educational Book',name_ar:'اصنع كتابك التعليمي الخاص',topic:'Custom-made book',topic_ar:'كتاب مخصص',desc:'A custom educational book created around your child and idea. Pricing is arranged on WhatsApp.',desc_ar:'كتاب تعليمي مخصص يُنشأ لطفلك وفكرتك. يتم تحديد السعر عبر واتساب.',custom:true});
 bookPhotos.push('C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/make ur own book ad.jpeg');
-setTimeout(()=>{ads.splice(0,ads.length,...ads.filter(a=>!a.img),{img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png',title:'Aerospace',title_ar:'الطيران والفضاء',description:'Explore, learn and launch.',description_ar:'استكشف وتعلم وانطلق.',program:8,isNew:true},{img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png',title:'Mechanics',title_ar:'الميكانيكا',description:'Design, analyze, build and solve.',description_ar:'صمّم وحلّل وابنِ وحل المشكلات.',program:9,isNew:true});adIndex=0;renderAd()},0);
+function openCustomRequest(kind){
+  customRequestForm.reset(); customRequestForm.dataset.kind=kind;
+  const isBook=kind==='book'; customBookFields.hidden=!isBook;
+  customBookName.required=isBook; customKidAge.required=isBook;
+  customRequestTitle.textContent=isBook?'Make Your Own Educational Book':'Make Your Own Project';
+  customRequestIntro.textContent=isBook?'Tell us about the educational book you want us to create. Pricing will be arranged on WhatsApp.':'Tell us about the custom STEM project you want us to create. Pricing will be arranged on WhatsApp.';
+  customIdeaLabel.textContent=isBook?'Describe your book idea':'Describe your project idea';
+  customPreferenceLabel.textContent=isBook?'Preferred size':'Preferred material';
+  customPreferenceOptions.innerHTML=isBook?'<option value="A4"><option value="A5"><option value="Square"><option value="Custom size">':'<option value="Wood"><option value="Acrylic"><option value="Cardboard"><option value="Mixed materials"><option value="Custom material">';
+  customRequestDialog.showModal();
+}
+function sendCustomRequest(event){
+  event.preventDefault(); if(!customRequestForm.reportValidity())return;
+  const data=Object.fromEntries(new FormData(customRequestForm)),isBook=customRequestForm.dataset.kind==='book';
+  const message=isBook
+    ? `KTL Custom Educational Book Request\nBook name: ${data.bookName}\nKid age: ${data.kidAge}\nBook idea: ${data.idea}\nPreferred size: ${data.preference}\nFull name: ${data.fullName}\nLocation: ${data.location}\n\nI will attach my reference images here in WhatsApp.`
+    : `KTL Custom Project Request\nProject idea: ${data.idea}\nPreferred material: ${data.preference}\nFull name: ${data.fullName}\nLocation: ${data.location}\n\nI will attach my reference images here in WhatsApp.`;
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`,'_blank'); customRequestDialog.close();
+}
+function renderProjects(){projectGrid.innerHTML=projects.map((p,i)=>p.custom?`<article class="card project-card custom-card"><img src="${p.img}" alt="${p.name}"><span class="quote-badge">CUSTOM MADE · PRICE ON WHATSAPP</span><h3>${currentLang==='ar'?p.name_ar:p.name}</h3><p>${currentLang==='ar'?p.desc_ar:p.desc}</p><button class="btn" onclick="openCustomRequest('project')">${currentLang==='ar'?'ابدأ طلبك المخصص':'Start your custom request'}</button></article>`:`<article class="card project-card"><img src="${p.img}" alt="${p.name}"><h3>${currentLang==='ar'?p.name_ar:p.name}</h3><p>${currentLang==='ar'?p.desc_ar:p.desc}</p>${salePrice(p.price,i)}<button class="btn alt" onclick="showProject(${i})">${currentLang==='ar'?'تفاصيل المشروع':'Project details'}</button>${quantityControl('project',i)}</article>`).join('');updateProductTotals()}
+function renderBooks(){bookGrid.innerHTML=books.map((b,i)=>b.custom?`<article class="card book-card custom-card"><img src="${bookPhotos[i%bookPhotos.length]}" alt="${b.name}"><span class="quote-badge">CUSTOM MADE · PRICE ON WHATSAPP</span><h3>${currentLang==='ar'?b.name_ar:b.name}</h3><p>${currentLang==='ar'?b.desc_ar:b.desc}</p><button class="btn" onclick="openCustomRequest('book')">${currentLang==='ar'?'ابدأ طلب كتاب مخصص':'Start your custom book'}</button></article>`:`<article class="card book-card"><img src="${bookPhotos[i%bookPhotos.length]}" alt="${b.name}"><small class="blue">${currentLang==='ar'?b.topic_ar:b.topic}</small><h3>${currentLang==='ar'?b.name_ar:b.name}</h3><p>${currentLang==='ar'?b.desc_ar:b.desc}</p><div class="fee">${fmt(b.pdfPrice)}</div><button class="btn alt" onclick="showBookInfo(${i})">${currentLang==='ar'?'تفاصيل الكتاب':'Book details'}</button><small class="blue" style="display:block;margin-top:12px">PDF</small>${quantityControl('book',i,'pdf')}<small class="pink" style="display:block;margin-top:10px">${currentLang==='ar'?'نسخة ورقية':'Hard copy'} · ${fmt(b.hardCopyPrice)}</small>${quantityControl('book',i,'hard')}</article>`).join('');updateProductTotals()}
+setTimeout(()=>{const customProjectIndex=projects.findIndex(p=>p.custom),customBookIndex=books.findIndex(b=>b.custom);ads.splice(0,ads.length,
+ {img:'assets/free-demo.png',title:'Free Demo Session',title_ar:'جلسة تجريبية مجانية',description:'Try KTL learning for free.',description_ar:'جرّب تعلم KTL مجانًا.',demo:true},
+ {img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png',title:'Aerospace',title_ar:'الطيران والفضاء',description:'Explore, learn and launch.',description_ar:'استكشف وتعلم وانطلق.',program:8,isNew:true},
+ {img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png',title:'Mechanics',title_ar:'الميكانيكا',description:'Design, analyze, build and solve.',description_ar:'صمّم وحلّل وابنِ وحل المشكلات.',program:9,isNew:true},
+ {img:projects[0].img,title:'Smart Soccer',title_ar:'كرة القدم الذكية',description:'Build a smart interactive soccer project.',description_ar:'ابنِ مشروع كرة قدم ذكيًا وتفاعليًا.',project:0},
+ {img:categoryImages.automation,title:'Automation Makers',title_ar:'صناع الأتمتة',description:'Discover how smart systems move and work.',description_ar:'اكتشف كيف تتحرك الأنظمة الذكية وتعمل.',program:6},
+ {img:bookPhotos[1],title:'Electronics Book',title_ar:'كتاب الإلكترونيات',description:'Explore circuits, components and bright ideas.',description_ar:'استكشف الدوائر والمكونات والأفكار المضيئة.',book:1},
+ {img:bookPhotos[customBookIndex],title:'Make Your Own Educational Book',title_ar:'اصنع كتابك التعليمي',description:'Custom-made around your child and idea.',description_ar:'مصمم خصيصًا لطفلك وفكرتك.',book:customBookIndex,custom:true},
+ {img:projects[customProjectIndex].img,title:'Make Your Own Project',title_ar:'اصنع مشروعك الخاص',description:'Your idea, custom-built with KTL.',description_ar:'فكرتك، يصنعها KTL خصيصًا لك.',project:customProjectIndex,custom:true});adIndex=0;renderAd()},0);
 /* ---------- Initialization ---------- */
+document.querySelector('main').append(document.getElementById('about'));
 loadLocalUser();
 applyStaticTranslations();
 renderAd();
@@ -1324,7 +1398,7 @@ renderUnlockedCourses();
 </script>
 
 <footer>
-  KTL Kids Techno Lab · 01094410554 · 01094483694 ·
+  KTL Kids Techno Lab · <a href="https://wa.me/201012697190" target="_blank" rel="noopener" style="color:var(--blue)">01012697190</a> · <a href="https://wa.me/201094410554" target="_blank" rel="noopener" style="color:var(--blue)">01094410554</a> ·
   <a href="mailto:ktl.kid3@gmail.com" style="color:var(--blue)">ktl.kid3@gmail.com</a> ·
   <a href="https://www.instagram.com/ktl._team/" target="_blank" rel="noopener" style="color:var(--blue)">@ktl._team</a>
 </footer>
