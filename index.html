@@ -109,10 +109,7 @@
     [dir="rtl"] .ad-dots{left:auto;right:18px}
     .ad-dots button{width:10px;height:10px;padding:0;border:0;border-radius:50%;background:#fff8;cursor:pointer}
     .ad-dots button.active{background:var(--yellow);transform:scale(1.25)}
-    .certificate-preview{margin:18px 0;border:8px double var(--yellow);padding:22px;text-align:center;background:linear-gradient(135deg,#0c214c,#241037);border-radius:12px}
-    .certificate-preview h3{margin:5px 0;color:var(--yellow);font-family:Georgia,serif;font-size:28px}
-    .certificate-preview p{margin:4px;color:#fff}
-    .certificate-preview small{color:#cbd8ef}
+    .certificate-preview{display:block;width:100%;height:auto;margin:18px 0;border:1px solid var(--line);border-radius:12px;background:#fff;object-fit:contain}
     .cart-badge{display:inline-flex;min-width:18px;height:18px;align-items:center;justify-content:center;border-radius:50%;background:var(--pink);color:#fff;font-size:11px;margin-left:5px}
     [dir="rtl"] .cart-badge{margin-left:0;margin-right:5px}
 
@@ -127,6 +124,7 @@
     .theme-button{font-size:25px!important;line-height:1;color:#ffd166!important;text-shadow:0 0 16px #ffd16699}.theme-button:hover{transform:rotate(18deg) scale(1.1)}body.light .theme-button{color:#f49b24!important}body.light{color:#14213d}body.light .nav-actions{background:#ffffffb8}body.light .card p,body.light .small{color:#465a78}#projects .summary,#books .summary{display:none}.course-access{max-width:880px}.course-access input{margin-top:5px}.toast{box-shadow:0 12px 30px #0005}.toast.show{animation:toast-pop .28s ease both}@keyframes toast-pop{from{opacity:0;transform:translate(-50%,130px) scale(.92)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
     .access-box{display:grid;grid-template-columns:1fr 1px 1fr;align-items:stretch;padding:22px}.access-field{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.access-field label{grid-column:1/-1;margin-top:0}.access-field input{margin:0}.access-divider{background:var(--line);margin:0 18px}.whatsapp-numbers{display:flex;flex-direction:column;gap:10px}.project-detail-image{width:100%;max-height:300px;object-fit:contain;background:#07132c;border:1px solid var(--line);border-radius:14px;margin:6px 0 18px}.project-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}.project-fact{padding:12px;border:1px solid var(--line);border-radius:10px;background:#071a3955}.project-fact b{display:block;color:var(--blue);font-size:12px;text-transform:uppercase;letter-spacing:.5px}.project-fact span{font-weight:800}
     .custom-card{border-color:var(--pink);background:linear-gradient(145deg,color-mix(in srgb,var(--card) 92%,transparent),#32102c66)}.quote-badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#f4217622;color:var(--pink);font-size:12px;font-weight:900;margin:4px 0 10px}.custom-note{padding:11px;border-radius:10px;background:#00b8f411;color:var(--muted);font-size:13px;margin:12px 0}.custom-form .btn{width:100%;margin-top:18px}
+    .unlocked-card{border-top:4px solid var(--yellow);display:flex;flex-direction:column;align-items:flex-start;min-height:220px}.unlocked-card.book-unlocked{border-top-color:var(--pink)}.unlocked-card .access-type{display:inline-flex;padding:4px 10px;border-radius:999px;background:#00b8f422;color:var(--blue);font-size:12px;font-weight:900}.unlocked-card.book-unlocked .access-type{background:#f4217622;color:var(--pink)}.unlocked-card h3{font-size:21px;margin:14px 0 6px}.unlocked-card p{min-height:0;flex:1}.unlocked-card .btn{text-decoration:none;margin-top:10px}
     .book-card img{object-fit:contain!important;object-position:top!important;height:270px!important;background:#07132c}.project-card img,.program-card img,.course-card img{object-position:top}.nav-actions .icon-btn{transition:transform .25s ease,box-shadow .25s ease}.nav-actions .icon-btn:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 9px 18px #0006}.toast{top:22px;right:22px;bottom:auto;left:auto;transform:translateX(130%);background:#eafdf4;color:#073b23;border-left:4px solid #19a565}.toast.show{transform:translateX(0)}.toast.remove{background:#fff0f2;color:#8c1530;border-left-color:#e6375d}
     @media(max-width:820px){.hero-layout{grid-template-columns:1fr;gap:26px}.grid{grid-template-columns:1fr 1fr}.two,.contact-grid{grid-template-columns:1fr}.access-box{grid-template-columns:1fr}.access-divider{height:1px;margin:16px 0}.project-facts{grid-template-columns:1fr}}
     @media(max-width:600px){.nav-actions .btn.alt{max-width:120px}}
@@ -932,9 +930,7 @@ function showCourse(i) {
     ? `<b>معلومات كاملة عن الدورة</b><br>${c.weeks} دروس أسبوعية أونلاين · الفئة العمرية الموصى بها: 7–14 · إرشاد ودّي للأهل · شهادة إتمام رقمية<br><br><b>رحلة التعلم:</b> لكل أسبوع هدف تعليمي ونشاط موجه ومشروع مصغر وتحدٍّ ومهمة تأملية. ينهي المتعلمون الدورة بمشروع نهائي قابل للمشاركة.`
     : `<b>Complete course information</b><br>${c.weeks} weekly online lessons · Recommended age: 7–14 · Live-friendly parent guidance · Digital completion certificate<br><br><b>Learning journey:</b> Each week has a learning goal, a guided activity, a mini-project, a challenge and a reflection task. Learners finish with a shareable final project.`;
   document.querySelectorAll('#courseDialog .certificate-preview').forEach(e => e.remove());
-  const certHtml = currentLang === 'ar'
-    ? '<div class="certificate-preview"><small>كيدز تكنو لاب KTL</small><h3>شهادة إتمام</h3><p>تُمنح هذه الشهادة بعد إتمام الدورة المختارة والمشروع النهائي.</p><small>موقعة من فريق التعلم في KTL · شهادة رقمية</small></div>'
-    : '<div class="certificate-preview"><small>KTL KIDS TECHNO LAB</small><h3>Certificate of Completion</h3><p>This certificate is awarded after completing the selected course and final project.</p><small>Signed by the KTL learning team · Digital certificate included</small></div>';
+  const certHtml = '<img class="certificate-preview" src="assets/ktl-certificate.png" alt="KTL Certificate of Participation">';
   courseInfo.insertAdjacentHTML('afterend', certHtml);
   coursePrice.textContent = currentLang === 'ar' ? `${fmt(c.price)} لكل طفل` : `${fmt(c.price)} per child`;
   kidCount.value = 1;
@@ -1133,13 +1129,13 @@ programs.push({name:'Aerospace Program',name_ar:'برنامج الطيران و�
 courses.push({name:'Aerospace at Home',name_ar:'الطيران والفضاء في المنزل',price:590,weeks:6,desc:'Launch into aerospace science with guided challenges.',desc_ar:'انطلق في علوم الطيران والفضاء من خلال تحديات موجهة.'});
 programs.push({name:'Mechanics Program',name_ar:'برنامج الميكانيكا',icon:'⚙️',price:290,description:'Build, test and understand real machines.',description_ar:'ابنِ واختبر وافهم الآلات الحقيقية.'});
 courses.push({name:'Mechanics',name_ar:'الميكانيكا',price:670,weeks:7,desc:'Explore forces, motion and mechanisms.',desc_ar:'استكشف القوى والحركة والآليات.'});
-programImages.push('C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png'); courseImages.push('C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png');
+programImages.push('assets/ads/aerospace-ad.png','assets/ads/mechanics-ad.png'); courseImages.push('assets/ads/aerospace-ad.png','assets/ads/mechanics-ad.png');
 Object.assign(books[5],{name:'Cyber Security',name_ar:'الأمن السيبراني',topic:'Cyber Security',topic_ar:'الأمن السيبراني'});
 Object.assign(books[6],{name:'Arts',name_ar:'الفنون',topic:'Arts',topic_ar:'الفنون'});
 Object.assign(books[7],{name:'Printing Technology',name_ar:'تقنيات الطباعة',topic:'Printing Technology',topic_ar:'تقنيات الطباعة'});
 books.push({name:'Automation',name_ar:'الأتمتة',price:180,topic:'Automation',topic_ar:'الأتمتة',desc:'Discover smart systems, sensors and automatic machines.',desc_ar:'اكتشف الأنظمة الذكية والحساسات والآلات الأوتوماتيكية.'},{name:'Mechanics',name_ar:'الميكانيكا',price:180,topic:'Mechanics',topic_ar:'الميكانيكا',desc:'Build an understanding of movement, forces and machines.',desc_ar:'افهم الحركة والقوى والآلات.'},{name:'AI Fundamentals',name_ar:'أساسيات الذكاء الاصطناعي',price:190,topic:'AI',topic_ar:'الذكاء الاصطناعي',desc:'A friendly introduction to artificial intelligence.',desc_ar:'مقدمة مبسطة للذكاء الاصطناعي.'});
 books.slice(8).forEach(b=>{b.listPdfPrice=b.price*5;b.discountPercent=35;b.pdfPrice=Math.round(b.listPdfPrice*.65);b.hardCopyPrice=b.pdfPrice+250;b.price=b.pdfPrice});
-bookPhotos.splice(0,11,'C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/robotics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/electronics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/coding book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/science book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/space books.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/cyber book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/arts book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/printing book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/auto book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/mechanics book.png','C:/Users/mosta/Downloads/work/KTL/PHOTOS/books/ai book.png');
+bookPhotos.splice(0,11,'assets/books/robotics-book.png','assets/books/electronics-book.png','assets/books/coding-book.png','assets/books/science-book.png','assets/books/space-book.png','assets/books/cyber-book.png','assets/books/arts-book.png','assets/books/printing-book.png','assets/books/automation-book.png','assets/books/mechanics-book.png','assets/books/ai-book.png');
 let couponApplied=false;
 function cartSubtotal(){return productCart.reduce((s,x)=>s+x.price*x.qty,0)}
 function applyCoupon(){if(couponApplied)return toast('KTL10 has already been applied.');if(couponCode.value.trim().toUpperCase()!=='KTL10'){couponMessage.textContent='That coupon code is not valid.';return}couponApplied=true;couponMessage.textContent='KTL10 applied — 10% discount added.';renderCart();toast('Coupon applied successfully!')}
@@ -1148,10 +1144,58 @@ function toggleProgram(i){const p=programs[i],existing=productCart.find(x=>x.id=
 function addCourseToCart(){const form=courseForm;if(!form.reportValidity())return;const c=courses[activeCourse],entry=productEntry('course',activeCourse);entry.registration={kids:getChildren(form,Number(kidCount.value))};const existing=productCart.find(x=>x.id===entry.id);if(existing)existing.qty+=1;else productCart.push({...entry,qty:1});courseDialog.close();syncProductViews();toast('✅ Item added to your cart successfully!')}
 function renderCourses(){courseGrid.innerHTML=courses.map((c,i)=>`<article class="card course-card"><img src="${courseImages[i]}" alt="${c.name}"><h3>${currentLang==='ar'?c.name_ar:c.name}${/Aerospace|Mechanics/.test(c.name)?newBadge():''}</h3><p>${currentLang==='ar'?c.desc_ar:c.desc}</p><small>${c.weeks} weeks · Registration required</small>${salePrice(c.price,i)}<button class="btn" onclick="showCourse(${i})">${currentLang==='ar'?'سجّل في الدورة':'Register & add to cart'}</button></article>`).join('')}
 function renderCart(){const subtotal=cartSubtotal(),discount=couponApplied?Math.round(subtotal*.1):0,total=subtotal-discount,qty=productCart.reduce((s,x)=>s+x.qty,0);bookCartDialog.querySelector('h2').textContent=tr('cartDialogTitle');cartSummary.textContent=`${qty} item${qty===1?'':'s'} selected`;bookCartLines.innerHTML=productCart.length?productCart.map((x,i)=>`<div class="cart-line"><div class="cart-item-main"><span class="cart-visual">${x.image?`<img src="${x.image}" alt="">`:x.emoji||'🛍️'}</span><span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} each${x.registrationRequired?' · registration needed':''}</small></span></div><span class="qty-control"><button class="minus" onclick="changeQty(${i},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${i},1)">+</button></span><span class="cart-item-price">${fmt(x.price*x.qty)}</span></div>`).join(''):`<p class="empty">Your cart is empty.</p>`;cartTotalLabel.innerHTML=discount?`Subtotal: ${fmt(subtotal)}<br>Discount: −${fmt(discount)}<br><b>Final total</b>`:'Order total';bookCartTotal.textContent=fmt(total)}
-const ACCESS_API='/api/access/redeem';
-function accessKey(){return `ktl-unlocked-courses-${currentUserProfile?.email||'guest'}`}
-function renderUnlockedCourses(){const unlocked=JSON.parse(localStorage.getItem(accessKey())||'[]');unlockedCourses.innerHTML=unlocked.length?unlocked.map((code,i)=>`<article class="card course-card"><span class="icon">🎬</span><h3>Course unlocked</h3><p>Your course area is ready. Lesson videos will appear here when uploaded.</p><button class="btn alt" type="button">Coming soon</button></article>`).join(''):`<p class="empty">No courses unlocked yet.</p>`}
-async function unlockCourse(){const code=courseAccessCode.value.trim();if(!code)return toast('Enter your access code first.');const r=await fetch(ACCESS_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code,account:currentUserProfile?.email||null,kind:'course'})});const data=await r.json();if(!r.ok)return toast(data.message||'Invalid access code.');const unlocked=JSON.parse(localStorage.getItem(accessKey())||'[]');if(!unlocked.includes(data.item))unlocked.push(data.item);localStorage.setItem(accessKey(),JSON.stringify(unlocked));courseAccessCode.value='';renderUnlockedCourses();toast('Course access unlocked successfully!')}
+const ACCESS_CODE_GROUPS={
+ course:{
+  'Robotics at Home':['RH9K-4M7P-2W8L','8F3J-RH6N-9Q1K','RBH7-2P4V-9X5M','5T9K-RH2L-8W3P'],
+  'Electronics Explorers':['EE8M-3K9P-7L2N','4X7Q-EE2W-9R5K','EXP6-8J3N-5P9T','1L8K-EE4M-7V2R'],
+  'Programming Creators':['PC7K-9W4M-2L8R','5P2N-PC8Q-3X6J','PRG4-6L9K-8M1W','3T8R-PC5V-7N2K'],
+  'Science Lab':['SL9P-2K8M-4W7R','6N3J-SL7Q-1X5L','SCI8-4M2P-9R6K','2W7K-SL5N-8L3P'],
+  'AI for Beginners':['AI6K-8M3P-9L2R','4W9Q-AI2N-7X5K','AIB7-3L8M-5R1P','1N5K-AI9W-8P4L'],
+  'Automation Makers':['AM8P-4K7M-2W9R','7X3J-AM9Q-5L1K','AUT5-8M2P-6R4W','3L9K-AM6N-8P2R'],
+  'Cybersecurity for Beginners':['CS9K-2M8P-4W7R','5N4J-CS8Q-1X6L','CYB6-3M9P-8R2K','2W8K-CS5N-7L4P'],
+  'Aerospace at Home':['AH7K-9M4P-2W8R','8X2J-AH6Q-3L9K','AER4-5M8P-7R1W','1L9K-AH3N-6P5R'],
+  'Mechanics Program':['MC8K-3W9P-7L2R','5N1J-MC6Q-4X8L','MCH2-9P4K-8W5M','3L7K-MC9N-2P6R']
+ },
+ book:{
+  'Robotics Book':['RB12-8X4M-9P7K','3N8Q-RB5V-2L9T','ROB8-7P3K-4W1M','9L2K-RB6X-5R8P'],
+  'Electronics Book':['EL7M-9K2P-4W8N','5X3Q-EL8W-1R6K','ELE4-8J9N-3P2T','2L6K-EL5M-9V1R'],
+  'Coding Adventures':['CA9K-3W8M-5L2R','7P1N-CA6Q-4X9J','COD5-8L2K-9M4W','2T7R-CA4V-8N1K'],
+  'Young Scientist Lab Guide':['YS8P-4K9M-2W7R','5N2J-YS6Q-8X1L','SCI3-9M5P-7R4K','1W8K-YS4N-6L3P'],
+  'Space Explorer Handbook':['SE6K-8M2P-9L4R','3W7Q-SE1N-5X8K','SPC9-4L6M-2R5P','8N3K-SE7W-1P9L'],
+  'Cyber Security':['CS5K-9M3P-2W8R','4X8J-CS2Q-7L1K','CYB3-6M1P-9R4W','1L7K-CS8N-5P2R'],
+  'Arts':['AR8K-2M9P-4W6R','7N3J-AR5Q-1X8L','ART4-6M2P-9R1K','3W9K-AR4N-8L5P'],
+  'Printing Technology':['PT9K-4M7P-2W5R','6X1J-PT8Q-3L9K','PRT2-5M8P-7R3W','8L4K-PT2N-9P6R'],
+  'Automation':['AU7K-3M8P-5W2R','9X4J-AU1Q-6L8K','AUT6-2M9P-4R7W','1L5K-AU8N-3P9R'],
+  'Mechanics':['ME6K-8M1P-4W9R','3N5J-ME7Q-2X4L','MCH8-9M3P-5R2K','7W2K-ME4N-8L6P'],
+  'AI Fundamentals':['AF9K-2M6P-8W4R','5X1J-AF7Q-3L8K','AIF3-8M5P-6R1W','2L4K-AF9N-7P3R']
+ }
+};
+const ACCESS_CODES={course:{},book:{}};
+Object.entries(ACCESS_CODE_GROUPS).forEach(([kind,groups])=>Object.entries(groups).forEach(([title,codes])=>codes.forEach(code=>ACCESS_CODES[kind][code]={title,code})));
+const TEMP_COURSE_VIDEO='https://www.youtube.com/watch?v=0KBI0QmEWuo';
+const TEMP_BOOK_PDF='https://www.nasa.gov/wp-content/uploads/2025/02/our-airplane-adventure-k-2-508.pdf';
+function accessKey(kind){return `ktl-unlocked-${kind}-${currentUserProfile?.email||'guest'}`}
+function savedAccess(kind){return JSON.parse(localStorage.getItem(accessKey(kind))||'[]')}
+function saveAccessCode(kind,item){const saved=savedAccess(kind);if(!saved.some(entry=>entry.code===item.code))saved.push(item);localStorage.setItem(accessKey(kind),JSON.stringify(saved))}
+function renderUnlockedCourses(){
+  const courseItems=savedAccess('course').filter(item=>item&&item.title);
+  const bookItems=savedAccess('book').filter(item=>item&&item.title);
+  unlockedCourses.innerHTML=courseItems.map(item=>`<article class="card unlocked-card"><span class="access-type">Course</span><h3>${item.title}</h3><p>Your recorded lessons are ready. This temporary video can be replaced with the correct course playlist later.</p><a class="btn" href="${TEMP_COURSE_VIDEO}" target="_blank" rel="noopener">▶ Open course videos</a></article>`).join('');
+  unlockedBooks.innerHTML=bookItems.map(item=>`<article class="card unlocked-card book-unlocked"><span class="access-type">Book</span><h3>${item.title}</h3><p>Your digital book is ready. This temporary PDF can be replaced with the correct book file later.</p><a class="btn" href="${TEMP_BOOK_PDF}" target="_blank" rel="noopener">📖 Open book PDF</a></article>`).join('');
+}
+function redeemAccess(kind,input){
+  const code=input.value.trim().toUpperCase();
+  if(!code)return toast(kind==='course'?'Enter your course code first.':'Enter your book code first.');
+  const item=ACCESS_CODES[kind][code];
+  if(!item)return toast(kind==='course'?'Invalid course code. Please check it and try again.':'Invalid book code. Please check it and try again.');
+  const alreadyUnlocked=savedAccess(kind).some(entry=>entry.code===code);
+  if(!alreadyUnlocked)saveAccessCode(kind,item);
+  input.value='';
+  renderUnlockedCourses();
+  toast(alreadyUnlocked?`${item.title} is already unlocked on this device.`:`${item.title} unlocked successfully!`);
+}
+function unlockCourse(){redeemAccess('course',courseAccessCode)}
+function unlockBook(){redeemAccess('book',bookAccessCode)}
 /* ---------- Hamburger menu ---------- */
 function toggleMenu(e) {
   e.stopPropagation();
@@ -1179,7 +1223,7 @@ function renderAd() {
   const ad = ads[adIndex];
   adImage.src = ad.img;
   adImage.alt = ad.title + ' advertisement';
-  adImage.style.objectPosition = ad.demo ? 'center 15%' : 'center';
+  adImage.style.objectPosition = ad.position || (ad.demo ? 'center 15%' : 'center');
   adTitle.textContent = currentLang === 'ar' ? ad.title_ar : ad.title;
   adDescription.textContent = currentLang === 'ar' ? ad.description_ar : ad.description;
 
@@ -1348,12 +1392,12 @@ if (localStorage.getItem('ktl-theme') === 'light') document.body.classList.add('
 
 /* ---------- Supplied project and campaign artwork ---------- */
 const suppliedProjectImages = [
-  ['Smart Soccer','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/socer project.jpeg'],['Smart Plant Watering System','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/plant watering project.jpeg'],['Smart Parking Garage','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/smart parking project.jpeg'],['Mini Smart Home','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/mini smart home project.jpeg'],['Automatic Pet Feeder','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/prt feeder project.jpeg'],['Security Laser Maze','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/security project.jpeg'],['Smart Traffic Intersection','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/smart trafice project.jpeg'],['Fire & Smoke Alarm','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/fire and smoke alarm project.jpeg'],['Reaction Speed Game','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/speed game project.jpeg'],['Mini Factory Conveyor Belt','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/mini factory project.jpeg'],['Smart Car','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/smart car project.jpeg'],['Balancing Bot','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/self balncing project.jpeg'],['RC Car','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/rc car project.jpeg'],['Build Your Own Car','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/car project.jpeg'],['Weather Station','C:/Users/mosta/Downloads/work/KTL/PHOTOS/ktl projects/wethear project.jpeg']
+  ['Smart Soccer','assets/projects/smart-soccer.jpeg'],['Smart Plant Watering System','assets/projects/plant-watering.jpeg'],['Smart Parking Garage','assets/projects/smart-parking.jpeg'],['Mini Smart Home','assets/projects/mini-smart-home.jpeg'],['Automatic Pet Feeder','assets/projects/pet-feeder.jpeg'],['Security Laser Maze','assets/projects/security-laser-maze.jpeg'],['Smart Traffic Intersection','assets/projects/smart-traffic.jpeg'],['Fire & Smoke Alarm','assets/projects/fire-smoke-alarm.jpeg'],['Reaction Speed Game','assets/projects/reaction-speed.jpeg'],['Mini Factory Conveyor Belt','assets/projects/mini-factory.jpeg'],['Smart Car','assets/projects/smart-car.jpeg'],['Balancing Bot','assets/projects/balancing-bot.jpeg'],['RC Car','assets/projects/rc-car.jpeg'],['Build Your Own Car','assets/projects/build-your-own-car.jpeg'],['Weather Station','assets/projects/weather-station.jpeg']
 ];
 projects.splice(0,projects.length,...suppliedProjectImages.map(([name,img],i)=>({name,name_ar:name,desc:'A hands-on KTL STEM project kit for young innovators.',desc_ar:'طقم مشروع KTL عملي للمبتكرين الصغار.',details:'Explore, build and test this engaging STEM project.',details_ar:'استكشف وابنِ واختبر هذا المشروع العملي.',price:(250+i*10)*8,img})));
-projects.push({name:'Make Your Own Project',name_ar:'اصنع مشروعك الخاص',desc:'Describe your idea and KTL will create a custom project for you.',desc_ar:'صِف فكرتك وسيصنع لك فريق KTL مشروعًا مخصصًا.',details:'Custom-made to your requirements. Pricing is arranged directly on WhatsApp.',details_ar:'يُصنع حسب متطلباتك، ويتم تحديد السعر مباشرة عبر واتساب.',custom:true,img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/make ur own project  ad.jpeg'});
+projects.push({name:'Make Your Own Project',name_ar:'اصنع مشروعك الخاص',desc:'Describe your idea and KTL will create a custom project for you.',desc_ar:'صِف فكرتك وسيصنع لك فريق KTL مشروعًا مخصصًا.',details:'Custom-made to your requirements. Pricing is arranged directly on WhatsApp.',details_ar:'يُصنع حسب متطلباتك، ويتم تحديد السعر مباشرة عبر واتساب.',custom:true,img:'assets/ads/make-your-own-project.jpeg'});
 books.push({name:'Make Your Own Educational Book',name_ar:'اصنع كتابك التعليمي الخاص',topic:'Custom-made book',topic_ar:'كتاب مخصص',desc:'A custom educational book created around your child and idea. Pricing is arranged on WhatsApp.',desc_ar:'كتاب تعليمي مخصص يُنشأ لطفلك وفكرتك. يتم تحديد السعر عبر واتساب.',custom:true});
-bookPhotos.push('C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/make ur own book ad.jpeg');
+bookPhotos.push('assets/ads/make-your-own-book.jpeg');
 function openCustomRequest(kind){
   customRequestForm.reset(); customRequestForm.dataset.kind=kind;
   const isBook=kind==='book'; customBookFields.hidden=!isBook;
@@ -1377,13 +1421,10 @@ function renderProjects(){projectGrid.innerHTML=projects.map((p,i)=>p.custom?`<a
 function renderBooks(){bookGrid.innerHTML=books.map((b,i)=>b.custom?`<article class="card book-card custom-card"><img src="${bookPhotos[i%bookPhotos.length]}" alt="${b.name}"><span class="quote-badge">CUSTOM MADE · PRICE ON WHATSAPP</span><h3>${currentLang==='ar'?b.name_ar:b.name}</h3><p>${currentLang==='ar'?b.desc_ar:b.desc}</p><button class="btn" onclick="openCustomRequest('book')">${currentLang==='ar'?'ابدأ طلب كتاب مخصص':'Start your custom book'}</button></article>`:`<article class="card book-card"><img src="${bookPhotos[i%bookPhotos.length]}" alt="${b.name}"><small class="blue">${currentLang==='ar'?b.topic_ar:b.topic}</small><h3>${currentLang==='ar'?b.name_ar:b.name}</h3><p>${currentLang==='ar'?b.desc_ar:b.desc}</p><div class="fee">${fmt(b.pdfPrice)}</div><button class="btn alt" onclick="showBookInfo(${i})">${currentLang==='ar'?'تفاصيل الكتاب':'Book details'}</button><small class="blue" style="display:block;margin-top:12px">PDF</small>${quantityControl('book',i,'pdf')}<small class="pink" style="display:block;margin-top:10px">${currentLang==='ar'?'نسخة ورقية':'Hard copy'} · ${fmt(b.hardCopyPrice)}</small>${quantityControl('book',i,'hard')}</article>`).join('');updateProductTotals()}
 setTimeout(()=>{const customProjectIndex=projects.findIndex(p=>p.custom),customBookIndex=books.findIndex(b=>b.custom);ads.splice(0,ads.length,
  {img:'assets/free-demo.png',title:'Free Demo Session',title_ar:'جلسة تجريبية مجانية',description:'Try KTL learning for free.',description_ar:'جرّب تعلم KTL مجانًا.',demo:true},
- {img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/erospace ad.png',title:'Aerospace',title_ar:'الطيران والفضاء',description:'Explore, learn and launch.',description_ar:'استكشف وتعلم وانطلق.',program:8,isNew:true},
- {img:'C:/Users/mosta/Downloads/work/KTL/PHOTOS/adds/mech ad.png',title:'Mechanics',title_ar:'الميكانيكا',description:'Design, analyze, build and solve.',description_ar:'صمّم وحلّل وابنِ وحل المشكلات.',program:9,isNew:true},
  {img:projects[0].img,title:'Smart Soccer',title_ar:'كرة القدم الذكية',description:'Build a smart interactive soccer project.',description_ar:'ابنِ مشروع كرة قدم ذكيًا وتفاعليًا.',project:0},
  {img:categoryImages.automation,title:'Automation Makers',title_ar:'صناع الأتمتة',description:'Discover how smart systems move and work.',description_ar:'اكتشف كيف تتحرك الأنظمة الذكية وتعمل.',program:6},
- {img:bookPhotos[1],title:'Electronics Book',title_ar:'كتاب الإلكترونيات',description:'Explore circuits, components and bright ideas.',description_ar:'استكشف الدوائر والمكونات والأفكار المضيئة.',book:1},
- {img:bookPhotos[customBookIndex],title:'Make Your Own Educational Book',title_ar:'اصنع كتابك التعليمي',description:'Custom-made around your child and idea.',description_ar:'مصمم خصيصًا لطفلك وفكرتك.',book:customBookIndex,custom:true},
- {img:projects[customProjectIndex].img,title:'Make Your Own Project',title_ar:'اصنع مشروعك الخاص',description:'Your idea, custom-built with KTL.',description_ar:'فكرتك، يصنعها KTL خصيصًا لك.',project:customProjectIndex,custom:true});adIndex=0;renderAd()},0);
+ {img:bookPhotos[customBookIndex],title:'Make Your Own Educational Book',title_ar:'اصنع كتابك التعليمي',description:'Custom-made around your child and idea.',description_ar:'مصمم خصيصًا لطفلك وفكرتك.',book:customBookIndex,custom:true,position:'center top'},
+ {img:projects[customProjectIndex].img,title:'Make Your Own Project',title_ar:'اصنع مشروعك الخاص',description:'Your idea, custom-built with KTL.',description_ar:'فكرتك، يصنعها KTL خصيصًا لك.',project:customProjectIndex,custom:true,position:'center top'});adIndex=0;renderAd()},0);
 /* ---------- Initialization ---------- */
 document.querySelector('main').append(document.getElementById('about'));
 loadLocalUser();
@@ -1405,3 +1446,5 @@ renderUnlockedCourses();
 
 </body>
 </html>
+
+
