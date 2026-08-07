@@ -4,7 +4,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>KTL | Kids Techno Lab</title>
+  <title>KTL Kids Techno Lab | Hands-on STEM Learning in Egypt</title>
+  <meta name="description" content="KTL Kids Techno Lab offers hands-on robotics, coding, science, engineering projects, online courses and learning books for children in Egypt.">
+  <link rel="canonical" href="https://ktlteam.github.io/2026/">
+  <meta name="theme-color" content="#030b21">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KTL Kids Techno Lab | Learn Today. Lead Tomorrow.">
+  <meta property="og:description" content="Hands-on STEM programs, projects, courses and books for curious young minds.">
+  <meta property="og:url" content="https://ktlteam.github.io/2026/">
+  <meta property="og:image" content="https://ktlteam.github.io/2026/assets/free-demo.png">
+  <link rel="icon" href="assets/ktl-logo.jpeg" type="image/jpeg">
+  <link rel="manifest" href="manifest.webmanifest">
   <style>
     :root{--bg:#030b21;--card:#0b1835;--text:#f8faff;--muted:#b8c4dc;--line:#38517e;--pink:#f42176;--blue:#00b8f4;--yellow:#ffc523}
     body.light{--bg:#eef5ff;--card:#fff;--text:#07132c;--muted:#50617c;--line:#bcc9db}
@@ -117,7 +127,7 @@
     .menu-dropdown{display:flex;visibility:hidden;opacity:0;transform:translateY(-10px) scale(.96);transform-origin:top left;pointer-events:none;transition:opacity .2s ease,transform .2s ease,visibility .2s}.menu-dropdown.open{visibility:visible;opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
     .card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}.card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 20px 38px #0006}
     .product-quantity{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:7px;border:1px solid var(--line);border-radius:13px;background:#06163370}.product-quantity .quantity-label{font-size:12px;color:var(--muted);font-weight:800}.qty-control{gap:4px;padding:3px;border-radius:10px;background:#00153766;border-color:#49628e}.qty-control button{width:32px;height:32px;border-radius:8px;transition:transform .16s ease}.qty-control button:hover{transform:scale(1.08)}.qty-control b{min-width:28px;font-variant-numeric:tabular-nums}
-    .cart-dialog{padding:0;overflow:hidden;background:var(--card)}.cart-header{padding:24px 24px 17px;background:linear-gradient(135deg,#112a55,#251034);border-bottom:1px solid var(--line)}.cart-header h2{margin:0;text-align:left}.cart-header .small{display:block;margin-top:4px}.cart-body{padding:16px 24px 24px}.cart-line{padding:14px 0;gap:12px;animation:cart-in .28s ease both}.cart-item-main{display:flex;align-items:center;gap:12px;min-width:0;flex:1}.cart-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cart-visual{width:48px;height:48px;display:grid;place-items:center;flex:none;border-radius:13px;background:#18335d;overflow:hidden;font-size:25px}.cart-visual img{width:100%;height:100%;object-fit:cover}.cart-item-price{text-align:right;font-weight:800;color:var(--yellow);white-space:nowrap}.cart-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:15px;border-radius:14px;background:#071a39;border:1px solid var(--line)}.cart-total-label{color:var(--muted);font-size:13px}.cart-footer .fee{margin:0}@keyframes cart-in{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+    .cart-dialog{padding:0;overflow:hidden;background:var(--card);max-height:calc(100dvh - 16px)}.cart-dialog[open]{display:flex;flex-direction:column}.cart-header{padding:24px 24px 17px;background:linear-gradient(135deg,#112a55,#251034);border-bottom:1px solid var(--line);flex:none}.cart-header h2{margin:0;text-align:left}.cart-header .small{display:block;margin-top:4px}.cart-body{padding:16px 24px 24px;overflow-y:auto;overscroll-behavior:contain;min-height:0;max-height:none}.cart-line{padding:14px 0;gap:12px;animation:cart-in .28s ease both}.cart-item-main{display:flex;align-items:center;gap:12px;min-width:0;flex:1}.cart-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.course-registration{display:block;margin-top:7px;max-width:560px;line-height:1.45;color:var(--muted);white-space:normal}.course-registration b{display:inline;color:var(--text);white-space:normal}.cart-visual{width:48px;height:48px;display:grid;place-items:center;flex:none;border-radius:13px;background:#18335d;overflow:hidden;font-size:25px}.cart-visual img{width:100%;height:100%;object-fit:cover}.cart-item-price{text-align:right;font-weight:800;color:var(--yellow);white-space:nowrap}.cart-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:15px;border-radius:14px;background:#071a39;border:1px solid var(--line)}.cart-total-label{color:var(--muted);font-size:13px}.cart-footer .fee{margin:0}@keyframes cart-in{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
 
     .theme-button{font-size:25px!important;line-height:1;color:#ffd166!important;text-shadow:0 0 16px #ffd16699}.theme-button:hover{transform:rotate(18deg) scale(1.1)}body.light .theme-button{color:#f49b24!important}body.light{color:#14213d}body.light .nav-actions{background:#ffffffb8}body.light .card p,body.light .small{color:#465a78}#projects .summary,#books .summary{display:none}.course-access{max-width:880px}.course-access input{margin-top:5px}.toast{box-shadow:0 12px 30px #0005}.toast.show{animation:toast-pop .28s ease both}@keyframes toast-pop{from{opacity:0;transform:translate(-50%,130px) scale(.92)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
     .access-box{display:grid;grid-template-columns:1fr 1px 1fr;align-items:stretch;padding:22px}.access-field{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.access-field label{grid-column:1/-1;margin-top:0}.access-field input{margin:0}.access-divider{background:var(--line);margin:0 18px}.whatsapp-numbers{display:flex;flex-direction:column;gap:10px}.project-detail-image{width:100%;max-height:300px;object-fit:contain;background:#07132c;border:1px solid var(--line);border-radius:14px;margin:6px 0 18px}.project-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}.project-fact{padding:12px;border:1px solid var(--line);border-radius:10px;background:#071a3955}.project-fact b{display:block;color:var(--blue);font-size:12px;text-transform:uppercase;letter-spacing:.5px}.project-fact span{font-weight:800}
@@ -127,9 +137,42 @@
     @media(max-width:820px){.hero-layout{grid-template-columns:1fr;gap:26px}.grid{grid-template-columns:1fr 1fr}.two,.contact-grid{grid-template-columns:1fr}.access-box{grid-template-columns:1fr}.access-divider{height:1px;margin:16px 0}.project-facts{grid-template-columns:1fr}}
     @media(max-width:600px){.nav-actions .btn.alt{max-width:120px}}
     @media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding:36px 0}.summary{align-items:stretch}.summary .btn{width:100%}.brand{font-size:19px}.nav-actions{gap:4px;padding:3px}.nav-actions .btn.alt{display:inline-flex;padding:8px 10px;font-size:12px;max-width:96px}.nav-actions .icon-btn{min-width:36px;padding:8px}.nav-actions .cart-badge{min-width:16px;height:16px;font-size:10px}.ad-copy{padding:24px 20px 16px}}
+    /* Launch-readiness layer: responsive, RTL, focus, reduced motion and product discovery */
+    :where(a,button,input,select,textarea):focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+    header.wrap{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px)}
+    main,section,.grid,.card,.summary,.hero-layout,.nav-actions{min-width:0;max-width:100%}
+    img{max-width:100%;height:auto}
+    .catalog-tools{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin:0 auto 22px;max-width:820px}
+    .catalog-tools input,.catalog-tools select{max-width:280px;min-height:46px}
+    .card[hidden]{display:none!important}
+    .trust-grid,.policy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+    .trust-card,.policy-card{min-height:100%}
+    .policy-card h3{margin-top:0;color:var(--blue)}
+    .policy-card p,.policy-card li{color:var(--muted);font-size:14px}
+    details.faq{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:var(--card)}
+    details.faq summary{cursor:pointer;font-weight:800}
+    .launch-note{border:1px dashed var(--yellow);border-radius:12px;padding:14px;color:var(--muted);background:#ffc52310}
+    .skip-link{position:fixed;left:12px;top:12px;z-index:1000;transform:translateY(-160%);background:var(--yellow);color:#07132c;padding:10px 14px;border-radius:8px;font-weight:900}
+    .skip-link:focus{transform:none}
+    [dir="rtl"] body,[dir="rtl"] input,[dir="rtl"] select,[dir="rtl"] textarea{text-align:right}
+    [dir="rtl"] .hero-layout,[dir="rtl"] .grid,[dir="rtl"] .trust-grid,[dir="rtl"] .policy-grid{direction:rtl}
+    [dir="rtl"] .actions,[dir="rtl"] .cart-line,[dir="rtl"] .product-quantity,[dir="rtl"] .summary{flex-direction:row-reverse}
+    [dir="rtl"] .ad-controls{right:auto;left:18px}
+    [dir="rtl"] .ad-dots{left:auto;right:18px}
+    [dir="rtl"] .close{float:left}
+    html,body{max-width:100%;overflow-x:clip}
+    .card-actions{margin-top:auto;display:grid;gap:8px}
+    .card{display:flex;flex-direction:column}
+    .card .product-quantity,.card .btn{margin-top:auto}
+    dialog{overscroll-behavior:contain}
+    @media(max-width:820px){.trust-grid,.policy-grid{grid-template-columns:1fr 1fr}.hero-layout{grid-template-columns:1fr}.ad-copy{position:static;padding:14px 18px;background:#07132c}.ad-carousel img{aspect-ratio:16/9}}
+    @media(max-width:600px){.wrap{padding-inline:14px}nav{align-items:flex-start}.brand{white-space:normal}.nav-actions{width:100%;justify-content:center}.trust-grid,.policy-grid{grid-template-columns:1fr}.catalog-tools{align-items:stretch}.catalog-tools input,.catalog-tools select{max-width:none;width:100%}dialog{width:calc(100% - 16px);max-height:calc(100dvh - 16px);padding:18px}.grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"KTL Kids Techno Lab","url":"https://ktlteam.github.io/2026/","logo":"https://ktlteam.github.io/2026/assets/ktl-logo.jpeg","email":"ktl.kid3@gmail.com","sameAs":["https://www.instagram.com/ktl._team/"]}</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="wrap">
   <nav>
@@ -159,7 +202,7 @@
   </nav>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main-content">
   <section class="hero">
     <div class="hero-layout">
       <div>
@@ -190,6 +233,7 @@
   <section id="programs">
     <h2 id="programsHeading">Our <span class="pink">Programs</span></h2>
     <p class="intro" data-i18n="programsIntro">Select one or more programs. We will collect school and student information before you confirm your request.</p>
+    <div class="catalog-tools" role="search"><label class="small" for="programSearch">Search programs</label><input id="programSearch" type="search" placeholder="Search programs" oninput="filterCatalog('program',this.value)"></div>
     <div id="programGrid" class="grid"></div>
     <div class="summary">
       <div>
@@ -204,6 +248,7 @@
   <section id="projects">
     <h2 id="projectsHeading">Educational <span class="pink">Projects</span></h2>
     <p class="intro" data-i18n="projectsIntro">Explore each kit, read the project details, then add it to your cart.</p>
+    <div class="catalog-tools" role="search"><label class="small" for="projectSearch">Search projects</label><input id="projectSearch" type="search" placeholder="Search projects" oninput="filterCatalog('project',this.value)"><select id="projectDifficulty" aria-label="Filter projects by difficulty" onchange="filterCatalog('project',projectSearch.value,this.value)"><option value="">All difficulty levels</option><option>Beginner</option><option>Intermediate</option></select></div>
     <div id="projectGrid" class="grid"></div>
     <div class="summary">
       <div>
@@ -218,12 +263,14 @@
   <section id="courses">
     <h2 id="coursesHeading">Online <span class="blue">Courses</span></h2>
     <p class="intro" data-i18n="coursesIntro">Choose a course and provide the information for every child, then send your request by email, WhatsApp, or Instagram DM.</p>
+    <div class="catalog-tools" role="search"><label class="small" for="courseSearch">Search courses</label><input id="courseSearch" type="search" placeholder="Search courses" oninput="filterCatalog('course',this.value)"></div>
     <div id="courseGrid" class="grid"></div>
   </section>
 
   <section id="books">
     <h2 id="booksHeading">Buy <span class="pink">Learning Books</span></h2>
     <p class="intro" data-i18n="booksIntro">Beautiful, practical books that extend KTL learning at home. Add any books to your cart, then send your delivery request.</p>
+    <div class="catalog-tools" role="search"><label class="small" for="bookSearch">Search books</label><input id="bookSearch" type="search" placeholder="Search books" oninput="filterCatalog('book',this.value)"></div>
     <div id="bookGrid" class="grid"></div>
     <div class="summary">
       <div>
@@ -245,6 +292,34 @@
     </div>
     <div id="unlockedCourses" class="grid" style="margin-top:18px"></div>
     <div id="unlockedBooks" class="grid" style="margin-top:18px"></div>
+  </section>
+
+  <section id="trust" aria-labelledby="trustHeading">
+    <h2 id="trustHeading">Why families choose <span class="blue">KTL</span></h2>
+    <p class="intro">Practical learning with clear guidance, age-aware activities and direct support from the KTL team.</p>
+    <div class="trust-grid">
+      <article class="card trust-card"><span class="icon" aria-hidden="true">🧩</span><h3>Hands-on learning</h3><p>Children learn by building, testing, improving and explaining their ideas.</p></article>
+      <article class="card trust-card"><span class="icon" aria-hidden="true">🛡️</span><h3>Safety first</h3><p>Activities use age-appropriate guidance. Adult supervision is required whenever tools, heat or electricity are involved.</p></article>
+      <article class="card trust-card"><span class="icon" aria-hidden="true">💬</span><h3>Human support</h3><p>Questions about suitability, delivery and learning support are confirmed directly with KTL before payment.</p></article>
+    </div>
+  </section>
+
+  <section id="policies" aria-labelledby="policiesHeading">
+    <h2 id="policiesHeading">Helpful <span class="pink">information</span></h2>
+    <p class="intro">Simple information to review before registering or ordering.</p>
+    <div class="policy-grid">
+      <article class="card policy-card"><h3>Delivery</h3><p>Availability, delivery area, timing and delivery fees are confirmed through WhatsApp before payment.</p></article>
+      <article class="card policy-card"><h3>Payment</h3><p>Choose your preferred method when ordering. KTL confirms the final amount and payment instructions directly.</p></article>
+      <article class="card policy-card"><h3>Refunds &amp; cancellations</h3><p>Contact KTL promptly. Eligibility depends on the product type, preparation status and whether digital access has been provided.</p></article>
+      <article class="card policy-card"><h3>Privacy</h3><p>Only provide information needed to answer your request or complete an order. Do not send passwords or sensitive financial details.</p></article>
+      <article class="card policy-card"><h3>Child safety</h3><p>Parents and schools remain responsible for suitable supervision. Follow all instructions and stop an activity if materials are damaged.</p></article>
+      <article class="card policy-card"><h3>Service area</h3><p>KTL serves families, schools and organisations. Confirm your location with the team before ordering or arranging a visit.</p></article>
+    </div>
+    <h3 style="text-align:center;margin-top:28px">Frequently asked questions</h3>
+    <details class="faq"><summary>How do I choose the right program?</summary><p>Share the learner's age, experience and interests through WhatsApp. KTL will recommend an appropriate option.</p></details>
+    <details class="faq"><summary>Are materials included?</summary><p>Included materials vary by product. Review the item details and confirm the final contents before payment.</p></details>
+    <details class="faq"><summary>How do course and book access codes work?</summary><p>Enter the code supplied by KTL in My Courses &amp; Books. Keep your code private and contact KTL if it does not unlock the expected content.</p></details>
+    <p class="launch-note"><strong>Business confirmation required before launch:</strong> delivery coverage and fees, refund time limits, legal business name/address, payment providers, privacy contact and final supervision rules.</p>
   </section>
 
   <section id="contact">
@@ -394,17 +469,14 @@
       <div><b data-i18n="courseTotalLabel">Course total</b><div class="total" id="courseTotal">EGP 0</div></div>
     </div>
     <div class="actions" style="margin-top:15px">
-      <button type="button" class="btn blue" data-i18n="sendEmail" onclick="sendCourseEmail()">Send request by email</button>
-      <button type="button" class="btn" data-i18n="sendWhatsApp" onclick="sendCourseWhatsApp()">Send by WhatsApp</button>
-      <button type="button" class="btn alt" data-i18n="addCourseCart" onclick="addCourseToCart()">Add to cart</button>
-      <button type="button" class="btn alt" data-i18n="dmInstagram2" onclick="instagramDM()">DM on Instagram</button>
+      <button type="button" class="btn" data-i18n="addCourseCart" onclick="addCourseToCart()">Add to cart</button>
     </div>
   </form>
 </dialog>
 
 <dialog id="bookCartDialog" class="cart-dialog">
   <div class="cart-header"><button class="close" onclick="bookCartDialog.close()" aria-label="Close cart">×</button><h2 data-i18n="cartDialogTitle">Your Cart</h2><span class="small" id="cartSummary">0 items selected</span></div>
-  <div class="cart-body"><div id="bookCartLines"></div><div class="two" style="margin:12px 0"><div><label for="couponCode">Coupon code</label><input id="couponCode" placeholder="KTL10"></div><button class="btn alt" type="button" onclick="applyCoupon()" style="align-self:end">Apply coupon</button></div><p class="small" id="couponMessage"></p><div class="cart-footer"><span class="cart-total-label" id="cartTotalLabel">Order total</span><div class="fee" id="bookCartTotal"></div></div><form id="bookOrderForm">
+  <div class="cart-body"><div id="bookCartLines"></div><div class="two" style="margin:12px 0"><div><label for="couponCode">Coupon code</label><input id="couponCode" placeholder="Enter coupon code" autocomplete="off"></div><button class="btn alt" type="button" onclick="applyCoupon()" style="align-self:end">Apply coupon</button></div><p class="small" id="couponMessage"></p><div class="cart-footer"><span class="cart-total-label" id="cartTotalLabel">Order total</span><div class="fee" id="bookCartTotal"></div></div><form id="bookOrderForm">
     <label data-i18n="fullName">Full name</label><input name="name" required>
     <label data-i18n="location2">Location</label><input name="location" required>
     <label data-i18n="address1">Address 1</label><input name="address1" required>
@@ -1115,7 +1187,7 @@ function syncProductViews(){updateProductTotals();document.querySelectorAll('[da
 function renderProjects(){projectGrid.innerHTML=projects.map((p,i)=>`<article class="card project-card"><img src="${p.img}" alt="${p.name}"><h3>${currentLang==='ar'?p.name_ar:p.name}</h3><p>${currentLang==='ar'?p.desc_ar:p.desc}</p>${salePrice(p.price,i)}<button class="btn alt" onclick="showProject(${i})">${currentLang==='ar'?'تفاصيل المشروع':'Project details'}</button>${quantityControl('project',i)}</article>`).join('');updateProductTotals()}
 function renderCourses(){courseGrid.innerHTML=courses.map((c,i)=>`<article class="card course-card"><img src="${courseImages[i]}" alt="${c.name}"><h3>${currentLang==='ar'?c.name_ar:c.name}</h3><p>${currentLang==='ar'?c.desc_ar:c.desc}</p><small>${c.weeks} ${currentLang==='ar'?'أسابيع':'weeks'} · Certificate included</small>${salePrice(c.price,i)}<button class="btn alt" onclick="showCourse(${i})">${currentLang==='ar'?'تفاصيل الدورة':'Course details'}</button>${quantityControl('course',i)}</article>`).join('')}
 function renderBooks(){bookGrid.innerHTML=books.map((b,i)=>{const n=currentLang==='ar'?b.name_ar:b.name,t=currentLang==='ar'?b.topic_ar:b.topic;return `<article class="card book-card"><img src="${bookPhotos[i%bookPhotos.length]}" alt="${b.name}"><small class="blue">${t}</small><h3>${n}</h3><p>${currentLang==='ar'?b.desc_ar:b.desc}</p><div class="fee">${fmt(b.pdfPrice)}</div><button class="btn alt" onclick="showBookInfo(${i})">${currentLang==='ar'?'تفاصيل الكتاب':'Book details'}</button><small class="blue" style="display:block;margin-top:12px">PDF</small>${quantityControl('book',i,'pdf')}<small class="pink" style="display:block;margin-top:10px">${currentLang==='ar'?'نسخة ورقية':'Hard copy'} · ${fmt(b.hardCopyPrice)}</small>${quantityControl('book',i,'hard')}</article>`}).join('');updateProductTotals()}
-function changeQty(n,delta){productCart[n].qty+=delta;if(productCart[n].qty<=0)productCart.splice(n,1);syncProductViews()}
+function changeQty(n,delta){const item=productCart[n];item.qty+=delta;if(delta<0&&item.registrations?.length)item.registrations.pop();if(delta>0&&item.registrations?.length)item.registrations.push(JSON.parse(JSON.stringify(item.registrations[item.registrations.length-1])));if(item.qty<=0)productCart.splice(n,1);syncProductViews()}
 function addProject(i){adjustProduct('project',i,1)}
 function addBook(i,format){adjustProduct('book',i,1,format)}
 function renderCart(){const total=productCart.reduce((s,x)=>s+x.price*x.qty,0),qty=productCart.reduce((s,x)=>s+x.qty,0);bookCartDialog.querySelector('h2').textContent=tr('cartDialogTitle');cartSummary.textContent=`${qty} item${qty===1?'':'s'} selected`;bookCartLines.innerHTML=productCart.length?productCart.map((x,i)=>`<div class="cart-line"><div class="cart-item-main"><span class="cart-visual">${x.image?`<img src="${x.image}" alt="">`:x.emoji}</span><span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} each</small></span></div><span class="qty-control"><button class="minus" onclick="changeQty(${i},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${i},1)">+</button></span><span class="cart-item-price">${fmt(x.price*x.qty)}</span></div>`).join(''):`<p class="empty">Your cart is empty.</p>`;bookCartTotal.textContent=fmt(total)}
@@ -1136,12 +1208,45 @@ books.slice(8).forEach(b=>{b.listPdfPrice=b.price*5;b.discountPercent=35;b.pdfPr
 bookPhotos.splice(0,11,'assets/books/robotics-book.png','assets/books/electronics-book.png','assets/books/coding-book.png','assets/books/science-book.png','assets/books/space-book.png','assets/books/cyber-book.png','assets/books/arts-book.png','assets/books/printing-book.png','assets/books/automation-book.png','assets/books/mechanics-book.png','assets/books/ai-book.png');
 let couponApplied=false;
 function cartSubtotal(){return productCart.reduce((s,x)=>s+x.price*x.qty,0)}
-function applyCoupon(){if(couponApplied)return toast('KTL10 has already been applied.');if(couponCode.value.trim().toUpperCase()!=='KTL10'){couponMessage.textContent='That coupon code is not valid.';return}couponApplied=true;couponMessage.textContent='KTL10 applied — 10% discount added.';renderCart();toast('Coupon applied successfully!')}
+function applyCoupon(){const validCode=[75,84,76,49,48].map(value=>String.fromCharCode(value)).join('');if(couponApplied)return toast('A coupon has already been applied.');if(couponCode.value.trim().toUpperCase()!==validCode){couponMessage.textContent='That coupon code is not valid.';return}couponApplied=true;couponMessage.textContent='Coupon applied — 10% discount added.';couponCode.value='';renderCart();toast('Coupon applied successfully!')}
 function adjustProduct(kind,index,delta,format=''){const entry=productEntry(kind,index,format),item=productCart.find(x=>x.id===entry.id);if(item){item.qty+=delta;if(item.qty<=0)productCart.splice(productCart.indexOf(item),1)}else if(delta>0){productCart.push({...entry,qty:1});toast('✅ Item added to your cart successfully!')}syncProductViews()}
 function toggleProgram(i){const p=programs[i],existing=productCart.find(x=>x.id===`program-${i}`);if(existing){productCart.splice(productCart.indexOf(existing),1);selectedPrograms=selectedPrograms.filter(x=>x!==i)}else{selectedPrograms.includes(i)||selectedPrograms.push(i);productCart.push({id:`program-${i}`,type:'Program registration',name:p.name,price:p.price,qty:1,emoji:p.icon,registrationRequired:true});toast('✅ Item added to your cart successfully!')}renderPrograms();syncProductViews()}
-function addCourseToCart(){const form=courseForm;if(!form.reportValidity())return;const c=courses[activeCourse],entry=productEntry('course',activeCourse);entry.registration={kids:getChildren(form,Number(kidCount.value))};const existing=productCart.find(x=>x.id===entry.id);if(existing)existing.qty+=1;else productCart.push({...entry,qty:1});courseDialog.close();syncProductViews();toast('✅ Item added to your cart successfully!')}
+function escapeCartText(value){return String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
+function courseRegistrationText(item){
+ const enrollments=item.registrations||(item.registration?[item.registration]:[]);
+ return enrollments.map((registration,enrollmentIndex)=>{
+  const heading=enrollments.length>1?`Registration ${enrollmentIndex+1}: `:'';
+  return heading+registration.kids.map((kid,kidIndex)=>`Child ${kidIndex+1}: ${kid.name}, age ${kid.age}, ${kid.gender}, section ${kid.section}`).join(' | ');
+ }).join('\n');
+}
+function courseRegistrationHtml(item){
+ const details=courseRegistrationText(item);
+ return details?`<small class="course-registration"><b>Registration information</b><br>${escapeCartText(details).replace(/\n/g,'<br>')}</small>`:'';
+}
+function addCourseToCart(){
+ const form=courseForm;if(!form.reportValidity())return;
+ const c=courses[activeCourse],entry=productEntry('course',activeCourse);
+ const registration={kids:getChildren(form,Number(kidCount.value))};
+ const existing=productCart.find(x=>x.id===entry.id);
+ if(existing){existing.qty+=1;(existing.registrations||(existing.registrations=existing.registration?[existing.registration]:[])).push(registration);delete existing.registration}
+ else productCart.push({...entry,qty:1,registrations:[registration]});
+ courseDialog.close();syncProductViews();toast('✅ Item added to your cart successfully!')
+}
 function renderCourses(){courseGrid.innerHTML=courses.map((c,i)=>`<article class="card course-card"><img src="${courseImages[i]}" alt="${c.name}"><h3>${currentLang==='ar'?c.name_ar:c.name}${/Aerospace|Mechanics/.test(c.name)?newBadge():''}</h3><p>${currentLang==='ar'?c.desc_ar:c.desc}</p><small>${c.weeks} weeks · Registration required</small>${salePrice(c.price,i)}<button class="btn" onclick="showCourse(${i})">${currentLang==='ar'?'سجّل في الدورة':'Register & add to cart'}</button></article>`).join('')}
-function renderCart(){const subtotal=cartSubtotal(),discount=couponApplied?Math.round(subtotal*.1):0,total=subtotal-discount,qty=productCart.reduce((s,x)=>s+x.qty,0);bookCartDialog.querySelector('h2').textContent=tr('cartDialogTitle');cartSummary.textContent=`${qty} item${qty===1?'':'s'} selected`;bookCartLines.innerHTML=productCart.length?productCart.map((x,i)=>`<div class="cart-line"><div class="cart-item-main"><span class="cart-visual">${x.image?`<img src="${x.image}" alt="">`:x.emoji||'🛍️'}</span><span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} each${x.registrationRequired?' · registration needed':''}</small></span></div><span class="qty-control"><button class="minus" onclick="changeQty(${i},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${i},1)">+</button></span><span class="cart-item-price">${fmt(x.price*x.qty)}</span></div>`).join(''):`<p class="empty">Your cart is empty.</p>`;cartTotalLabel.innerHTML=discount?`Subtotal: ${fmt(subtotal)}<br>Discount: −${fmt(discount)}<br><b>Final total</b>`:'Order total';bookCartTotal.textContent=fmt(total)}
+function renderCart(){const subtotal=cartSubtotal(),discount=couponApplied?Math.round(subtotal*.1):0,total=subtotal-discount,qty=productCart.reduce((s,x)=>s+x.qty,0);bookCartDialog.querySelector('h2').textContent=tr('cartDialogTitle');cartSummary.textContent=`${qty} item${qty===1?'':'s'} selected`;bookCartLines.innerHTML=productCart.length?productCart.map((x,i)=>`<div class="cart-line"><div class="cart-item-main"><span class="cart-visual">${x.image?`<img src="${x.image}" alt="">`:x.emoji||'🛍️'}</span><span><small class="blue">${x.type}</small><b>${x.name}</b><small>${fmt(x.price)} each${x.registrationRequired?' · registration needed':''}</small>${courseRegistrationHtml(x)}</span></div><span class="qty-control"><button class="minus" onclick="changeQty(${i},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${i},1)">+</button></span><span class="cart-item-price">${fmt(x.price*x.qty)}</span></div>`).join(''):`<p class="empty">Your cart is empty.</p>`;cartTotalLabel.innerHTML=discount?`Subtotal: ${fmt(subtotal)}<br>Discount: −${fmt(discount)}<br><b>Final total</b>`:'Order total';bookCartTotal.textContent=fmt(total)}
+function buildWhatsAppOrderMessage(form){
+ const subtotal=cartSubtotal(),discount=couponApplied?Math.round(subtotal*.1):0,total=subtotal-discount;
+ const items=productCart.map(item=>{
+  const registration=courseRegistrationText(item);
+  return `${item.type}: ${item.name} x${item.qty} - ${fmt(item.price*item.qty)}${registration?`\n  ${registration.replace(/\n/g,'\n  ')}`:''}`;
+ }).join('\n');
+ return `KTL Order\nName: ${form.name.value}\nLocation: ${form.location.value}\nAddress 1: ${form.address1.value}\nAddress 2: ${form.address2.value||'N/A'}\nPayment method: ${form.paymentMethod.value}\nItems:\n${items}${discount?`\nDiscount: -${fmt(discount)}`:''}\nTotal: ${fmt(total)}`;
+}
+function sendBookOrder(){
+ if(!productCart.length)return toast(currentLang==='ar'?'يرجى إضافة منتج واحد على الأقل أولًا.':'Please add at least one product first.');
+ const form=bookOrderForm;if(!form.reportValidity())return;
+ window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(buildWhatsAppOrderMessage(form))}`,'_blank');
+}
 const ACCESS_CODE_GROUPS={
  course:{
   'Robotics at Home':['RH9K-4M7P-2W8L','8F3J-RH6N-9Q1K','RBH7-2P4V-9X5M','5T9K-RH2L-8W3P'],
@@ -1423,6 +1528,49 @@ setTimeout(()=>{const customProjectIndex=projects.findIndex(p=>p.custom),customB
  {img:categoryImages.automation,title:'Automation Makers',title_ar:'صناع الأتمتة',description:'Discover how smart systems move and work.',description_ar:'اكتشف كيف تتحرك الأنظمة الذكية وتعمل.',program:6},
  {img:bookPhotos[customBookIndex],title:'Make Your Own Educational Book',title_ar:'اصنع كتابك التعليمي',description:'Custom-made around your child and idea.',description_ar:'مصمم خصيصًا لطفلك وفكرتك.',book:customBookIndex,custom:true,position:'center top'},
  {img:projects[customProjectIndex].img,title:'Make Your Own Project',title_ar:'اصنع مشروعك الخاص',description:'Your idea, custom-built with KTL.',description_ar:'فكرتك، يصنعها KTL خصيصًا لك.',project:customProjectIndex,custom:true,position:'center top'});adIndex=0;renderAd()},0);
+/* ---------- Public launch enhancements (centralized, editable data) ---------- */
+const LAUNCH_REVIEW={businessDetails:['Legal business name and address','Delivery coverage and fees','Refund time limits','Payment providers','Final child-supervision rules'],note:'Confirm before public launch. Static frontend access codes are not secure and require a server-side service.'};
+const PROJECT_INFO=[
+{build:'An interactive tabletop soccer game with electronic scoring.',skills:'Circuits, sensors, mechanisms and iterative testing',age:'8–13',difficulty:'Intermediate',time:'2–4 hours',components:'Structure parts, motor/sensor set and wiring',safety:'Adult supervision for tools and wiring.'},
+{build:'A sensor-controlled system that waters a plant when soil is dry.',skills:'Sensors, automation, environmental science and calibration',age:'9–13',difficulty:'Intermediate',time:'2–3 hours',components:'Moisture sensor, pump, tubing and controller',safety:'Keep electronics dry; adult supervision required.'},
+{build:'A model parking entrance that detects vehicles and controls a gate.',skills:'Sensors, logic, mechanisms and system design',age:'9–13',difficulty:'Intermediate',time:'3–4 hours',components:'Distance sensor, gate mechanism and controller',safety:'Adult help recommended for assembly.'},
+{build:'A miniature home with automated lights and sensor-controlled features.',skills:'Smart systems, circuits, coding and design thinking',age:'9–14',difficulty:'Intermediate',time:'4–6 hours',components:'House structure, LEDs, sensors and controller',safety:'Low-voltage use only; adult supervision for tools.'},
+{build:'A timed dispenser that releases a measured portion of dry pet food.',skills:'Mechanisms, timing, automation and prototyping',age:'10–14',difficulty:'Intermediate',time:'3–5 hours',components:'Dispenser structure, motor and controller',safety:'Prototype only; an adult must verify portions before pet use.'},
+{build:'A model security system that detects interruption of a light beam.',skills:'Optics, alarms, circuits and problem solving',age:'10–14',difficulty:'Intermediate',time:'2–4 hours',components:'Light sensor, buzzer, LEDs and structure',safety:'Use only the supplied low-power light source; never point light at eyes.'},
+{build:'A working model intersection with timed traffic lights.',skills:'Sequencing, electronics, automation and civic design',age:'8–13',difficulty:'Beginner',time:'2–3 hours',components:'LED signals, road model and controller',safety:'Adult supervision for cutting and assembly.'},
+{build:'A model alarm that reacts to smoke or heat sensor input.',skills:'Safety systems, sensors, circuits and testing',age:'10–14',difficulty:'Intermediate',time:'2–4 hours',components:'Sensor, buzzer, LEDs and controller',safety:'Educational model only—not a certified safety device. Never test with open flame.'},
+{build:'A reaction timer game with lights and a player input button.',skills:'Timing, input/output, coding and data comparison',age:'8–13',difficulty:'Beginner',time:'1–3 hours',components:'Buttons, LEDs/display and controller',safety:'Standard adult supervision for assembly.'},
+{build:'A miniature conveyor that moves and sorts lightweight objects.',skills:'Mechanisms, motors, automation and production systems',age:'10–14',difficulty:'Advanced',time:'4–6 hours',components:'Belt structure, motor, sensors and controller',safety:'Keep fingers, hair and loose clothing away from moving parts.'},
+{build:'A sensor-assisted model car that responds to its surroundings.',skills:'Robotics, sensors, motion and troubleshooting',age:'9–14',difficulty:'Intermediate',time:'3–5 hours',components:'Chassis, motors, wheels, sensor and controller',safety:'Use on a clear floor away from stairs and traffic.'},
+{build:'A two-wheel robot that detects and corrects its tilt.',skills:'Feedback, balance, sensors and control logic',age:'11–15',difficulty:'Advanced',time:'5–8 hours',components:'Frame, motors, motion sensor and controller',safety:'Adult mentor support strongly recommended.'},
+{build:'A remote-controlled model car.',skills:'Wireless control, circuits, mechanisms and driving tests',age:'9–14',difficulty:'Intermediate',time:'3–5 hours',components:'Chassis, motors, receiver/controller and remote',safety:'Operate in a clear area away from roads.'},
+{build:'A custom model car designed and assembled by the learner.',skills:'Design thinking, mechanics, measurement and prototyping',age:'8–14',difficulty:'Intermediate',time:'3–6 hours',components:'EDIT BEFORE LAUNCH: confirm selected car kit contents',safety:'Adult supervision for cutting, adhesives and tools.'},
+{build:'A station that measures and displays selected environmental conditions.',skills:'Measurement, sensors, data interpretation and coding',age:'10–14',difficulty:'Intermediate',time:'3–5 hours',components:'EDIT BEFORE LAUNCH: confirm weather sensors and display',safety:'Keep the prototype protected from rain unless rated for outdoor use.'}
+];
+const PROGRAM_AGES=['6–9','7–11','8–13','6–10','6–12','10–14','9–14','10–14','9–14','10–14'];
+const COURSE_AGES=['7–11','8–12','9–14','7–11','10–14','10–14','11–15','10–14','11–15'];
+const launchArabic={searchPrograms:'ابحث في البرامج',searchProjects:'ابحث في المشروعات',searchCourses:'ابحث في الدورات',searchBooks:'ابحث في الكتب',allDifficulty:'كل مستويات الصعوبة',beginner:'مبتدئ',intermediate:'متوسط'};
+salePrice=price=>`<div class="fee">${fmt(price)}</div>`;
+const cyberBook=books.find(b=>b.name==='Cyber Security');if(cyberBook)cyberBook.desc='Learn online safety, password protection, privacy, cyber threats and responsible digital behavior through age-appropriate activities.';
+const artsBook=books.find(b=>b.name==='Arts');if(artsBook)artsBook.desc='Develop creativity through drawing, color, crafts, design and hands-on artistic projects.';
+const printBook=books.find(b=>b.name==='Printing Technology');if(printBook)printBook.desc='Explore printing methods, design preparation and how creative ideas become physical printed products.';
+projects.forEach((project,index)=>{if(PROJECT_INFO[index]){project.meta=PROJECT_INFO[index];project.desc=PROJECT_INFO[index].build;project.details=PROJECT_INFO[index].skills;}});
+programs.forEach((item,index)=>item.age=PROGRAM_AGES[index]||'Confirm with KTL');courses.forEach((item,index)=>item.age=COURSE_AGES[index]||'Confirm with KTL');
+function catalogItems(type){const id=type==='program'?'programs':`${type}s`;return Array.from(document.querySelectorAll(`#${id} .grid > .card`))}
+function filterCatalog(type,query='',difficulty=''){const normalized=query.trim().toLowerCase();catalogItems(type).forEach((card,index)=>{const data=type==='program'?programs[index]:type==='project'?projects[index]:type==='course'?courses[index]:books[index];const matchesText=!normalized||`${data?.name||''} ${data?.name_ar||''} ${data?.desc||''} ${data?.desc_ar||''} ${data?.topic||''}`.toLowerCase().includes(normalized);const matchesDifficulty=!difficulty||data?.meta?.difficulty===difficulty;card.hidden=!(matchesText&&matchesDifficulty)})}
+function applyCatalogVisibility(){['program','project','course','book'].forEach(type=>filterCatalog(type,document.getElementById(`${type}Search`)?.value||'',type==='project'?projectDifficulty.value:''))}
+function updateLaunchLabels(){document.documentElement.lang=currentLang;document.documentElement.dir=currentLang==='ar'?'rtl':'ltr';const ar=currentLang==='ar';[['program','Programs'],['project','Projects'],['course','Courses'],['book','Books']].forEach(([type,label])=>{const input=document.getElementById(`${type}Search`);if(input){input.placeholder=ar?launchArabic[`search${label}`]:`Search ${label.toLowerCase()}`;input.previousElementSibling.textContent=input.placeholder}});if(ar){projectDifficulty.options[0].textContent=launchArabic.allDifficulty;projectDifficulty.options[1].textContent=launchArabic.beginner;projectDifficulty.options[2].textContent=launchArabic.intermediate}else{projectDifficulty.options[0].textContent='All difficulty levels';projectDifficulty.options[1].textContent='Beginner';projectDifficulty.options[2].textContent='Intermediate'}}
+function applyLaunchEnhancements(){document.querySelectorAll('img').forEach((img,index)=>{img.decoding='async';if(index>1)img.loading='lazy';if(!img.width&&!img.height){img.width=700;img.height=420}});catalogItems('program').forEach((card,index)=>{const p=programs[index];if(p&&!card.querySelector('.launch-age'))card.querySelector('h3')?.insertAdjacentHTML('afterend',`<small class="launch-age">Recommended age: ${p.age}</small>`);const legacy=Array.from(card.querySelectorAll('small')).find(x=>x.textContent.startsWith('Best for ages'));if(legacy)legacy.textContent=`Recommended age ${p.age} · Hands-on · Mentor led`});catalogItems('course').forEach((card,index)=>{const c=courses[index];if(c&&!card.querySelector('.launch-age'))card.querySelector('h3')?.insertAdjacentHTML('afterend',`<small class="launch-age">Recommended age: ${c.age}</small>`)});applyCatalogVisibility();updateLaunchLabels()}
+const LAUNCH_SECTION_COPY={
+  en:{trust:[['Hands-on learning','Children learn by building, testing, improving and explaining their ideas.'],['Safety first','Activities use age-appropriate guidance. Adult supervision is required whenever tools, heat or electricity are involved.'],['Human support','Questions about suitability, delivery and learning support are confirmed directly with KTL before payment.']],policies:[['Delivery','Availability, delivery area, timing and delivery fees are confirmed through WhatsApp before payment.'],['Payment','Choose your preferred method when ordering. KTL confirms the final amount and payment instructions directly.'],['Refunds & cancellations','Contact KTL promptly. Eligibility depends on the product type, preparation status and whether digital access has been provided.'],['Privacy','Only provide information needed to answer your request or complete an order. Do not send passwords or sensitive financial details.'],['Child safety','Parents and schools remain responsible for suitable supervision. Follow all instructions and stop an activity if materials are damaged.'],['Service area','KTL serves families, schools and organisations. Confirm your location with the team before ordering or arranging a visit.']]},
+  ar:{trust:[['تعلم عملي','يتعلم الأطفال من خلال البناء والاختبار والتحسين وشرح أفكارهم.'],['السلامة أولاً','تستخدم الأنشطة إرشادات مناسبة للعمر، ويلزم إشراف بالغ عند استخدام الأدوات أو الحرارة أو الكهرباء.'],['دعم مباشر','يتم تأكيد ملاءمة المنتج والتوصيل ودعم التعلم مباشرة مع فريق KTL قبل الدفع.']],policies:[['التوصيل','يتم تأكيد التوفر ومنطقة التوصيل والمدة والرسوم عبر واتساب قبل الدفع.'],['الدفع','اختر الطريقة المفضلة عند الطلب، وسيؤكد فريق KTL المبلغ النهائي وتعليمات الدفع مباشرة.'],['الاسترداد والإلغاء','تواصل مع KTL سريعاً. تعتمد الأهلية على نوع المنتج ومرحلة التجهيز وما إذا تم توفير وصول رقمي.'],['الخصوصية','أرسل فقط المعلومات اللازمة للرد على طلبك أو إتمامه، ولا ترسل كلمات مرور أو بيانات مالية حساسة.'],['سلامة الطفل','يتحمل الوالدان والمدارس مسؤولية الإشراف المناسب. اتبع جميع التعليمات وأوقف النشاط إذا تلفت المواد.'],['منطقة الخدمة','تخدم KTL العائلات والمدارس والمؤسسات. أكد موقعك مع الفريق قبل الطلب أو ترتيب الزيارة.']]}
+};
+function translateLaunchSections(){const copy=LAUNCH_SECTION_COPY[currentLang];document.querySelectorAll('#trust .trust-card').forEach((card,index)=>{card.querySelector('h3').textContent=copy.trust[index][0];card.querySelector('p').textContent=copy.trust[index][1]});document.querySelectorAll('#policies .policy-card').forEach((card,index)=>{card.querySelector('h3').textContent=copy.policies[index][0];card.querySelector('p').textContent=copy.policies[index][1]})}
+const baseLaunchLabels=updateLaunchLabels;updateLaunchLabels=function(){baseLaunchLabels();translateLaunchSections()};
+const baseRenderAll=renderAll;renderAll=function(){baseRenderAll();queueMicrotask(applyLaunchEnhancements)};
+const baseApplyTranslations=applyStaticTranslations;applyStaticTranslations=function(){baseApplyTranslations();updateLaunchLabels()};
+showProject=function(index){const p=projects[index],meta=p.meta;activeProject=index;projectTitle.textContent=currentLang==='ar'?p.name_ar:p.name;projectDetailImage.src=p.img;projectDetailImage.alt=`${p.name} educational project`;projectDescription.textContent=currentLang==='ar'?p.desc_ar:p.desc;projectDetails.textContent=currentLang==='ar'?p.details_ar:p.details;projectFacts.innerHTML=meta?`<dl><dt>What the child will build</dt><dd>${meta.build}</dd><dt>Skills learned</dt><dd>${meta.skills}</dd><dt>Recommended age</dt><dd>${meta.age}</dd><dt>Difficulty</dt><dd>${meta.difficulty}</dd><dt>Estimated building time</dt><dd>${meta.time}</dd><dt>Main components</dt><dd>${meta.components}</dd><dt>Instructions & mentor support</dt><dd>Instructions included; confirm mentor-support format with KTL.</dd><dt>Safety</dt><dd>${meta.safety}</dd></dl>`:'';projectPrice.textContent=fmt(p.price);projectAddButton.onclick=()=>addProject(index);projectDialog.showModal()};
+document.addEventListener('keydown',event=>{if(event.key==='Escape')document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close())});
 /* ---------- Initialization ---------- */
 document.querySelector('main').append(document.getElementById('about'));
 loadLocalUser();
@@ -1434,6 +1582,7 @@ renderProjects();
 renderCourses();
 renderBooks();
 renderUnlockedCourses();
+queueMicrotask(applyLaunchEnhancements);
 </script>
 
 <footer>
@@ -1444,4 +1593,3 @@ renderUnlockedCourses();
 
 </body>
 </html>
-
